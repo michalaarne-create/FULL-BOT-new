@@ -1,0 +1,9 @@
+path: data/yolo_dropdown
+train: train/images
+val: val/images
+names:
+  0: header
+  1: panel
+  2: last_option
+  3: bottom_flag
+

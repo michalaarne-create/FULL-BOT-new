@@ -1,0 +1,1036 @@
+{
+  "image": "E:\\BOT ANK\\bot\\moje_AI\\yolov8\\FULL BOT\\data\\numpy_test\\Zrzut ekranu 2025-10-25 163249.png",
+  "total_elements": 37,
+  "elements": [
+    {
+      "id": "cand_1",
+      "text": "A dropdown can be formatted so that its menu is pointing",
+      "bbox": [
+        41,
+        187,
+        446,
+        206
+      ],
+      "debug": {
+        "dropdown": {
+          "text": "A dropdown can be formatted so that its menu is pointing",
+          "signals": {
+            "has_dropdown_box": 0.77,
+            "tekst_strong": 0.3,
+            "pionowa_kolumna_opcji": 0.25
+          },
+          "bonuses": {
+            "dluga_lista": 0.1
+          },
+          "exclusions": {},
+          "final_calc": {
+            "combined_scores": 0.891325,
+            "total_exclusions": 0,
+            "before_cap": 0.891325,
+            "final": 0.891325
+          }
+        }
+      }
+    },
+    {
+      "id": "cand_3",
+      "text": "Messages",
+      "bbox": [
+        58,
+        433,
+        120,
+        449
+      ],
+      "debug": {
+        "dropdown": {
+          "text": "Messages",
+          "signals": {
+            "has_dropdown_box": 0.77,
+            "ramka_listy": 0.25,
+            "pionowa_kolumna_opcji": 0.25
+          },
+          "bonuses": {
+            "dluga_lista": 0.1
+          },
+          "exclusions": {},
+          "final_calc": {
+            "combined_scores": 0.8835625,
+            "total_exclusions": 0,
+            "before_cap": 0.8835625,
+            "final": 0.8835625
+          }
+        }
+      }
+    },
+    {
+      "id": "cand_5",
+      "text": "Starred",
+      "bbox": [
+        266,
+        467,
+        314,
+        482
+      ],
+      "debug": {
+        "dropdown": {
+          "text": "Starred",
+          "signals": {
+            "has_dropdown_box": 0.77,
+            "ramka_listy": 0.25,
+            "pionowa_kolumna_opcji": 0.25
+          },
+          "bonuses": {
+            "dluga_lista": 0.1
+          },
+          "exclusions": {},
+          "final_calc": {
+            "combined_scores": 0.8835625,
+            "total_exclusions": 0,
+            "before_cap": 0.8835625,
+            "final": 0.8835625
+          }
+        }
+      }
+    },
+    {
+      "id": "cand_14",
+      "text": "Home",
+      "bbox": [
+        58,
+        253,
+        99,
+        269
+      ],
+      "debug": {
+        "dropdown": {
+          "text": "Home",
+          "signals": {
+            "has_dropdown_box": 0.77,
+            "ramka_listy": 0.25,
+            "pionowa_kolumna_opcji": 0.25
+          },
+          "bonuses": {
+            "dluga_lista": 0.1
+          },
+          "exclusions": {},
+          "final_calc": {
+            "combined_scores": 0.8835625,
+            "total_exclusions": 0,
+            "before_cap": 0.8835625,
+            "final": 0.8835625
+          }
+        }
+      }
+    },
+    {
+      "id": "cand_16",
+      "text": "Home",
+      "bbox": [
+        59,
+        394,
+        98,
+        408
+      ],
+      "debug": {
+        "dropdown": {
+          "text": "Home",
+          "signals": {
+            "has_dropdown_box": 0.77,
+            "ramka_listy": 0.25,
+            "pionowa_kolumna_opcji": 0.25
+          },
+          "bonuses": {
+            "dluga_lista": 0.1
+          },
+          "exclusions": {},
+          "final_calc": {
+            "combined_scores": 0.8835625,
+            "total_exclusions": 0,
+            "before_cap": 0.8835625,
+            "final": 0.8835625
+          }
+        }
+      }
+    },
+    {
+      "id": "cand_25",
+      "text": "Inbox",
+      "bbox": [
+        267,
+        430,
+        305,
+        447
+      ],
+      "debug": {
+        "dropdown": {
+          "text": "Inbox",
+          "signals": {
+            "has_dropdown_box": 0.77,
+            "ramka_listy": 0.25,
+            "pionowa_kolumna_opcji": 0.25
+          },
+          "bonuses": {
+            "dluga_lista": 0.1
+          },
+          "exclusions": {},
+          "final_calc": {
+            "combined_scores": 0.8835625,
+            "total_exclusions": 0,
+            "before_cap": 0.8835625,
+            "final": 0.8835625
+          }
+        }
+      }
+    },
+    {
+      "id": "cand_23",
+      "text": "Bottom pointing dropdown menus have sub-menus open upwards",
+      "bbox": [
+        64,
+        762,
+        468,
+        776
+      ],
+      "debug": {
+        "dropdown": {
+          "text": "Bottom pointing dropdown menus have sub-menus open upwards",
+          "signals": {
+            "has_dropdown_box": 0.77,
+            "ramka_listy": 0.25,
+            "tekst_strong": 0.3
+          },
+          "bonuses": {},
+          "exclusions": {},
+          "final_calc": {
+            "combined_scores": 0.87925,
+            "total_exclusions": 0,
+            "before_cap": 0.87925,
+            "final": 0.87925
+          }
+        }
+      }
+    },
+    {
+      "id": "cand_8",
+      "text": "Browse",
+      "bbox": [
+        59,
+        473,
+        106,
+        488
+      ],
+      "debug": {
+        "dropdown": {
+          "text": "Browse",
+          "signals": {
+            "has_dropdown_box": 0.77,
+            "ramka_listy": 0.25,
+            "pionowa_kolumna_opcji": 0.25
+          },
+          "bonuses": {},
+          "exclusions": {},
+          "final_calc": {
+            "combined_scores": 0.870625,
+            "total_exclusions": 0,
+            "before_cap": 0.870625,
+            "final": 0.870625
+          }
+        }
+      }
+    },
+    {
+      "id": "cand_18",
+      "text": "ViewSource",
+      "bbox": [
+        986,
+        288,
+        1064,
+        303
+      ],
+      "debug": {
+        "dropdown": {
+          "text": "ViewSource",
+          "signals": {
+            "has_dropdown_box": 0.77,
+            "ramka_listy": 0.25,
+            "pionowa_kolumna_opcji": 0.25
+          },
+          "bonuses": {},
+          "exclusions": {},
+          "final_calc": {
+            "combined_scores": 0.870625,
+            "total_exclusions": 0,
+            "before_cap": 0.870625,
+            "final": 0.870625
+          }
+        }
+      }
+    },
+    {
+      "id": "cand_19",
+      "text": "Help",
+      "bbox": [
+        56,
+        511,
+        91,
+        530
+      ],
+      "debug": {
+        "dropdown": {
+          "text": "Help",
+          "signals": {
+            "has_dropdown_box": 0.77,
+            "ramka_listy": 0.25,
+            "pionowa_kolumna_opcji": 0.25
+          },
+          "bonuses": {},
+          "exclusions": {},
+          "final_calc": {
+            "combined_scores": 0.870625,
+            "total_exclusions": 0,
+            "before_cap": 0.870625,
+            "final": 0.870625
+          }
+        }
+      }
+    },
+    {
+      "id": "cand_26",
+      "text": "Sent Mail",
+      "bbox": [
+        268,
+        504,
+        328,
+        518
+      ],
+      "debug": {
+        "dropdown": {
+          "text": "Sent Mail",
+          "signals": {
+            "has_dropdown_box": 0.77,
+            "ramka_listy": 0.25,
+            "pionowa_kolumna_opcji": 0.25
+          },
+          "bonuses": {},
+          "exclusions": {},
+          "final_calc": {
+            "combined_scores": 0.870625,
+            "total_exclusions": 0,
+            "before_cap": 0.870625,
+            "final": 0.870625
+          }
+        }
+      }
+    },
+    {
+      "id": "cand_27",
+      "text": "Drafts (143",
+      "bbox": [
+        267,
+        540,
+        343,
+        555
+      ],
+      "debug": {
+        "dropdown": {
+          "text": "Drafts (143",
+          "signals": {
+            "has_dropdown_box": 0.77,
+            "ramka_listy": 0.25,
+            "pionowa_kolumna_opcji": 0.25
+          },
+          "bonuses": {},
+          "exclusions": {},
+          "final_calc": {
+            "combined_scores": 0.870625,
+            "total_exclusions": 0,
+            "before_cap": 0.870625,
+            "final": 0.870625
+          }
+        }
+      }
+    },
+    {
+      "id": "cand_0",
+      "text": "Pointing",
+      "bbox": [
+        41,
+        161,
+        111,
+        182
+      ],
+      "debug": {
+        "dropdown": {
+          "text": "Pointing",
+          "signals": {
+            "has_dropdown_box": 0.77,
+            "pionowa_kolumna_opcji": 0.25
+          },
+          "bonuses": {
+            "dluga_lista": 0.1
+          },
+          "exclusions": {},
+          "final_calc": {
+            "combined_scores": 0.84475,
+            "total_exclusions": 0,
+            "before_cap": 0.84475,
+            "final": 0.84475
+          }
+        }
+      }
+    },
+    {
+      "id": "cand_17",
+      "text": "Multi",
+      "bbox": [
+        1078,
+        31,
+        1112,
+        47
+      ],
+      "debug": {
+        "dropdown": {
+          "text": "Multi",
+          "signals": {
+            "has_dropdown_box": 0.77,
+            "pionowa_kolumna_opcji": 0.25
+          },
+          "bonuses": {
+            "dluga_lista": 0.1
+          },
+          "exclusions": {},
+          "final_calc": {
+            "combined_scores": 0.84475,
+            "total_exclusions": 0,
+            "before_cap": 0.84475,
+            "final": 0.84475
+          }
+        }
+      }
+    },
+    {
+      "id": "cand_22",
+      "text": "Multip",
+      "bbox": [
+        1079,
+        54,
+        1112,
+        70
+      ],
+      "debug": {
+        "dropdown": {
+          "text": "Multip",
+          "signals": {
+            "has_dropdown_box": 0.77,
+            "pionowa_kolumna_opcji": 0.25
+          },
+          "bonuses": {
+            "dluga_lista": 0.1
+          },
+          "exclusions": {},
+          "final_calc": {
+            "combined_scores": 0.84475,
+            "total_exclusions": 0,
+            "before_cap": 0.84475,
+            "final": 0.84475
+          }
+        }
+      }
+    },
+    {
+      "id": "cand_28",
+      "text": "Trending repos today",
+      "bbox": [
+        80,
+        45,
+        232,
+        58
+      ],
+      "debug": {
+        "dropdown": {
+          "text": "Trending repos today",
+          "signals": {
+            "has_dropdown_box": 0.77,
+            "pionowa_kolumna_opcji": 0.25
+          },
+          "bonuses": {
+            "dluga_lista": 0.1
+          },
+          "exclusions": {},
+          "final_calc": {
+            "combined_scores": 0.84475,
+            "total_exclusions": 0,
+            "before_cap": 0.84475,
+            "final": 0.84475
+          }
+        }
+      }
+    },
+    {
+      "id": "cand_32",
+      "text": "<>",
+      "bbox": [
+        985,
+        164,
+        1003,
+        179
+      ],
+      "debug": {
+        "dropdown": {
+          "text": "<>",
+          "signals": {
+            "has_dropdown_box": 0.77,
+            "pionowa_kolumna_opcji": 0.25
+          },
+          "bonuses": {
+            "arrow_in_text": 0.08
+          },
+          "exclusions": {},
+          "final_calc": {
+            "combined_scores": 0.8413,
+            "total_exclusions": 0,
+            "before_cap": 0.8413,
+            "final": 0.8413
+          }
+        }
+      }
+    },
+    {
+      "id": "cand_2",
+      "text": "Shopping",
+      "bbox": [
+        127,
+        253,
+        189,
+        269
+      ],
+      "debug": {
+        "dropdown": {
+          "text": "Shopping",
+          "signals": {
+            "has_dropdown_box": 0.77,
+            "ramka_listy": 0.25
+          },
+          "bonuses": {},
+          "exclusions": {},
+          "final_calc": {
+            "combined_scores": 0.8275,
+            "total_exclusions": 0,
+            "before_cap": 0.8275,
+            "final": 0.8275
+          }
+        }
+      }
+    },
+    {
+      "id": "cand_6",
+      "text": "Trash",
+      "bbox": [
+        266,
+        627,
+        303,
+        642
+      ],
+      "debug": {
+        "dropdown": {
+          "text": "Trash",
+          "signals": {
+            "has_dropdown_box": 0.77,
+            "ramka_listy": 0.25
+          },
+          "bonuses": {},
+          "exclusions": {},
+          "final_calc": {
+            "combined_scores": 0.8275,
+            "total_exclusions": 0,
+            "before_cap": 0.8275,
+            "final": 0.8275
+          }
+        }
+      }
+    },
+    {
+      "id": "cand_7",
+      "text": "Contact Us",
+      "bbox": [
+        315,
+        254,
+        384,
+        266
+      ],
+      "debug": {
+        "dropdown": {
+          "text": "Contact Us",
+          "signals": {
+            "has_dropdown_box": 0.77,
+            "ramka_listy": 0.25
+          },
+          "bonuses": {},
+          "exclusions": {},
+          "final_calc": {
+            "combined_scores": 0.8275,
+            "total_exclusions": 0,
+            "before_cap": 0.8275,
+            "final": 0.8275
+          }
+        }
+      }
+    },
+    {
+      "id": "cand_11",
+      "text": "Forums",
+      "bbox": [
+        237,
+        253,
+        285,
+        267
+      ],
+      "debug": {
+        "dropdown": {
+          "text": "Forums",
+          "signals": {
+            "has_dropdown_box": 0.77,
+            "ramka_listy": 0.25
+          },
+          "bonuses": {},
+          "exclusions": {},
+          "final_calc": {
+            "combined_scores": 0.8275,
+            "total_exclusions": 0,
+            "before_cap": 0.8275,
+            "final": 0.8275
+          }
+        }
+      }
+    },
+    {
+      "id": "cand_12",
+      "text": "Spam(1009",
+      "bbox": [
+        267,
+        590,
+        346,
+        606
+      ],
+      "debug": {
+        "dropdown": {
+          "text": "Spam(1009",
+          "signals": {
+            "has_dropdown_box": 0.77,
+            "ramka_listy": 0.25
+          },
+          "bonuses": {},
+          "exclusions": {},
+          "final_calc": {
+            "combined_scores": 0.8275,
+            "total_exclusions": 0,
+            "before_cap": 0.8275,
+            "final": 0.8275
+          }
+        }
+      }
+    },
+    {
+      "id": "cand_35",
+      "text": "C",
+      "bbox": [
+        61,
+        637,
+        69,
+        645
+      ],
+      "debug": {
+        "dropdown": {
+          "text": "C",
+          "signals": {
+            "has_dropdown_box": 0.77,
+            "ramka_listy": 0.25
+          },
+          "bonuses": {},
+          "exclusions": {},
+          "final_calc": {
+            "combined_scores": 0.8275,
+            "total_exclusions": 0,
+            "before_cap": 0.8275,
+            "final": 0.8275
+          }
+        }
+      }
+    },
+    {
+      "id": "cand_36",
+      "text": ".C",
+      "bbox": [
+        58,
+        637,
+        68,
+        647
+      ],
+      "debug": {
+        "dropdown": {
+          "text": ".C",
+          "signals": {
+            "has_dropdown_box": 0.77,
+            "ramka_listy": 0.25
+          },
+          "bonuses": {},
+          "exclusions": {},
+          "final_calc": {
+            "combined_scores": 0.8275,
+            "total_exclusions": 0,
+            "before_cap": 0.8275,
+            "final": 0.8275
+          }
+        }
+      }
+    },
+    {
+      "id": "cand_31",
+      "text": "<>",
+      "bbox": [
+        985,
+        331,
+        1004,
+        346
+      ],
+      "debug": {
+        "dropdown": {
+          "text": "<>",
+          "signals": {
+            "has_dropdown_box": 0.77
+          },
+          "bonuses": {
+            "arrow_in_text": 0.08
+          },
+          "exclusions": {},
+          "final_calc": {
+            "combined_scores": 0.7884,
+            "total_exclusions": 0,
+            "before_cap": 0.7884,
+            "final": 0.7884
+          }
+        }
+      }
+    },
+    {
+      "id": "cand_33",
+      "text": "<>",
+      "bbox": [
+        985,
+        591,
+        1003,
+        606
+      ],
+      "debug": {
+        "dropdown": {
+          "text": "<>",
+          "signals": {
+            "has_dropdown_box": 0.77
+          },
+          "bonuses": {
+            "arrow_in_text": 0.08
+          },
+          "exclusions": {},
+          "final_calc": {
+            "combined_scores": 0.7884,
+            "total_exclusions": 0,
+            "before_cap": 0.7884,
+            "final": 0.7884
+          }
+        }
+      }
+    },
+    {
+      "id": "cand_34",
+      "text": "<>",
+      "bbox": [
+        984,
+        710,
+        1004,
+        726
+      ],
+      "debug": {
+        "dropdown": {
+          "text": "<>",
+          "signals": {
+            "has_dropdown_box": 0.77
+          },
+          "bonuses": {
+            "arrow_in_text": 0.08
+          },
+          "exclusions": {},
+          "final_calc": {
+            "combined_scores": 0.7884,
+            "total_exclusions": 0,
+            "before_cap": 0.7884,
+            "final": 0.7884
+          }
+        }
+      }
+    },
+    {
+      "id": "cand_13",
+      "text": "Pointi",
+      "bbox": [
+        1080,
+        151,
+        1112,
+        166
+      ],
+      "debug": {
+        "dropdown": {
+          "text": "Pointi",
+          "signals": {
+            "pionowa_kolumna_opcji": 0.25
+          },
+          "bonuses": {
+            "dluga_lista": 0.1
+          },
+          "exclusions": {},
+          "final_calc": {
+            "combined_scores": 0.32499999999999996,
+            "total_exclusions": 0,
+            "before_cap": 0.32499999999999996,
+            "final": 0.32499999999999996
+          }
+        }
+      }
+    },
+    {
+      "id": "cand_20",
+      "text": "Searc",
+      "bbox": [
+        1078,
+        7,
+        1112,
+        23
+      ],
+      "debug": {
+        "dropdown": {
+          "text": "Searc",
+          "signals": {
+            "pionowa_kolumna_opcji": 0.25
+          },
+          "bonuses": {
+            "dluga_lista": 0.1
+          },
+          "exclusions": {},
+          "final_calc": {
+            "combined_scores": 0.32499999999999996,
+            "total_exclusions": 0,
+            "before_cap": 0.32499999999999996,
+            "final": 0.32499999999999996
+          }
+        }
+      }
+    },
+    {
+      "id": "cand_21",
+      "text": "Inline",
+      "bbox": [
+        1078,
+        127,
+        1112,
+        142
+      ],
+      "debug": {
+        "dropdown": {
+          "text": "Inline",
+          "signals": {
+            "pionowa_kolumna_opcji": 0.25
+          },
+          "bonuses": {
+            "dluga_lista": 0.1
+          },
+          "exclusions": {},
+          "final_calc": {
+            "combined_scores": 0.32499999999999996,
+            "total_exclusions": 0,
+            "before_cap": 0.32499999999999996,
+            "final": 0.32499999999999996
+          }
+        }
+      }
+    },
+    {
+      "id": "cand_24",
+      "text": "Search",
+      "bbox": [
+        1079,
+        103,
+        1112,
+        117
+      ],
+      "debug": {
+        "dropdown": {
+          "text": "Search",
+          "signals": {
+            "pionowa_kolumna_opcji": 0.25
+          },
+          "bonuses": {
+            "dluga_lista": 0.1
+          },
+          "exclusions": {},
+          "final_calc": {
+            "combined_scores": 0.32499999999999996,
+            "total_exclusions": 0,
+            "before_cap": 0.32499999999999996,
+            "final": 0.32499999999999996
+          }
+        }
+      }
+    },
+    {
+      "id": "cand_30",
+      "text": "Searcl",
+      "bbox": [
+        1079,
+        80,
+        1112,
+        93
+      ],
+      "debug": {
+        "dropdown": {
+          "text": "Searcl",
+          "signals": {
+            "pionowa_kolumna_opcji": 0.25
+          },
+          "bonuses": {
+            "dluga_lista": 0.1
+          },
+          "exclusions": {},
+          "final_calc": {
+            "combined_scores": 0.32499999999999996,
+            "total_exclusions": 0,
+            "before_cap": 0.32499999999999996,
+            "final": 0.32499999999999996
+          }
+        }
+      }
+    },
+    {
+      "id": "cand_10",
+      "text": "Floati",
+      "bbox": [
+        1080,
+        176,
+        1112,
+        188
+      ],
+      "debug": {
+        "dropdown": {
+          "text": "Floati",
+          "signals": {
+            "pionowa_kolumna_opcji": 0.25
+          },
+          "bonuses": {},
+          "exclusions": {},
+          "final_calc": {
+            "combined_scores": 0.25,
+            "total_exclusions": 0,
+            "before_cap": 0.25,
+            "final": 0.25
+          }
+        }
+      }
+    },
+    {
+      "id": "cand_29",
+      "text": "Simple",
+      "bbox": [
+        1080,
+        200,
+        1112,
+        213
+      ],
+      "debug": {
+        "dropdown": {
+          "text": "Simple",
+          "signals": {
+            "pionowa_kolumna_opcji": 0.25
+          },
+          "bonuses": {},
+          "exclusions": {},
+          "final_calc": {
+            "combined_scores": 0.25,
+            "total_exclusions": 0,
+            "before_cap": 0.25,
+            "final": 0.25
+          }
+        }
+      }
+    },
+    {
+      "id": "cand_4",
+      "text": "Cont",
+      "bbox": [
+        1079,
+        237,
+        1112,
+        252
+      ],
+      "debug": {
+        "dropdown": {
+          "text": "Cont",
+          "signals": {},
+          "bonuses": {},
+          "exclusions": {},
+          "final_calc": {
+            "combined_scores": 0.0,
+            "total_exclusions": 0,
+            "before_cap": 0.0,
+            "final": 0.0
+          }
+        }
+      }
+    },
+    {
+      "id": "cand_9",
+      "text": "State",
+      "bbox": [
+        1079,
+        273,
+        1112,
+        289
+      ],
+      "debug": {
+        "dropdown": {
+          "text": "State",
+          "signals": {},
+          "bonuses": {},
+          "exclusions": {},
+          "final_calc": {
+            "combined_scores": 0.0,
+            "total_exclusions": 0,
+            "before_cap": 0.0,
+            "final": 0.0
+          }
+        }
+      }
+    },
+    {
+      "id": "cand_15",
+      "text": "Varia",
+      "bbox": [
+        1079,
+        310,
+        1112,
+        325
+      ],
+      "debug": {
+        "dropdown": {
+          "text": "Varia",
+          "signals": {},
+          "bonuses": {},
+          "exclusions": {},
+          "final_calc": {
+            "combined_scores": 0.0,
+            "total_exclusions": 0,
+            "before_cap": 0.0,
+            "final": 0.0
+          }
+        }
+      }
+    }
+  ]
+}

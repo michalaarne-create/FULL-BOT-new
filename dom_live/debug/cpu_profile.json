@@ -1,0 +1,2817 @@
+{
+  "total_tottime": 92.73560400000018,
+  "top_functions": [
+    {
+      "file": "~",
+      "line": 0,
+      "func": "<built-in method paddle.base.libpaddle.run>",
+      "calls": 357,
+      "prim_calls": 357,
+      "tottime": 45.9859887,
+      "cumtime": 45.9859887,
+      "pct_tottime": 49.58827755087454
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "func": "<built-in method _overlapped.GetQueuedCompletionStatus>",
+      "calls": 17020,
+      "prim_calls": 17020,
+      "tottime": 26.356819,
+      "cumtime": 26.356819,
+      "pct_tottime": 28.421466904987163
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\mss\\windows.py",
+      "line": 196,
+      "func": "_grab_impl",
+      "calls": 448,
+      "prim_calls": 448,
+      "tottime": 6.3789319,
+      "cumtime": 6.4132508,
+      "pct_tottime": 6.878622260334863
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "func": "<built-in method zlib.compress>",
+      "calls": 336,
+      "prim_calls": 336,
+      "tottime": 2.0164614000000003,
+      "cumtime": 2.0164614000000003,
+      "pct_tottime": 2.174419870064141
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "func": "<built-in method paddle.base.libpaddle.create_predictor>",
+      "calls": 4,
+      "prim_calls": 4,
+      "tottime": 1.743049,
+      "cumtime": 1.743049,
+      "pct_tottime": 1.8795898498703871
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "func": "<built-in method nt.stat>",
+      "calls": 28299,
+      "prim_calls": 28299,
+      "tottime": 0.9205523000000001,
+      "cumtime": 0.9209983,
+      "pct_tottime": 0.9926632925149205
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\playwright\\_impl\\_connection.py",
+      "line": 529,
+      "func": "_replace_guids_with_channels",
+      "calls": 486413,
+      "prim_calls": 1394,
+      "tottime": 0.6276336,
+      "cumtime": 0.7933020000000001,
+      "pct_tottime": 0.6767989563102418
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\json\\decoder.py",
+      "line": 343,
+      "func": "raw_decode",
+      "calls": 1420,
+      "prim_calls": 1420,
+      "tottime": 0.6182526,
+      "cumtime": 0.6185214,
+      "pct_tottime": 0.6666831004842529
+    },
+    {
+      "file": "e:\\BOT ANK\\bot\\moje_AI\\yolov8\\FULL BOT\\dom_renderer\\ai_recorder_browser.py",
+      "line": 438,
+      "func": "_ocr_active_url_hint_text",
+      "calls": 112,
+      "prim_calls": 112,
+      "tottime": 0.5092492000000001,
+      "cumtime": 58.8502518,
+      "pct_tottime": 0.5491409750240038
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "func": "<built-in method builtins.next>",
+      "calls": 23953,
+      "prim_calls": 23953,
+      "tottime": 0.3248046,
+      "cumtime": 0.3259769,
+      "pct_tottime": 0.3502480018354109
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "func": "<built-in method paddle.base.libpaddle.try_shrink_memory>",
+      "calls": 178,
+      "prim_calls": 178,
+      "tottime": 0.31743200000000005,
+      "cumtime": 0.31743200000000005,
+      "pct_tottime": 0.34229787299384973
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "func": "<built-in method builtins.print>",
+      "calls": 1624,
+      "prim_calls": 1624,
+      "tottime": 0.3085194,
+      "cumtime": 0.3085194,
+      "pct_tottime": 0.3326871090417434
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\playwright\\_impl\\_transport.py",
+      "line": 137,
+      "func": "run",
+      "calls": 3460,
+      "prim_calls": 3460,
+      "tottime": 0.3000974,
+      "cumtime": 1.9419514000000002,
+      "pct_tottime": 0.3236053759891394
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\difflib.py",
+      "line": 305,
+      "func": "find_longest_match",
+      "calls": 7760,
+      "prim_calls": 7760,
+      "tottime": 0.2711467,
+      "cumtime": 0.34196600000000005,
+      "pct_tottime": 0.29238683774572655
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "func": "<built-in method io.open>",
+      "calls": 2095,
+      "prim_calls": 2095,
+      "tottime": 0.24332830000000003,
+      "cumtime": 0.2517068,
+      "pct_tottime": 0.2623892976423592
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "func": "<built-in method builtins.isinstance>",
+      "calls": 1534212,
+      "prim_calls": 1534208,
+      "tottime": 0.19097170000000002,
+      "cumtime": 0.2108442,
+      "pct_tottime": 0.20593137022108537
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "func": "<method '__exit__' of '_io._IOBase' objects>",
+      "calls": 2101,
+      "prim_calls": 2101,
+      "tottime": 0.19073430000000002,
+      "cumtime": 0.19081120000000001,
+      "pct_tottime": 0.2056753736137845
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\playwright\\_impl\\_impl_to_api_mapping.py",
+      "line": 40,
+      "func": "from_maybe_impl",
+      "calls": 110045,
+      "prim_calls": 4507,
+      "tottime": 0.16873370000000001,
+      "cumtime": 0.24615040000000002,
+      "pct_tottime": 0.18195136789102023
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\inspect.py",
+      "line": 1658,
+      "func": "getframeinfo",
+      "calls": 20058,
+      "prim_calls": 20058,
+      "tottime": 0.161836,
+      "cumtime": 1.6325644000000001,
+      "pct_tottime": 0.17451334009750957
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\mss\\screenshot.py",
+      "line": 88,
+      "func": "rgb",
+      "calls": 560,
+      "prim_calls": 560,
+      "tottime": 0.1533253,
+      "cumtime": 0.1539407,
+      "pct_tottime": 0.1653359587758761
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "func": "<method 'copy' of 'numpy.ndarray' objects>",
+      "calls": 1350,
+      "prim_calls": 1350,
+      "tottime": 0.1410604,
+      "cumtime": 0.1410604,
+      "pct_tottime": 0.1521102941217698
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\playwright\\_impl\\_js_handle.py",
+      "line": 213,
+      "func": "parse_value",
+      "calls": 106711,
+      "prim_calls": 1173,
+      "tottime": 0.1384545,
+      "cumtime": 0.14876340000000002,
+      "pct_tottime": 0.14930026228114043
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "func": "<method 'get' of 'dict' objects>",
+      "calls": 979672,
+      "prim_calls": 979672,
+      "tottime": 0.11699730000000001,
+      "cumtime": 0.11699730000000001,
+      "pct_tottime": 0.12616222351881137
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\paddleocr\\ppocr\\data\\imaug\\operators.py",
+      "line": 86,
+      "func": "__call__",
+      "calls": 179,
+      "prim_calls": 179,
+      "tottime": 0.10626400000000001,
+      "cumtime": 0.1257577,
+      "pct_tottime": 0.11458813596555624
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\paddleocr\\tools\\infer\\predict_rec.py",
+      "line": 150,
+      "func": "resize_norm_img",
+      "calls": 549,
+      "prim_calls": 549,
+      "tottime": 0.10610240000000001,
+      "cumtime": 0.174549,
+      "pct_tottime": 0.11441387711239774
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\asyncio\\base_events.py",
+      "line": 1859,
+      "func": "_run_once",
+      "calls": 11493,
+      "prim_calls": 4814,
+      "tottime": 0.099247,
+      "cumtime": 30.702994500000003,
+      "pct_tottime": 0.1070214628677027
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "func": "<method 'astype' of 'numpy.ndarray' objects>",
+      "calls": 2323,
+      "prim_calls": 2323,
+      "tottime": 0.0960696,
+      "cumtime": 0.0960696,
+      "pct_tottime": 0.1035951628675431
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\uiautomation\\uiautomation.py",
+      "line": 10454,
+      "func": "ControlFromHandle",
+      "calls": 45,
+      "prim_calls": 45,
+      "tottime": 0.0909436,
+      "cumtime": 0.2250415,
+      "pct_tottime": 0.09806762028530037
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\paddleocr\\tools\\infer\\predict_rec.py",
+      "line": 393,
+      "func": "__call__",
+      "calls": 179,
+      "prim_calls": 179,
+      "tottime": 0.08966560000000001,
+      "cumtime": 42.45712,
+      "pct_tottime": 0.0966895088104455
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "func": "<method 'reduce' of 'numpy.ufunc' objects>",
+      "calls": 4531,
+      "prim_calls": 4531,
+      "tottime": 0.08824610000000001,
+      "cumtime": 0.08824610000000001,
+      "pct_tottime": 0.09515881300562817
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "func": "<resize>",
+      "calls": 728,
+      "prim_calls": 728,
+      "tottime": 0.08581620000000001,
+      "cumtime": 0.08581620000000001,
+      "pct_tottime": 0.09253856803477534
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\inspect.py",
+      "line": 932,
+      "func": "getsourcefile",
+      "calls": 20058,
+      "prim_calls": 20058,
+      "tottime": 0.08350500000000001,
+      "cumtime": 1.013857,
+      "pct_tottime": 0.09004632136757297
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "func": "<built-in method gc.collect>",
+      "calls": 1,
+      "prim_calls": 1,
+      "tottime": 0.07755970000000001,
+      "cumtime": 0.07757660000000001,
+      "pct_tottime": 0.08363529933983053
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "func": "<method 'decode' of 'bytes' objects>",
+      "calls": 1719,
+      "prim_calls": 1719,
+      "tottime": 0.0766028,
+      "cumtime": 0.0766028,
+      "pct_tottime": 0.08260344106886915
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\playwright\\_impl\\_connection.py",
+      "line": 602,
+      "func": "_extract_stack_trace_information_from_stack",
+      "calls": 1354,
+      "prim_calls": 1354,
+      "tottime": 0.0761749,
+      "cumtime": 0.15552970000000002,
+      "pct_tottime": 0.08214202174172484
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\traceback.py",
+      "line": 394,
+      "func": "_extract_from_extended_frame_gen",
+      "calls": 1354,
+      "prim_calls": 1354,
+      "tottime": 0.06902760000000001,
+      "cumtime": 0.4083369,
+      "pct_tottime": 0.07443484166016741
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "func": "<built-in method builtins.__build_class__>",
+      "calls": 454,
+      "prim_calls": 290,
+      "tottime": 0.06672120000000001,
+      "cumtime": 0.0834636,
+      "pct_tottime": 0.07194777099850438
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\asyncio\\windows_events.py",
+      "line": 812,
+      "func": "_poll",
+      "calls": 11495,
+      "prim_calls": 11495,
+      "tottime": 0.0640093,
+      "cumtime": 26.4689447,
+      "pct_tottime": 0.0690234357022141
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "func": "<built-in method paddle.base.libpaddle._copy_from_cpu_bind>",
+      "calls": 357,
+      "prim_calls": 357,
+      "tottime": 0.060552,
+      "cumtime": 0.060552,
+      "pct_tottime": 0.0652953098790405
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\inspect.py",
+      "line": 892,
+      "func": "getfile",
+      "calls": 20059,
+      "prim_calls": 20059,
+      "tottime": 0.0582384,
+      "cumtime": 0.1273146,
+      "pct_tottime": 0.06280047520906845
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\inspect.py",
+      "line": 1719,
+      "func": "getouterframes",
+      "calls": 1354,
+      "prim_calls": 1354,
+      "tottime": 0.051174800000000006,
+      "cumtime": 1.7206064,
+      "pct_tottime": 0.05518355172410362
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\json\\encoder.py",
+      "line": 334,
+      "func": "_iterencode_dict",
+      "calls": 118799,
+      "prim_calls": 50858,
+      "tottime": 0.044073100000000004,
+      "cumtime": 0.0673136,
+      "pct_tottime": 0.047525543695170105
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "func": "<method 'items' of 'dict' objects>",
+      "calls": 268552,
+      "prim_calls": 268552,
+      "tottime": 0.0414614,
+      "cumtime": 0.0415048,
+      "pct_tottime": 0.044709257514513975
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "func": "<method 'run' of '_contextvars.Context' objects>",
+      "calls": 20257,
+      "prim_calls": 8331,
+      "tottime": 0.0399421,
+      "cumtime": 18.5546422,
+      "pct_tottime": 0.043070943927857444
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\paddleocr\\ppocr\\postprocess\\db_postprocess.py",
+      "line": 104,
+      "func": "boxes_from_bitmap",
+      "calls": 179,
+      "prim_calls": 179,
+      "tottime": 0.039917600000000004,
+      "cumtime": 0.2557004,
+      "pct_tottime": 0.04304452473291696
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "func": "<built-in method builtins.any>",
+      "calls": 42916,
+      "prim_calls": 42916,
+      "tottime": 0.0391747,
+      "cumtime": 0.11243950000000001,
+      "pct_tottime": 0.04224343004225208
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\asyncio\\base_events.py",
+      "line": 781,
+      "func": "_call_soon",
+      "calls": 19656,
+      "prim_calls": 19656,
+      "tottime": 0.0380001,
+      "cumtime": 0.0754032,
+      "pct_tottime": 0.040976818353390926
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\mss\\tools.py",
+      "line": 31,
+      "func": "<listcomp>",
+      "calls": 336,
+      "prim_calls": 336,
+      "tottime": 0.037435800000000005,
+      "cumtime": 0.037435800000000005,
+      "pct_tottime": 0.04036831420216978
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\asyncio\\streams.py",
+      "line": 720,
+      "func": "readexactly",
+      "calls": 7753,
+      "prim_calls": 7753,
+      "tottime": 0.0369788,
+      "cumtime": 0.053423000000000005,
+      "pct_tottime": 0.0398755153414431
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\difflib.py",
+      "line": 266,
+      "func": "__chain_b",
+      "calls": 1143,
+      "prim_calls": 1143,
+      "tottime": 0.036652000000000004,
+      "cumtime": 0.0528746,
+      "pct_tottime": 0.03952311563097161
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "func": "<built-in method paddle.base.libpaddle.copy_to_cpu>",
+      "calls": 357,
+      "prim_calls": 357,
+      "tottime": 0.034557000000000004,
+      "cumtime": 0.034557000000000004,
+      "pct_tottime": 0.03726400487993796
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "func": "<method 'strftime' of 'datetime.date' objects>",
+      "calls": 1623,
+      "prim_calls": 1623,
+      "tottime": 0.034460500000000005,
+      "cumtime": 0.034460500000000005,
+      "pct_tottime": 0.03715994560190705
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "func": "<method 'write' of '_io.BufferedWriter' objects>",
+      "calls": 336,
+      "prim_calls": 336,
+      "tottime": 0.0333368,
+      "cumtime": 0.0333368,
+      "pct_tottime": 0.035948221138452856
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\json\\encoder.py",
+      "line": 205,
+      "func": "iterencode",
+      "calls": 1540,
+      "prim_calls": 1540,
+      "tottime": 0.032868800000000004,
+      "cumtime": 0.033468200000000004,
+      "pct_tottime": 0.035443560598365155
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\asyncio\\proactor_events.py",
+      "line": 276,
+      "func": "_loop_reading",
+      "calls": 4042,
+      "prim_calls": 4042,
+      "tottime": 0.0325974,
+      "cumtime": 0.1903821,
+      "pct_tottime": 0.03515090061849377
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\inspect.py",
+      "line": 1651,
+      "func": "_get_code_position",
+      "calls": 20058,
+      "prim_calls": 20058,
+      "tottime": 0.032511200000000004,
+      "cumtime": 0.3625938,
+      "pct_tottime": 0.03505794818568275
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "func": "<warpPerspective>",
+      "calls": 549,
+      "prim_calls": 549,
+      "tottime": 0.0313998,
+      "cumtime": 0.0313998,
+      "pct_tottime": 0.03385948723642317
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "func": "<method 'ReadFileInto' of '_overlapped.Overlapped' objects>",
+      "calls": 4042,
+      "prim_calls": 4042,
+      "tottime": 0.0312195,
+      "cumtime": 0.0312195,
+      "pct_tottime": 0.03366506352835093
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "func": "<built-in method numpy.array>",
+      "calls": 3342,
+      "prim_calls": 3342,
+      "tottime": 0.030536700000000003,
+      "cumtime": 0.0316502,
+      "pct_tottime": 0.03292877674037681
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\asyncio\\events.py",
+      "line": 35,
+      "func": "__init__",
+      "calls": 20692,
+      "prim_calls": 20692,
+      "tottime": 0.030525600000000003,
+      "cumtime": 0.0362718,
+      "pct_tottime": 0.032916807227567034
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "func": "<built-in method __new__ of type object at 0x00007FFF8D4EEBC0>",
+      "calls": 78826,
+      "prim_calls": 78714,
+      "tottime": 0.030293800000000003,
+      "cumtime": 0.0328836,
+      "pct_tottime": 0.03266684929339539
+    },
+    {
+      "file": "e:\\BOT ANK\\bot\\moje_AI\\yolov8\\FULL BOT\\dom_renderer\\ai_recorder_base.py",
+      "line": 481,
+      "func": "extract_clickables",
+      "calls": 129,
+      "prim_calls": 57,
+      "tottime": 0.029638200000000003,
+      "cumtime": 0.024120000000000003,
+      "pct_tottime": 0.03195989320347765
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\inspect.py",
+      "line": 1636,
+      "func": "__new__",
+      "calls": 20058,
+      "prim_calls": 20058,
+      "tottime": 0.028143400000000002,
+      "cumtime": 0.0428489,
+      "pct_tottime": 0.030347998811761603
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\ctypes\\__init__.py",
+      "line": 48,
+      "func": "create_string_buffer",
+      "calls": 448,
+      "prim_calls": 448,
+      "tottime": 0.027634600000000002,
+      "cumtime": 0.028794900000000002,
+      "pct_tottime": 0.02979934222458933
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\paddleocr\\tools\\infer\\predict_system.py",
+      "line": 67,
+      "func": "__call__",
+      "calls": 179,
+      "prim_calls": 179,
+      "tottime": 0.0272919,
+      "cumtime": 47.5283883,
+      "pct_tottime": 0.029429796995768687
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\playwright\\_impl\\_connection.py",
+      "line": 352,
+      "func": "_send_message_to_server",
+      "calls": 1354,
+      "prim_calls": 1354,
+      "tottime": 0.026756400000000003,
+      "cumtime": 0.6552848,
+      "pct_tottime": 0.028852348877783717
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\numpy\\core\\_methods.py",
+      "line": 135,
+      "func": "_var",
+      "calls": 112,
+      "prim_calls": 112,
+      "tottime": 0.026126600000000003,
+      "cumtime": 0.047992900000000005,
+      "pct_tottime": 0.02817321381764004
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\asyncio\\windows_events.py",
+      "line": 765,
+      "func": "_register",
+      "calls": 5528,
+      "prim_calls": 5528,
+      "tottime": 0.025637,
+      "cumtime": 0.0549675,
+      "pct_tottime": 0.027645261252625206
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\paddleocr\\ppocr\\postprocess\\db_postprocess.py",
+      "line": 182,
+      "func": "box_score_fast",
+      "calls": 635,
+      "prim_calls": 635,
+      "tottime": 0.0247535,
+      "cumtime": 0.07001310000000001,
+      "pct_tottime": 0.026692552733036553
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "func": "<built-in method builtins.len>",
+      "calls": 142864,
+      "prim_calls": 140142,
+      "tottime": 0.024741700000000002,
+      "cumtime": 0.0264635,
+      "pct_tottime": 0.02667982838608562
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\inspect.py",
+      "line": 939,
+      "func": "<genexpr>",
+      "calls": 60174,
+      "prim_calls": 60174,
+      "tottime": 0.0247086,
+      "cumtime": 0.0391023,
+      "pct_tottime": 0.026644135514553777
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "func": "<method 'append' of 'list' objects>",
+      "calls": 162400,
+      "prim_calls": 162400,
+      "tottime": 0.024114100000000003,
+      "cumtime": 0.024114100000000003,
+      "pct_tottime": 0.026003065661814154
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\asyncio\\events.py",
+      "line": 82,
+      "func": "_run",
+      "calls": 20257,
+      "prim_calls": 8331,
+      "tottime": 0.0237675,
+      "cumtime": 18.564463,
+      "pct_tottime": 0.02562931492849279
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\asyncio\\base_events.py",
+      "line": 752,
+      "func": "call_soon",
+      "calls": 19653,
+      "prim_calls": 19653,
+      "tottime": 0.0231559,
+      "cumtime": 0.10379830000000001,
+      "pct_tottime": 0.024969805556019187
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\difflib.py",
+      "line": 421,
+      "func": "get_matching_blocks",
+      "calls": 1143,
+      "prim_calls": 1143,
+      "tottime": 0.0230916,
+      "cumtime": 0.37551070000000003,
+      "pct_tottime": 0.0249004686484815
+    },
+    {
+      "file": "e:\\BOT ANK\\bot\\moje_AI\\yolov8\\FULL BOT\\dom_renderer\\ai_recorder_browser.py",
+      "line": 606,
+      "func": "_ocr_pick_visible_page",
+      "calls": 98,
+      "prim_calls": 98,
+      "tottime": 0.0228186,
+      "cumtime": 49.8026927,
+      "pct_tottime": 0.024606083333430336
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "func": "<method 'endswith' of 'str' objects>",
+      "calls": 80355,
+      "prim_calls": 80355,
+      "tottime": 0.021761700000000002,
+      "cumtime": 0.021761700000000002,
+      "pct_tottime": 0.02346639161373226
+    },
+    {
+      "file": "<frozen genericpath>",
+      "line": 16,
+      "func": "exists",
+      "calls": 20093,
+      "prim_calls": 20093,
+      "tottime": 0.0214331,
+      "cumtime": 0.7039386000000001,
+      "pct_tottime": 0.023112050901183494
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\json\\__init__.py",
+      "line": 120,
+      "func": "dump",
+      "calls": 122,
+      "prim_calls": 122,
+      "tottime": 0.0211543,
+      "cumtime": 0.11634380000000001,
+      "pct_tottime": 0.022811411246105605
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\linecache.py",
+      "line": 52,
+      "func": "checkcache",
+      "calls": 7972,
+      "prim_calls": 7972,
+      "tottime": 0.021145900000000002,
+      "cumtime": 0.24754110000000001,
+      "pct_tottime": 0.022802353236411724
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "func": "<method 'join' of 'bytes' objects>",
+      "calls": 1350,
+      "prim_calls": 1350,
+      "tottime": 0.0211326,
+      "cumtime": 0.0211326,
+      "pct_tottime": 0.022788011387729745
+    },
+    {
+      "file": "e:\\BOT ANK\\bot\\moje_AI\\yolov8\\FULL BOT\\dom_renderer\\ai_recorder_common.py",
+      "line": 58,
+      "func": "log",
+      "calls": 1803,
+      "prim_calls": 1803,
+      "tottime": 0.020615900000000003,
+      "cumtime": 0.7046847,
+      "pct_tottime": 0.022230835958107268
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\playwright\\_impl\\_connection.py",
+      "line": 508,
+      "func": "_replace_channels_with_guids",
+      "calls": 7387,
+      "prim_calls": 1354,
+      "tottime": 0.020196600000000002,
+      "cumtime": 0.044238200000000005,
+      "pct_tottime": 0.02177869030755433
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\uiautomation\\uiautomation.py",
+      "line": 6792,
+      "func": "Name",
+      "calls": 45,
+      "prim_calls": 45,
+      "tottime": 0.0194778,
+      "cumtime": 0.019952,
+      "pct_tottime": 0.021003583478034996
+    },
+    {
+      "file": "e:\\BOT ANK\\bot\\moje_AI\\yolov8\\FULL BOT\\dom_renderer\\ai_recorder_browser.py",
+      "line": 804,
+      "func": "_reselect_active_page",
+      "calls": 595,
+      "prim_calls": 595,
+      "tottime": 0.0194028,
+      "cumtime": 51.369081200000004,
+      "pct_tottime": 0.02092270839148248
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\pathlib.py",
+      "line": 56,
+      "func": "parse_parts",
+      "calls": 1989,
+      "prim_calls": 1989,
+      "tottime": 0.0183594,
+      "cumtime": 0.0363199,
+      "pct_tottime": 0.01979757418736386
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\inspect.py",
+      "line": 942,
+      "func": "<genexpr>",
+      "calls": 60174,
+      "prim_calls": 60174,
+      "tottime": 0.0182702,
+      "cumtime": 0.0256227,
+      "pct_tottime": 0.01970138675109073
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\playwright\\_impl\\_transport.py",
+      "line": 83,
+      "func": "deserialize_message",
+      "calls": 1420,
+      "prim_calls": 1420,
+      "tottime": 0.01802,
+      "cumtime": 0.7559241000000001,
+      "pct_tottime": 0.019431587462351532
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\asyncio\\windows_events.py",
+      "line": 481,
+      "func": "recv_into",
+      "calls": 4042,
+      "prim_calls": 4042,
+      "tottime": 0.017800700000000003,
+      "cumtime": 0.0939036,
+      "pct_tottime": 0.019195108709271973
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\inspect.py",
+      "line": 1708,
+      "func": "__new__",
+      "calls": 20058,
+      "prim_calls": 20058,
+      "tottime": 0.0175382,
+      "cumtime": 0.0325956,
+      "pct_tottime": 0.01891204590633816
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "func": "<method 'WriteFile' of '_overlapped.Overlapped' objects>",
+      "calls": 1353,
+      "prim_calls": 1353,
+      "tottime": 0.0169686,
+      "cumtime": 0.0169686,
+      "pct_tottime": 0.018297826582333972
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\inspect.py",
+      "line": 456,
+      "func": "istraceback",
+      "calls": 40116,
+      "prim_calls": 40116,
+      "tottime": 0.016874200000000002,
+      "cumtime": 0.025217800000000002,
+      "pct_tottime": 0.01819603180672654
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\asyncio\\windows_events.py",
+      "line": 442,
+      "func": "select",
+      "calls": 11495,
+      "prim_calls": 11495,
+      "tottime": 0.016765000000000002,
+      "cumtime": 26.4857097,
+      "pct_tottime": 0.018078277680706075
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\playwright\\_impl\\_connection.py",
+      "line": 109,
+      "func": "_inner_send",
+      "calls": 2707,
+      "prim_calls": 2707,
+      "tottime": 0.016492800000000002,
+      "cumtime": 0.7341858,
+      "pct_tottime": 0.017784755033244802
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "func": "<method 'write' of '_io.TextIOWrapper' objects>",
+      "calls": 52359,
+      "prim_calls": 52359,
+      "tottime": 0.0164842,
+      "cumtime": 0.0164842,
+      "pct_tottime": 0.017775481356653446
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "func": "<method 'connect' of '_socket.socket' objects>",
+      "calls": 1,
+      "prim_calls": 1,
+      "tottime": 0.0162751,
+      "cumtime": 0.0162751,
+      "pct_tottime": 0.017550001615345028
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\inspect.py",
+      "line": 466,
+      "func": "isframe",
+      "calls": 40116,
+      "prim_calls": 40116,
+      "tottime": 0.016007,
+      "cumtime": 0.020923200000000003,
+      "pct_tottime": 0.01726090013928196
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\comtypes\\_post_coinit\\unknwn.py",
+      "line": 418,
+      "func": "Release",
+      "calls": 46,
+      "prim_calls": 46,
+      "tottime": 0.015335600000000001,
+      "cumtime": 0.015335600000000001,
+      "pct_tottime": 0.016536906364463828
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "func": "<built-in method builtins.max>",
+      "calls": 10090,
+      "prim_calls": 10090,
+      "tottime": 0.0153208,
+      "cumtime": 0.015377400000000001,
+      "pct_tottime": 0.016520947014050796
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "func": "<method 'set_result' of '_asyncio.Future' objects>",
+      "calls": 11422,
+      "prim_calls": 11422,
+      "tottime": 0.015124,
+      "cumtime": 0.061630500000000005,
+      "pct_tottime": 0.01630873078693699
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\playwright\\_impl\\_map.py",
+      "line": 27,
+      "func": "__setitem__",
+      "calls": 29423,
+      "prim_calls": 29423,
+      "tottime": 0.0151018,
+      "cumtime": 0.0206391,
+      "pct_tottime": 0.016284791761317443
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "func": "<built-in method builtins.id>",
+      "calls": 62662,
+      "prim_calls": 62662,
+      "tottime": 0.0149882,
+      "cumtime": 0.0149882,
+      "pct_tottime": 0.016162292963552566
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\asyncio\\windows_events.py",
+      "line": 54,
+      "func": "__init__",
+      "calls": 5528,
+      "prim_calls": 5528,
+      "tottime": 0.014929300000000001,
+      "cumtime": 0.016189600000000002,
+      "pct_tottime": 0.016098779062246656
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\linecache.py",
+      "line": 26,
+      "func": "getline",
+      "calls": 13540,
+      "prim_calls": 13540,
+      "tottime": 0.014594000000000001,
+      "cumtime": 0.0345443,
+      "pct_tottime": 0.015737213508632535
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\playwright\\_impl\\_connection.py",
+      "line": 543,
+      "func": "wrap_api_call",
+      "calls": 2707,
+      "prim_calls": 2707,
+      "tottime": 0.014552,
+      "cumtime": 2.6394088,
+      "pct_tottime": 0.015691923460163126
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "func": "<method 'extend' of 'bytearray' objects>",
+      "calls": 4041,
+      "prim_calls": 4041,
+      "tottime": 0.014393300000000001,
+      "cumtime": 0.014393300000000001,
+      "pct_tottime": 0.015520791777017998
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\traceback.py",
+      "line": 313,
+      "func": "line",
+      "calls": 13540,
+      "prim_calls": 13540,
+      "tottime": 0.0143631,
+      "cumtime": 0.053340200000000004,
+      "pct_tottime": 0.015488226075499517
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "func": "<built-in method builtins.min>",
+      "calls": 12653,
+      "prim_calls": 12653,
+      "tottime": 0.014088100000000001,
+      "cumtime": 0.014088100000000001,
+      "pct_tottime": 0.015191684091473619
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\paddleocr\\ppocr\\postprocess\\db_postprocess.py",
+      "line": 151,
+      "func": "unclip",
+      "calls": 549,
+      "prim_calls": 549,
+      "tottime": 0.013869800000000002,
+      "cumtime": 0.07547090000000001,
+      "pct_tottime": 0.014956283672881425
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\paddleocr\\ppocr\\postprocess\\rec_postprocess.py",
+      "line": 70,
+      "func": "decode",
+      "calls": 178,
+      "prim_calls": 178,
+      "tottime": 0.013695800000000001,
+      "cumtime": 0.0381359,
+      "pct_tottime": 0.014768653472079587
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\_weakrefset.py",
+      "line": 75,
+      "func": "__contains__",
+      "calls": 11053,
+      "prim_calls": 11053,
+      "tottime": 0.0134733,
+      "cumtime": 0.013476,
+      "pct_tottime": 0.014528724048640449
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "func": "<built-in method numpy.zeros>",
+      "calls": 1733,
+      "prim_calls": 1733,
+      "tottime": 0.013295300000000001,
+      "cumtime": 0.013295300000000001,
+      "pct_tottime": 0.014336780509889143
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\json\\encoder.py",
+      "line": 414,
+      "func": "_iterencode",
+      "calls": 50858,
+      "prim_calls": 50858,
+      "tottime": 0.0130708,
+      "cumtime": 0.0804895,
+      "pct_tottime": 0.014094694417475273
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\playwright\\_impl\\_map.py",
+      "line": 24,
+      "func": "__contains__",
+      "calls": 29423,
+      "prim_calls": 29423,
+      "tottime": 0.012875900000000001,
+      "cumtime": 0.0207115,
+      "pct_tottime": 0.013884527025887465
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\pathlib.py",
+      "line": 536,
+      "func": "__str__",
+      "calls": 2536,
+      "prim_calls": 2536,
+      "tottime": 0.012470100000000001,
+      "cumtime": 0.017800200000000002,
+      "pct_tottime": 0.013446938890913977
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "func": "<built-in method nt.mkdir>",
+      "calls": 168,
+      "prim_calls": 168,
+      "tottime": 0.012385400000000001,
+      "cumtime": 0.0140274,
+      "pct_tottime": 0.013355603959834
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\uiautomation\\uiautomation.py",
+      "line": 6464,
+      "func": "CreateControlFromElement",
+      "calls": 45,
+      "prim_calls": 45,
+      "tottime": 0.012251300000000001,
+      "cumtime": 0.012805400000000002,
+      "pct_tottime": 0.013210999305078101
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "func": "<findContours>",
+      "calls": 179,
+      "prim_calls": 179,
+      "tottime": 0.012224200000000001,
+      "cumtime": 0.012224200000000001,
+      "pct_tottime": 0.013181776440470454
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\json\\encoder.py",
+      "line": 278,
+      "func": "_iterencode_list",
+      "calls": 40827,
+      "prim_calls": 40282,
+      "tottime": 0.0121399,
+      "cumtime": 0.044611700000000004,
+      "pct_tottime": 0.013090872843185426
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\asyncio\\base_events.py",
+      "line": 426,
+      "func": "create_future",
+      "calls": 5978,
+      "prim_calls": 5978,
+      "tottime": 0.0119827,
+      "cumtime": 0.013422600000000002,
+      "pct_tottime": 0.012921358661771349
+    },
+    {
+      "file": "<frozen os>",
+      "line": 674,
+      "func": "__getitem__",
+      "calls": 3437,
+      "prim_calls": 3437,
+      "tottime": 0.011847900000000001,
+      "cumtime": 0.019416600000000003,
+      "pct_tottime": 0.012775999172874291
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\mss\\tools.py",
+      "line": 16,
+      "func": "to_png",
+      "calls": 336,
+      "prim_calls": 336,
+      "tottime": 0.0117611,
+      "cumtime": 2.0994606,
+      "pct_tottime": 0.012682399739370843
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\paddleocr\\ppocr\\postprocess\\db_postprocess.py",
+      "line": 220,
+      "func": "__call__",
+      "calls": 179,
+      "prim_calls": 179,
+      "tottime": 0.011688400000000002,
+      "cumtime": 0.2676875,
+      "pct_tottime": 0.01260400482213927
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\numpy\\linalg\\linalg.py",
+      "line": 2383,
+      "func": "norm",
+      "calls": 3294,
+      "prim_calls": 3294,
+      "tottime": 0.011443700000000001,
+      "cumtime": 0.020073200000000003,
+      "pct_tottime": 0.01234013637308059
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\asyncio\\streams.py",
+      "line": 497,
+      "func": "feed_data",
+      "calls": 4040,
+      "prim_calls": 4040,
+      "tottime": 0.0110471,
+      "cumtime": 0.0398724,
+      "pct_tottime": 0.011912468915390878
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\numpy\\core\\_methods.py",
+      "line": 90,
+      "func": "_clip",
+      "calls": 3638,
+      "prim_calls": 3638,
+      "tottime": 0.0109624,
+      "cumtime": 0.0109624,
+      "pct_tottime": 0.011821133984310901
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\playwright\\_impl\\_connection.py",
+      "line": 658,
+      "func": "_filter_none",
+      "calls": 3766,
+      "prim_calls": 1354,
+      "tottime": 0.010878800000000001,
+      "cumtime": 0.013561700000000001,
+      "pct_tottime": 0.011730985221167028
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\asyncio\\tasks.py",
+      "line": 507,
+      "func": "_wait",
+      "calls": 2709,
+      "prim_calls": 2709,
+      "tottime": 0.0106948,
+      "cumtime": 0.016606600000000003,
+      "pct_tottime": 0.011532571675491519
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\numpy\\core\\_methods.py",
+      "line": 101,
+      "func": "_mean",
+      "calls": 816,
+      "prim_calls": 816,
+      "tottime": 0.0106002,
+      "cumtime": 0.062171500000000005,
+      "pct_tottime": 0.01143056123298661
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "func": "<built-in method zlib.crc32>",
+      "calls": 1008,
+      "prim_calls": 1008,
+      "tottime": 0.010402600000000001,
+      "cumtime": 0.010402600000000001,
+      "pct_tottime": 0.011217482338282911
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\paddleocr\\ppocr\\postprocess\\db_postprocess.py",
+      "line": 159,
+      "func": "get_mini_boxes",
+      "calls": 1510,
+      "prim_calls": 1510,
+      "tottime": 0.010324600000000001,
+      "cumtime": 0.0326914,
+      "pct_tottime": 0.011133372248268294
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\asyncio\\tasks.py",
+      "line": 399,
+      "func": "wait",
+      "calls": 2709,
+      "prim_calls": 2709,
+      "tottime": 0.010319,
+      "cumtime": 0.0456722,
+      "pct_tottime": 0.011127333575139037
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\paddleocr\\tools\\infer\\utility.py",
+      "line": 602,
+      "func": "get_rotate_crop_image",
+      "calls": 549,
+      "prim_calls": 549,
+      "tottime": 0.0100551,
+      "cumtime": 0.0606999,
+      "pct_tottime": 0.010842761103922913
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\asyncio\\proactor_events.py",
+      "line": 375,
+      "func": "_loop_writing",
+      "calls": 2679,
+      "prim_calls": 2679,
+      "tottime": 0.0100471,
+      "cumtime": 0.07380160000000001,
+      "pct_tottime": 0.010834134428023978
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\shapely\\creation.py",
+      "line": 234,
+      "func": "linearrings",
+      "calls": 549,
+      "prim_calls": 549,
+      "tottime": 0.0099784,
+      "cumtime": 0.010481500000000001,
+      "pct_tottime": 0.010760052848741871
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\paddleocr\\tools\\infer\\predict_det.py",
+      "line": 220,
+      "func": "__call__",
+      "calls": 179,
+      "prim_calls": 179,
+      "tottime": 0.0098372,
+      "cumtime": 4.9279788,
+      "pct_tottime": 0.010607792019125666
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\shapely\\decorators.py",
+      "line": 73,
+      "func": "wrapped",
+      "calls": 2196,
+      "prim_calls": 2196,
+      "tottime": 0.0097246,
+      "cumtime": 0.0457776,
+      "pct_tottime": 0.010486371555848152
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "func": "<minAreaRect>",
+      "calls": 1510,
+      "prim_calls": 1510,
+      "tottime": 0.0096635,
+      "cumtime": 0.0096635,
+      "pct_tottime": 0.010420485318670035
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\traceback.py",
+      "line": 261,
+      "func": "__init__",
+      "calls": 13540,
+      "prim_calls": 13540,
+      "tottime": 0.0094178,
+      "cumtime": 0.0094178,
+      "pct_tottime": 0.010155538535123987
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\paddleocr\\tools\\infer\\predict_det.py",
+      "line": 176,
+      "func": "order_points_clockwise",
+      "calls": 549,
+      "prim_calls": 549,
+      "tottime": 0.0094085,
+      "cumtime": 0.044645500000000005,
+      "pct_tottime": 0.010145510024391475
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\asyncio\\windows_events.py",
+      "line": 570,
+      "func": "send",
+      "calls": 1353,
+      "prim_calls": 1353,
+      "tottime": 0.009203300000000001,
+      "cumtime": 0.050078500000000005,
+      "pct_tottime": 0.009924235787583788
+    },
+    {
+      "file": "e:\\BOT ANK\\bot\\moje_AI\\yolov8\\FULL BOT\\dom_renderer\\ai_recorder_capture.py",
+      "line": 709,
+      "func": "_do_snapshot",
+      "calls": 1414,
+      "prim_calls": 1414,
+      "tottime": 0.0091701,
+      "cumtime": 28.7907833,
+      "pct_tottime": 0.009888435082603206
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\asyncio\\base_events.py",
+      "line": 701,
+      "func": "time",
+      "calls": 14005,
+      "prim_calls": 14005,
+      "tottime": 0.008984,
+      "cumtime": 0.012918200000000001,
+      "pct_tottime": 0.009687757034504228
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "func": "<built-in method _abc._abc_instancecheck>",
+      "calls": 11536,
+      "prim_calls": 11536,
+      "tottime": 0.0088892,
+      "cumtime": 0.014575900000000001,
+      "pct_tottime": 0.009585530925101844
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\inspect.py",
+      "line": 283,
+      "func": "ismodule",
+      "calls": 20059,
+      "prim_calls": 20059,
+      "tottime": 0.0084776,
+      "cumtime": 0.0112779,
+      "pct_tottime": 0.009141688450101628
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "func": "<method 'setdefault' of 'dict' objects>",
+      "calls": 59330,
+      "prim_calls": 59330,
+      "tottime": 0.0084141,
+      "cumtime": 0.0084141,
+      "pct_tottime": 0.009073214210153831
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\playwright\\async_api\\_generated.py",
+      "line": 8461,
+      "func": "evaluate",
+      "calls": 2411,
+      "prim_calls": 2411,
+      "tottime": 0.0083864,
+      "cumtime": 2.7783757000000002,
+      "pct_tottime": 0.009043344344853767
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\linecache.py",
+      "line": 36,
+      "func": "getlines",
+      "calls": 13540,
+      "prim_calls": 13540,
+      "tottime": 0.0083546,
+      "cumtime": 0.0181573,
+      "pct_tottime": 0.0090090533081555
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\pathlib.py",
+      "line": 484,
+      "func": "_parse_args",
+      "calls": 1989,
+      "prim_calls": 1989,
+      "tottime": 0.0083441,
+      "cumtime": 0.046817000000000004,
+      "pct_tottime": 0.008997730796038148
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\traceback.py",
+      "line": 386,
+      "func": "extended_frame_gen",
+      "calls": 14894,
+      "prim_calls": 14894,
+      "tottime": 0.008250500000000001,
+      "cumtime": 0.0143884,
+      "pct_tottime": 0.008896798688020607
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\asyncio\\windows_events.py",
+      "line": 91,
+      "func": "set_result",
+      "calls": 5525,
+      "prim_calls": 5525,
+      "tottime": 0.008216300000000001,
+      "cumtime": 0.029106700000000003,
+      "pct_tottime": 0.008859919648552659
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\linecache.py",
+      "line": 147,
+      "func": "lazycache",
+      "calls": 13540,
+      "prim_calls": 13540,
+      "tottime": 0.0081882,
+      "cumtime": 0.0100053,
+      "pct_tottime": 0.008829618449457647
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "func": "<method 'match' of 're.Pattern' objects>",
+      "calls": 3097,
+      "prim_calls": 3097,
+      "tottime": 0.0081693,
+      "cumtime": 0.0081693,
+      "pct_tottime": 0.008809237927646414
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\playwright\\async_api\\_generated.py",
+      "line": 9797,
+      "func": "is_closed",
+      "calls": 3011,
+      "prim_calls": 3011,
+      "tottime": 0.007993400000000001,
+      "cumtime": 0.0146631,
+      "pct_tottime": 0.008619558891318577
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "func": "<method 'add_done_callback' of '_asyncio.Future' objects>",
+      "calls": 9723,
+      "prim_calls": 9723,
+      "tottime": 0.007749600000000001,
+      "cumtime": 0.030376600000000004,
+      "pct_tottime": 0.008356660943298526
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\numpy\\lib\\function_base.py",
+      "line": 5173,
+      "func": "delete",
+      "calls": 549,
+      "prim_calls": 549,
+      "tottime": 0.0077188000000000005,
+      "cumtime": 0.011938200000000001,
+      "pct_tottime": 0.008323448241087626
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\inspect.py",
+      "line": 292,
+      "func": "isclass",
+      "calls": 20058,
+      "prim_calls": 20058,
+      "tottime": 0.007673200000000001,
+      "cumtime": 0.010117500000000001,
+      "pct_tottime": 0.008274276188463695
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\inspect.py",
+      "line": 300,
+      "func": "ismethod",
+      "calls": 20068,
+      "prim_calls": 20068,
+      "tottime": 0.0076401,
+      "cumtime": 0.010023500000000001,
+      "pct_tottime": 0.008238583316931851
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "func": "<method 'split' of 'str' objects>",
+      "calls": 10466,
+      "prim_calls": 10466,
+      "tottime": 0.0076143,
+      "cumtime": 0.0076143,
+      "pct_tottime": 0.008210762287157784
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\numpy\\core\\fromnumeric.py",
+      "line": 53,
+      "func": "_wrapfunc",
+      "calls": 8302,
+      "prim_calls": 8302,
+      "tottime": 0.0075157,
+      "cumtime": 0.0321603,
+      "pct_tottime": 0.008104438506703407
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\inspect.py",
+      "line": 480,
+      "func": "iscode",
+      "calls": 20058,
+      "prim_calls": 20058,
+      "tottime": 0.007470300000000001,
+      "cumtime": 0.0095714,
+      "pct_tottime": 0.008055482120976952
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\asyncio\\proactor_events.py",
+      "line": 337,
+      "func": "write",
+      "calls": 1354,
+      "prim_calls": 1354,
+      "tottime": 0.0073953000000000005,
+      "cumtime": 0.07515340000000001,
+      "pct_tottime": 0.007974607034424434
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\inspect.py",
+      "line": 378,
+      "func": "isfunction",
+      "calls": 20058,
+      "prim_calls": 20058,
+      "tottime": 0.007344600000000001,
+      "cumtime": 0.0097709,
+      "pct_tottime": 0.007919935475914932
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\asyncio\\base_events.py",
+      "line": 1954,
+      "func": "get_debug",
+      "calls": 35367,
+      "prim_calls": 35367,
+      "tottime": 0.0072532000000000004,
+      "cumtime": 0.0072532000000000004,
+      "pct_tottime": 0.007821375703769597
+    },
+    {
+      "file": "e:\\BOT ANK\\bot\\moje_AI\\yolov8\\FULL BOT\\dom_renderer\\ai_recorder_common.py",
+      "line": 130,
+      "func": "fuzzy_ratio",
+      "calls": 1143,
+      "prim_calls": 1143,
+      "tottime": 0.007206700000000001,
+      "cumtime": 0.45363420000000004,
+      "pct_tottime": 0.007771233150107036
+    },
+    {
+      "file": "e:\\BOT ANK\\bot\\moje_AI\\yolov8\\FULL BOT\\dom_renderer\\ai_recorder_capture.py",
+      "line": 458,
+      "func": "extract_question_text",
+      "calls": 338,
+      "prim_calls": 338,
+      "tottime": 0.006997700000000001,
+      "cumtime": 0.37360540000000003,
+      "pct_tottime": 0.007545861242247354
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\traceback.py",
+      "line": 217,
+      "func": "extract_stack",
+      "calls": 1354,
+      "prim_calls": 1354,
+      "tottime": 0.006997300000000001,
+      "cumtime": 0.4202368,
+      "pct_tottime": 0.007545429908452407
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\asyncio\\base_subprocess.py",
+      "line": 194,
+      "func": "_call",
+      "calls": 4041,
+      "prim_calls": 4041,
+      "tottime": 0.0069693,
+      "cumtime": 0.0302024,
+      "pct_tottime": 0.007515236542806133
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\playwright\\_impl\\_connection.py",
+      "line": 407,
+      "func": "dispatch",
+      "calls": 1420,
+      "prim_calls": 1420,
+      "tottime": 0.006923500000000001,
+      "cumtime": 0.8210636,
+      "pct_tottime": 0.00746584882328473
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "func": "<built-in method builtins.hasattr>",
+      "calls": 6147,
+      "prim_calls": 6147,
+      "tottime": 0.0067209,
+      "cumtime": 0.006746800000000001,
+      "pct_tottime": 0.007247378256144195
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "func": "<method 'startswith' of 'str' objects>",
+      "calls": 23894,
+      "prim_calls": 23894,
+      "tottime": 0.006719500000000001,
+      "cumtime": 0.006719500000000001,
+      "pct_tottime": 0.007245868587861882
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\traceback.py",
+      "line": 322,
+      "func": "walk_stack",
+      "calls": 14894,
+      "prim_calls": 14894,
+      "tottime": 0.0065849,
+      "cumtime": 0.0065849,
+      "pct_tottime": 0.007100724765862297
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\playwright\\_impl\\_frame.py",
+      "line": 318,
+      "func": "evaluate",
+      "calls": 2411,
+      "prim_calls": 2411,
+      "tottime": 0.006584700000000001,
+      "cumtime": 2.5242007,
+      "pct_tottime": 0.007100509098964825
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\re\\__init__.py",
+      "line": 272,
+      "func": "_compile",
+      "calls": 2748,
+      "prim_calls": 2748,
+      "tottime": 0.006567600000000001,
+      "cumtime": 0.0109706,
+      "pct_tottime": 0.007082069579230851
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\shapely\\creation.py",
+      "line": 332,
+      "func": "polygons",
+      "calls": 549,
+      "prim_calls": 549,
+      "tottime": 0.0065433,
+      "cumtime": 0.0122533,
+      "pct_tottime": 0.007055866051187834
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\asyncio\\proactor_events.py",
+      "line": 251,
+      "func": "_data_received",
+      "calls": 4041,
+      "prim_calls": 4041,
+      "tottime": 0.0064913,
+      "cumtime": 0.045883900000000005,
+      "pct_tottime": 0.006999792657844756
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "func": "<method 'co_positions' of 'code' objects>",
+      "calls": 20058,
+      "prim_calls": 20058,
+      "tottime": 0.0064857000000000005,
+      "cumtime": 0.0064857000000000005,
+      "pct_tottime": 0.006993753984715502
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\json\\__init__.py",
+      "line": 299,
+      "func": "loads",
+      "calls": 1420,
+      "prim_calls": 1420,
+      "tottime": 0.006435700000000001,
+      "cumtime": 0.7254348,
+      "pct_tottime": 0.006939837260347157
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "func": "<method 'argmax' of 'numpy.ndarray' objects>",
+      "calls": 1825,
+      "prim_calls": 1825,
+      "tottime": 0.006401100000000001,
+      "cumtime": 0.006401100000000001,
+      "pct_tottime": 0.006902526887084262
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\paddleocr\\tools\\infer\\predict_det.py",
+      "line": 187,
+      "func": "clip_det_res",
+      "calls": 549,
+      "prim_calls": 549,
+      "tottime": 0.0063693000000000005,
+      "cumtime": 0.0256702,
+      "pct_tottime": 0.006868235850385995
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\pathlib.py",
+      "line": 147,
+      "func": "splitroot",
+      "calls": 1989,
+      "prim_calls": 1989,
+      "tottime": 0.006367,
+      "cumtime": 0.007350400000000001,
+      "pct_tottime": 0.00686575568106505
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\playwright\\_impl\\_transport.py",
+      "line": 77,
+      "func": "serialize_message",
+      "calls": 1354,
+      "prim_calls": 1354,
+      "tottime": 0.0063276,
+      "cumtime": 0.058305800000000005,
+      "pct_tottime": 0.006823269302262794
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "func": "<boxPoints>",
+      "calls": 1510,
+      "prim_calls": 1510,
+      "tottime": 0.006230100000000001,
+      "cumtime": 0.006230100000000001,
+      "pct_tottime": 0.006718131689744522
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\json\\decoder.py",
+      "line": 332,
+      "func": "decode",
+      "calls": 1420,
+      "prim_calls": 1420,
+      "tottime": 0.0062014,
+      "cumtime": 0.6336314000000001,
+      "pct_tottime": 0.006687183489957091
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "func": "<built-in method now>",
+      "calls": 3043,
+      "prim_calls": 3043,
+      "tottime": 0.0061621,
+      "cumtime": 0.0061621,
+      "pct_tottime": 0.006644804944603572
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\playwright\\_impl\\_transport.py",
+      "line": 173,
+      "func": "send",
+      "calls": 1354,
+      "prim_calls": 1354,
+      "tottime": 0.006014,
+      "cumtime": 0.1433053,
+      "pct_tottime": 0.006485103607024535
+    },
+    {
+      "file": "e:\\BOT ANK\\bot\\moje_AI\\yolov8\\FULL BOT\\dom_renderer\\ai_recorder_base.py",
+      "line": 763,
+      "func": "run",
+      "calls": 277,
+      "prim_calls": 277,
+      "tottime": 0.0059917,
+      "cumtime": 0.35169510000000004,
+      "pct_tottime": 0.006461056747956252
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "func": "<method 'astype' of 'numpy.generic' objects>",
+      "calls": 2540,
+      "prim_calls": 2540,
+      "tottime": 0.0059865000000000005,
+      "cumtime": 0.0059865000000000005,
+      "pct_tottime": 0.0064554494086219456
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "func": "<method 'sub' of 're.Pattern' objects>",
+      "calls": 2095,
+      "prim_calls": 2095,
+      "tottime": 0.005982100000000001,
+      "cumtime": 0.005982100000000001,
+      "pct_tottime": 0.006450704736877531
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\asyncio\\tasks.py",
+      "line": 436,
+      "func": "wait_for",
+      "calls": 1250,
+      "prim_calls": 1250,
+      "tottime": 0.005966,
+      "cumtime": 0.0333962,
+      "pct_tottime": 0.0064333435516309235
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "func": "<built-in method builtins.getattr>",
+      "calls": 17194,
+      "prim_calls": 17194,
+      "tottime": 0.005935200000000001,
+      "cumtime": 0.006935500000000001,
+      "pct_tottime": 0.0064001308494200234
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\playwright\\_impl\\_connection.py",
+      "line": 221,
+      "func": "__init__",
+      "calls": 1354,
+      "prim_calls": 1354,
+      "tottime": 0.0058863000000000006,
+      "cumtime": 0.014276,
+      "pct_tottime": 0.006347400292987781
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "func": "<built-in method sys.intern>",
+      "calls": 10136,
+      "prim_calls": 10136,
+      "tottime": 0.005873300000000001,
+      "cumtime": 0.005873300000000001,
+      "pct_tottime": 0.006333381944652012
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\numpy\\core\\numeric.py",
+      "line": 136,
+      "func": "ones",
+      "calls": 1098,
+      "prim_calls": 1098,
+      "tottime": 0.005840000000000001,
+      "cumtime": 0.0071181000000000005,
+      "pct_tottime": 0.006297473406222695
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\paddleocr\\tools\\infer\\predict_det.py",
+      "line": 193,
+      "func": "filter_tag_det_res",
+      "calls": 179,
+      "prim_calls": 179,
+      "tottime": 0.0058379,
+      "cumtime": 0.08493310000000001,
+      "pct_tottime": 0.006295208903799223
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\numpy\\lib\\function_base.py",
+      "line": 1324,
+      "func": "diff",
+      "calls": 549,
+      "prim_calls": 549,
+      "tottime": 0.0058357,
+      "cumtime": 0.0063404,
+      "pct_tottime": 0.006292836567927017
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\asyncio\\tasks.py",
+      "line": 637,
+      "func": "sleep",
+      "calls": 3716,
+      "prim_calls": 3716,
+      "tottime": 0.005813700000000001,
+      "cumtime": 0.018095700000000003,
+      "pct_tottime": 0.006269113209204946
+    },
+    {
+      "file": "<frozen _collections_abc>",
+      "line": 778,
+      "func": "__contains__",
+      "calls": 2776,
+      "prim_calls": 2776,
+      "tottime": 0.0057993,
+      "cumtime": 0.023359500000000002,
+      "pct_tottime": 0.006253585192586862
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\asyncio\\base_events.py",
+      "line": 518,
+      "func": "_check_closed",
+      "calls": 21425,
+      "prim_calls": 21425,
+      "tottime": 0.0057425,
+      "cumtime": 0.0057425,
+      "pct_tottime": 0.006192335793704422
+    },
+    {
+      "file": "e:\\BOT ANK\\bot\\moje_AI\\yolov8\\FULL BOT\\dom_renderer\\ai_recorder_browser.py",
+      "line": 295,
+      "func": "_page_state_quick",
+      "calls": 1573,
+      "prim_calls": 1573,
+      "tottime": 0.0056793,
+      "cumtime": 1.6657177,
+      "pct_tottime": 0.006124185054102833
+    }
+  ],
+  "by_file": [
+    {
+      "file": "~",
+      "tottime": 80.3401694000001,
+      "pct_tottime": 86.63357538491897
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\mss\\windows.py",
+      "tottime": 6.379173300000001,
+      "pct_tottime": 6.878882570280114
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\playwright\\_impl\\_connection.py",
+      "tottime": 0.819863,
+      "pct_tottime": 0.8840865478160884
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\json\\decoder.py",
+      "tottime": 0.6244540000000001,
+      "pct_tottime": 0.67337028397421
+    },
+    {
+      "file": "e:\\BOT ANK\\bot\\moje_AI\\yolov8\\FULL BOT\\dom_renderer\\ai_recorder_browser.py",
+      "tottime": 0.5729562000000004,
+      "pct_tottime": 0.6178384302106872
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\inspect.py",
+      "tottime": 0.5504061000000002,
+      "pct_tottime": 0.5935218796871147
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\difflib.py",
+      "tottime": 0.34124709999999997,
+      "pct_tottime": 0.3679785166439411
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\playwright\\_impl\\_transport.py",
+      "tottime": 0.3304914,
+      "pct_tottime": 0.35638027439816894
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\asyncio\\base_events.py",
+      "tottime": 0.20846760000000003,
+      "pct_tottime": 0.22479780257860793
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\paddleocr\\tools\\infer\\predict_rec.py",
+      "tottime": 0.1958061,
+      "pct_tottime": 0.2111444704668119
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\asyncio\\windows_events.py",
+      "tottime": 0.17007880000000003,
+      "pct_tottime": 0.1834018356099775
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\playwright\\_impl\\_impl_to_api_mapping.py",
+      "tottime": 0.1700704,
+      "pct_tottime": 0.18339277760028358
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\mss\\screenshot.py",
+      "tottime": 0.158535,
+      "pct_tottime": 0.17095375795471143
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\playwright\\_impl\\_js_handle.py",
+      "tottime": 0.1480731,
+      "pct_tottime": 0.1596723303813277
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\uiautomation\\uiautomation.py",
+      "tottime": 0.123794,
+      "pct_tottime": 0.13349133952909797
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\traceback.py",
+      "tottime": 0.11790590000000001,
+      "pct_tottime": 0.12714199823403294
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\paddleocr\\ppocr\\data\\imaug\\operators.py",
+      "tottime": 0.11050990000000001,
+      "pct_tottime": 0.11916663636546736
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\json\\encoder.py",
+      "tottime": 0.11011049999999999,
+      "pct_tottime": 0.11873594957121297
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\paddleocr\\ppocr\\postprocess\\db_postprocess.py",
+      "tottime": 0.10240400000000002,
+      "pct_tottime": 0.11042576484432001
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\pathlib.py",
+      "tottime": 0.07640630000000001,
+      "pct_tottime": 0.08239154834210155
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\asyncio\\events.py",
+      "tottime": 0.0652192,
+      "pct_tottime": 0.0703281125984793
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\asyncio\\proactor_events.py",
+      "tottime": 0.06097519999999999,
+      "pct_tottime": 0.06575166103409416
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\asyncio\\streams.py",
+      "tottime": 0.06086119999999999,
+      "pct_tottime": 0.06562873090253434
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\numpy\\core\\_methods.py",
+      "tottime": 0.056834499999999996,
+      "pct_tottime": 0.061286601422254054
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\linecache.py",
+      "tottime": 0.052387600000000006,
+      "pct_tottime": 0.0564913557903822
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\mss\\tools.py",
+      "tottime": 0.0491969,
+      "pct_tottime": 0.05305071394154062
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\asyncio\\tasks.py",
+      "tottime": 0.046148600000000005,
+      "pct_tottime": 0.04976362692370011
+    },
+    {
+      "file": "e:\\BOT ANK\\bot\\moje_AI\\yolov8\\FULL BOT\\dom_renderer\\ai_recorder_common.py",
+      "tottime": 0.042959300000000006,
+      "pct_tottime": 0.046324494743140855
+    },
+    {
+      "file": "e:\\BOT ANK\\bot\\moje_AI\\yolov8\\FULL BOT\\dom_renderer\\ai_recorder_base.py",
+      "tottime": 0.039673900000000005,
+      "pct_tottime": 0.04278173461834565
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\json\\__init__.py",
+      "tottime": 0.0355293,
+      "pct_tottime": 0.03831246950200479
+    },
+    {
+      "file": "e:\\BOT ANK\\bot\\moje_AI\\yolov8\\FULL BOT\\dom_renderer\\ai_recorder_capture.py",
+      "tottime": 0.0319222,
+      "pct_tottime": 0.034422809172623636
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\paddleocr\\tools\\infer\\predict_det.py",
+      "tottime": 0.031510500000000004,
+      "pct_tottime": 0.03397885886417469
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\paddleocr\\tools\\infer\\predict_system.py",
+      "tottime": 0.030392600000000002,
+      "pct_tottime": 0.032773388740747235
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\playwright\\_impl\\_map.py",
+      "tottime": 0.0303351,
+      "pct_tottime": 0.03271138450772364
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\ctypes\\__init__.py",
+      "tottime": 0.028708599999999997,
+      "pct_tottime": 0.03095747346402137
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\comtypes\\_post_coinit\\unknwn.py",
+      "tottime": 0.023325100000000005,
+      "pct_tottime": 0.025152259751281675
+    },
+    {
+      "file": "<frozen genericpath>",
+      "tottime": 0.0214331,
+      "pct_tottime": 0.023112050901183494
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\numpy\\core\\fromnumeric.py",
+      "tottime": 0.021408599999999996,
+      "pct_tottime": 0.023085631706243004
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\paddleocr\\ppocr\\postprocess\\rec_postprocess.py",
+      "tottime": 0.0195173,
+      "pct_tottime": 0.02104617769028599
+    },
+    {
+      "file": "<frozen os>",
+      "tottime": 0.017892400000000006,
+      "pct_tottime": 0.01929399198176352
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\playwright\\async_api\\_generated.py",
+      "tottime": 0.017490799999999994,
+      "pct_tottime": 0.01886093285163696
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\shapely\\creation.py",
+      "tottime": 0.0166273,
+      "pct_tottime": 0.017929791021795653
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\_weakrefset.py",
+      "tottime": 0.0156286,
+      "pct_tottime": 0.016852858369262327
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\asyncio\\base_subprocess.py",
+      "tottime": 0.014955000000000001,
+      "pct_tottime": 0.016126492258571986
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\shapely\\decorators.py",
+      "tottime": 0.014863500000000002,
+      "pct_tottime": 0.016027824652977914
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\numpy\\lib\\function_base.py",
+      "tottime": 0.0147759,
+      "pct_tottime": 0.015933362551884572
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\numpy\\linalg\\linalg.py",
+      "tottime": 0.013402100000000002,
+      "pct_tottime": 0.014451946633139926
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\comtypes\\_memberspec.py",
+      "tottime": 0.0126002,
+      "pct_tottime": 0.013587230207720409
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\re\\__init__.py",
+      "tottime": 0.011448400000000001,
+      "pct_tottime": 0.012345204545171214
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\paddleocr\\tools\\infer\\utility.py",
+      "tottime": 0.010742900000000001,
+      "pct_tottime": 0.011584439564333868
+    },
+    {
+      "file": "e:\\BOT ANK\\bot\\moje_AI\\yolov8\\FULL BOT\\dom_renderer\\ai_recorder_windows.py",
+      "tottime": 0.009485500000000001,
+      "pct_tottime": 0.010228541779918728
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\shapely\\measurement.py",
+      "tottime": 0.008950300000000001,
+      "pct_tottime": 0.009651417162279963
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\numpy\\core\\numeric.py",
+      "tottime": 0.0077435,
+      "pct_tottime": 0.008350083102925588
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\playwright\\_impl\\_frame.py",
+      "tottime": 0.007336100000000002,
+      "pct_tottime": 0.007910769632772314
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\playwright\\_impl\\_page.py",
+      "tottime": 0.007214099999999999,
+      "pct_tottime": 0.007779212825313551
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\argparse.py",
+      "tottime": 0.007121900000000002,
+      "pct_tottime": 0.007679790385578324
+    },
+    {
+      "file": "<frozen _collections_abc>",
+      "tottime": 0.0071095,
+      "pct_tottime": 0.007666419037934974
+    },
+    {
+      "file": "<frozen abc>",
+      "tottime": 0.0064608,
+      "pct_tottime": 0.0069669034559800645
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\enum.py",
+      "tottime": 0.006216000000000001,
+      "pct_tottime": 0.006702927173472649
+    },
+    {
+      "file": "<string>",
+      "tottime": 0.0056195,
+      "pct_tottime": 0.006059700651758293
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\comtypes\\_post_coinit\\misc.py",
+      "tottime": 0.0053655000000000005,
+      "pct_tottime": 0.0057858036919671
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\shapely\\geometry\\polygon.py",
+      "tottime": 0.0049853,
+      "pct_tottime": 0.005375820919870204
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\numpy\\core\\numerictypes.py",
+      "tottime": 0.0048257000000000005,
+      "pct_tottime": 0.005203718735686448
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\paddleocr\\paddleocr.py",
+      "tottime": 0.004501199999999999,
+      "pct_tottime": 0.004853799194535887
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\asyncio\\subprocess.py",
+      "tottime": 0.0044275,
+      "pct_tottime": 0.004774325942816948
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\random.py",
+      "tottime": 0.004155400000000001,
+      "pct_tottime": 0.004480911128804416
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\asyncio\\coroutines.py",
+      "tottime": 0.0038557,
+      "pct_tottime": 0.004157734282940555
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\copy.py",
+      "tottime": 0.0038058000000000002,
+      "pct_tottime": 0.0041039253920209465
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\threading.py",
+      "tottime": 0.0036304999999999996,
+      "pct_tottime": 0.003914893356385529
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\contextlib.py",
+      "tottime": 0.0036254,
+      "pct_tottime": 0.0039093938504999575
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\asyncio\\futures.py",
+      "tottime": 0.0035151,
+      "pct_tottime": 0.0037904535565433887
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\collections\\__init__.py",
+      "tottime": 0.0032198,
+      "pct_tottime": 0.0034720213824239437
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\mss\\base.py",
+      "tottime": 0.003154,
+      "pct_tottime": 0.0034010669731552017
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\psutil\\__init__.py",
+      "tottime": 0.0029395,
+      "pct_tottime": 0.0031697642256150013
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\asyncio\\base_futures.py",
+      "tottime": 0.0027653,
+      "pct_tottime": 0.0029819183579156876
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\numpy\\lib\\shape_base.py",
+      "tottime": 0.0027475999999999998,
+      "pct_tottime": 0.002962831837489293
+    },
+    {
+      "file": "<frozen ntpath>",
+      "tottime": 0.0026421000000000005,
+      "pct_tottime": 0.002849067549072086
+    },
+    {
+      "file": "<frozen codecs>",
+      "tottime": 0.0023793000000000004,
+      "pct_tottime": 0.002565681245792065
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\asyncio\\windows_utils.py",
+      "tottime": 0.0023014,
+      "pct_tottime": 0.0024816789892261825
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\psutil\\_pswindows.py",
+      "tottime": 0.0022767000000000004,
+      "pct_tottime": 0.0024550441273882206
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\concurrent\\futures\\_base.py",
+      "tottime": 0.0018766999999999998,
+      "pct_tottime": 0.0020237103324414604
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\paddleocr\\ppocr\\data\\imaug\\__init__.py",
+      "tottime": 0.0018693000000000002,
+      "pct_tottime": 0.0020157306572349456
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\concurrent\\futures\\thread.py",
+      "tottime": 0.0017714999999999999,
+      "pct_tottime": 0.0019102695443704626
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\comtypes\\_post_coinit\\_cominterface_meta_patcher.py",
+      "tottime": 0.0017591000000000002,
+      "pct_tottime": 0.0018968981967271133
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\comtypes\\typeinfo.py",
+      "tottime": 0.0016997,
+      "pct_tottime": 0.0018328451281775192
+    },
+    {
+      "file": "<frozen importlib._bootstrap>",
+      "tottime": 0.0015698,
+      "pct_tottime": 0.001692769478268559
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\logging\\__init__.py",
+      "tottime": 0.0015673,
+      "pct_tottime": 0.0016900736420501416
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\pyee\\base.py",
+      "tottime": 0.0013640000000000004,
+      "pct_tottime": 0.0014708482407684515
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\shutil.py",
+      "tottime": 0.0013464,
+      "pct_tottime": 0.0014518695537907936
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\shapely\\geometry\\base.py",
+      "tottime": 0.0013454,
+      "pct_tottime": 0.0014507912193034269
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\pyee\\asyncio.py",
+      "tottime": 0.001295,
+      "pct_tottime": 0.001396443161140135
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\comtypes\\gen\\_944DE083_8FB8_45CF_BCB7_C477ACB2F897_0_1_0.py",
+      "tottime": 0.0010565000000000008,
+      "pct_tottime": 0.0011392603859031302
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\paddle\\inference\\wrapper.py",
+      "tottime": 0.0010087,
+      "pct_tottime": 0.0010877159974069916
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\psutil\\_common.py",
+      "tottime": 0.000974,
+      "pct_tottime": 0.0010502977906953603
+    },
+    {
+      "file": "<frozen importlib._bootstrap_external>",
+      "tottime": 0.0008901000000000003,
+      "pct_tottime": 0.0009598255272052778
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\asyncio\\transports.py",
+      "tottime": 0.0008754000000000001,
+      "pct_tottime": 0.000943974010240984
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\comtypes\\GUID.py",
+      "tottime": 0.0008467000000000001,
+      "pct_tottime": 0.0009130258104535541
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\comtypes\\patcher.py",
+      "tottime": 0.0008463,
+      "pct_tottime": 0.0009125944766586072
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\urllib\\request.py",
+      "tottime": 0.0006094999999999998,
+      "pct_tottime": 0.0006572448700501251
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\numpy\\core\\_ufunc_config.py",
+      "tottime": 0.0005379,
+      "pct_tottime": 0.0005800361207546553
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\typing.py",
+      "tottime": 0.0005267000000000001,
+      "pct_tottime": 0.0005679587744961462
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\re\\_compiler.py",
+      "tottime": 0.0004814000000000001,
+      "pct_tottime": 0.0005191102222184256
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\re\\_parser.py",
+      "tottime": 0.0004574,
+      "pct_tottime": 0.0004932301945216199
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\comtypes\\_post_coinit\\bstr.py",
+      "tottime": 0.00044439999999999996,
+      "pct_tottime": 0.0004792118461858501
+    },
+    {
+      "file": "e:\\BOT ANK\\bot\\moje_AI\\yolov8\\FULL BOT\\dom_renderer\\ai_recorder_live.py",
+      "tottime": 0.00037170000000000004,
+      "pct_tottime": 0.0004008169289542766
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\comtypes\\_post_coinit\\instancemethod.py",
+      "tottime": 0.0003419,
+      "pct_tottime": 0.000368682561230743
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\numpy\\core\\multiarray.py",
+      "tottime": 0.00033400000000000004,
+      "pct_tottime": 0.0003601637187805445
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\comtypes\\safearray.py",
+      "tottime": 0.00030520000000000005,
+      "pct_tottime": 0.0003291076855443778
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\tokenize.py",
+      "tottime": 0.00028230000000000003,
+      "pct_tottime": 0.0003044138257836758
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\paddleocr\\ppocr\\utils\\utility.py",
+      "tottime": 0.00024460000000000004,
+      "pct_tottime": 0.0002637606156099437
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\http\\client.py",
+      "tottime": 0.0002257,
+      "pct_tottime": 0.00024338009379870927
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\comtypes\\gen\\UIAutomationClient.py",
+      "tottime": 0.0002168,
+      "pct_tottime": 0.00023378291686114387
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\subprocess.py",
+      "tottime": 0.00018340000000000004,
+      "pct_tottime": 0.00019776654498308946
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\gettext.py",
+      "tottime": 0.00016810000000000002,
+      "pct_tottime": 0.00018126802732637586
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\playwright\\_impl\\_object_factory.py",
+      "tottime": 0.00015160000000000003,
+      "pct_tottime": 0.00016347550828482203
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\playwright\\_impl\\_local_utils.py",
+      "tottime": 0.00014370000000000002,
+      "pct_tottime": 0.0001549566658346235
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\comtypes\\_meta.py",
+      "tottime": 0.0001232,
+      "pct_tottime": 0.00013285080884360204
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\tempfile.py",
+      "tottime": 0.0001226,
+      "pct_tottime": 0.0001322038081511819
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\socket.py",
+      "tottime": 0.0001224,
+      "pct_tottime": 0.0001319881412537085
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\comtypes\\gen\\_00020430_0000_0000_C000_000000000046_0_2_0.py",
+      "tottime": 0.00011500000000000002,
+      "pct_tottime": 0.00012400846604719348
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\email\\feedparser.py",
+      "tottime": 0.00011270000000000002,
+      "pct_tottime": 0.00012152829672624962
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\comtypes\\client\\_generate.py",
+      "tottime": 8.730000000000001e-05,
+      "pct_tottime": 9.413860074713034e-05
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\playwright\\_impl\\_browser_context.py",
+      "tottime": 8.669999999999999e-05,
+      "pct_tottime": 9.349160005471019e-05
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\paddleocr\\ppstructure\\utility.py",
+      "tottime": 8.05e-05,
+      "pct_tottime": 8.680592623303543e-05
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\urllib\\parse.py",
+      "tottime": 5.320000000000001e-05,
+      "pct_tottime": 5.736739472791907e-05
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\encodings\\utf_8_sig.py",
+      "tottime": 5.21e-05,
+      "pct_tottime": 5.618122679181547e-05
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\playwright\\_impl\\_async_base.py",
+      "tottime": 4.69e-05,
+      "pct_tottime": 5.057388745750759e-05
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\paddleocr\\ppocr\\utils\\network.py",
+      "tottime": 4.130000000000001e-05,
+      "pct_tottime": 4.453521432825296e-05
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\paddleocr\\ppocr\\postprocess\\__init__.py",
+      "tottime": 3.9500000000000005e-05,
+      "pct_tottime": 4.2594212250992544e-05
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\email\\message.py",
+      "tottime": 3.94e-05,
+      "pct_tottime": 4.248637880225585e-05
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\numpy\\lib\\index_tricks.py",
+      "tottime": 3.91e-05,
+      "pct_tottime": 4.2162878456045773e-05
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\encodings\\__init__.py",
+      "tottime": 3.73e-05,
+      "pct_tottime": 4.022187637878535e-05
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\playwright\\async_api\\_context_manager.py",
+      "tottime": 2.68e-05,
+      "pct_tottime": 2.889936426143291e-05
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\comtypes\\tools\\codegenerator\\modulenamer.py",
+      "tottime": 2.3500000000000002e-05,
+      "pct_tottime": 2.5340860453122143e-05
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\playwright\\_impl\\_driver.py",
+      "tottime": 2.3500000000000002e-05,
+      "pct_tottime": 2.5340860453122143e-05
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\comtypes\\tools\\tlbparser.py",
+      "tottime": 2.3e-05,
+      "pct_tottime": 2.480169320943869e-05
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\playwright\\_impl\\_browser_type.py",
+      "tottime": 2.1300000000000003e-05,
+      "pct_tottime": 2.2968524580914966e-05
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\playwright\\_impl\\_browser.py",
+      "tottime": 2.09e-05,
+      "pct_tottime": 2.2537190785968202e-05
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\email\\parser.py",
+      "tottime": 1.9999999999999998e-05,
+      "pct_tottime": 2.156668974733799e-05
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\comtypes\\_tlib_version_checker.py",
+      "tottime": 1.93e-05,
+      "pct_tottime": 2.0811855606181165e-05
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\comtypes\\client\\_create.py",
+      "tottime": 1.58e-05,
+      "pct_tottime": 1.7037684900397016e-05
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\email\\_policybase.py",
+      "tottime": 1.52e-05,
+      "pct_tottime": 1.6390684207976873e-05
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\weakref.py",
+      "tottime": 1.45e-05,
+      "pct_tottime": 1.5635850066820044e-05
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\locale.py",
+      "tottime": 1.3300000000000001e-05,
+      "pct_tottime": 1.4341848681979767e-05
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\mss\\factory.py",
+      "tottime": 1.22e-05,
+      "pct_tottime": 1.3155680745876175e-05
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\encodings\\idna.py",
+      "tottime": 1.1900000000000001e-05,
+      "pct_tottime": 1.2832180399666109e-05
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\playwright\\_impl\\_playwright.py",
+      "tottime": 1.18e-05,
+      "pct_tottime": 1.2724346950929416e-05
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\playwright\\_impl\\_fetch.py",
+      "tottime": 9.2e-06,
+      "pct_tottime": 9.920677283775477e-06
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\comtypes\\client\\_managing.py",
+      "tottime": 9e-06,
+      "pct_tottime": 9.705010386302098e-06
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\playwright\\_impl\\_helper.py",
+      "tottime": 8.400000000000001e-06,
+      "pct_tottime": 9.058009693881958e-06
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\platform.py",
+      "tottime": 7.500000000000001e-06,
+      "pct_tottime": 8.087508655251749e-06
+    },
+    {
+      "file": "<frozen zipimport>",
+      "tottime": 7.5e-06,
+      "pct_tottime": 8.087508655251747e-06
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\playwright\\_impl\\_input.py",
+      "tottime": 6.9e-06,
+      "pct_tottime": 7.440507962831608e-06
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\importlib\\__init__.py",
+      "tottime": 5.600000000000001e-06,
+      "pct_tottime": 6.038673129254639e-06
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\paddle\\base\\framework.py",
+      "tottime": 4.7e-06,
+      "pct_tottime": 5.068172090624429e-06
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\playwright\\_impl\\_tracing.py",
+      "tottime": 4.4e-06,
+      "pct_tottime": 4.744671744414359e-06
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\_distutils_hack\\__init__.py",
+      "tottime": 3.8e-06,
+      "pct_tottime": 4.097671051994218e-06
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\playwright\\_impl\\_accessibility.py",
+      "tottime": 3.3e-06,
+      "pct_tottime": 3.5585038083107693e-06
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\email\\utils.py",
+      "tottime": 2.8000000000000003e-06,
+      "pct_tottime": 3.0193365646273195e-06
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\playwright\\async_api\\__init__.py",
+      "tottime": 2.7e-06,
+      "pct_tottime": 2.911503115890629e-06
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\playwright\\_impl\\_selectors.py",
+      "tottime": 2.2e-06,
+      "pct_tottime": 2.3723358722071794e-06
+    },
+    {
+      "file": "E:\\miniconda3\\envs\\ai_cuda\\Lib\\site-packages\\playwright\\_impl\\_clock.py",
+      "tottime": 1.6000000000000001e-06,
+      "pct_tottime": 1.7253351797870396e-06
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "generated_at": "2025-11-16T15:39:41",
+  "duration_sec": 20.0,
+  "interval_sec": 1.0,
+  "filter": "region_grow.py",
+  "pids": [],
+  "processes": [
+    {
+      "pid": 23040,
+      "name": "python.exe",
+      "cmdline": [
+        "E:\\miniconda3\\envs\\ai_cuda\\python.exe",
+        "utils/region_grow_compute.py",
+        "--duration",
+        "20",
+        "--filter",
+        "region_grow.py"
+      ],
+      "samples": 20,
+      "cpu_percent_avg": 0.0,
+      "cpu_percent_max": 0.0,
+      "rss_mb_avg": 22.49,
+      "rss_mb_max": 22.492,
+      "gpu_mem_mb_avg": 0.0,
+      "gpu_mem_mb_max": 0.0
+    }
+  ],
+  "gpu_monitoring": false
+}

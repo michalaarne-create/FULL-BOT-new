@@ -1,0 +1,100 @@
+                    device_label = f"gpu:{PADDLE_GPU_ID}"
+                except Exception:
+                    try:
+                        paddle.set_device("gpu")
+                        device_label = "gpu"
+                    except Exception:
+                        paddle.set_device("cpu")
+                        device_label = "cpu"
+            _paddle = PaddleOCR(
+                lang="en",
+                use_textline_orientation=False,
+                text_recognition_batch_size=PADDLE_REC_BATCH,
+            )
+            print(f"[DEBUG] PaddleOCR initialized on {device_label} (batch={PADDLE_REC_BATCH})")
+        except Exception as exc:
+            print(f"[WARN] PaddleOCR GPU init failed ({exc}), falling back to CPU")
+            try:
+                _paddle = PaddleOCR(
+                    lang="en",
+                    use_textline_orientation=False,
+                    text_recognition_batch_size=PADDLE_REC_BATCH,
+                )
+                print("[DEBUG] PaddleOCR initialized on CPU")
+            except Exception as exc2:
+                print(f"[ERROR] PaddleOCR initialization failed: {exc2}")
+                _paddle = None
+    return _paddle
+
+def get_rapid_ocr():
+    global _rapid
+    if _rapid is None and RapidOCR is not None:
+        try:
+            if paddle is not None:
+                try:
+                    paddle.device.set_device(f"gpu:{PADDLE_GPU_ID}")
+                except Exception:
+                    paddle.device.set_device("gpu")
+            _rapid = RapidOCR(use_gpu=True)
+            print("[DEBUG] RapidOCR (paddle) initialized")
+        except Exception as exc:
+            print(f"[WARN] RapidOCR init failed: {exc}")
+            _rapid = None
+    return _rapid
+
+def _preprocess_for_ocr(img_pil: Image.Image):
+    w, h = img_pil.size
+    base_scale = 1.0
+    max_side = float(max(w, h))
+    if max_side > OCR_MAX_SIDE:
+        base_scale = OCR_MAX_SIDE / max_side
+    tgt = img_pil if base_scale == 1.0 else img_pil.resize((int(w * base_scale), int(h * base_scale)), Image.BILINEAR)
+    arr0 = np.array(tgt)
+    
+    lab = cv2.cvtColor(arr0, cv2.COLOR_RGB2LAB)
+    L, A, B = cv2.split(lab)
+    L = cv2.createCLAHE(2.0, (8, 8)).apply(L)
+    arr0 = cv2.cvtColor(cv2.merge([L, A, B]), cv2.COLOR_LAB2RGB)
+    arr0 = cv2.addWeighted(arr0, 1.5, cv2.GaussianBlur(arr0, (0, 0), 1.0), -0.5, 0)
+    
+    return arr0, base_scale
+
+def _parse_rec_result(res) -> Tuple[str, float]:
+    try:
+        if not isinstance(res, list) or not res:
+            return "", 0.0
+        entry = res[0]
+
+        def _try_unpack(node):
+            if isinstance(node, (list, tuple)) and len(node) >= 2 and isinstance(node[1], (int, float)):
+                return (node[0] or "").strip(), float(node[1] or 0.0)
+            if (
+                isinstance(node, (list, tuple))
+                and len(node) >= 2
+                and isinstance(node[1], (list, tuple))
+                and len(node[1]) >= 2
+            ):
+                return (node[1][0] or "").strip(), float(node[1][1] or 0.0)
+            return None
+
+        # Case 1: entry is already a (text, conf) tuple/list
+        unpacked = _try_unpack(entry)
+        if unpacked:
+            return unpacked
+
+        # Case 2: entry is a list whose first element is (text, conf)
+        if isinstance(entry, (list, tuple)) and entry:
+            unpacked = _try_unpack(entry[0])
+            if unpacked:
+                return unpacked
+    except Exception:
+        pass
+    return "", 0.0
+
+def _tesseract_fallback(img_pil: Image.Image) -> List[Tuple[List[Tuple[int, int]], str, float]]:
+    """Generuje (quad, text, conf) wykorzystuj¹c pytesseract, gdy Paddle nie widzi pól."""
+    if pytesseract is None:
+        return []
+    try:
+        data = pytesseract.image_to_data(
+            img_pil,

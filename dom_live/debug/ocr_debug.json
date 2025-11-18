@@ -1,0 +1,70 @@
+{
+  "tab_bbox": {
+    "x_start": 1083,
+    "x_end": 1407,
+    "width": 1920
+  },
+  "crops": [
+    {
+      "file": "E:\\BOT ANK\\bot\\moje_AI\\yolov8\\FULL BOT\\dom_live\\debug\\ocr_strip1.png",
+      "width": 1920,
+      "height": 129
+    },
+    {
+      "file": "E:\\BOT ANK\\bot\\moje_AI\\yolov8\\FULL BOT\\dom_live\\debug\\ocr_strip1_active.png",
+      "width": 324,
+      "height": 129,
+      "tokens": [
+        "wnicySzczegoly Ustugi",
+        "v 100%",
+        "67%",
+        "1%",
+        "1%",
+        "Procesor....",
+        "Pamiec",
+        "Dysk",
+        "Siec",
+        "Pro"
+      ]
+    },
+    {
+      "file": "E:\\BOT ANK\\bot\\moje_AI\\yolov8\\FULL BOT\\dom_live\\debug\\ocr_strip2_center.png",
+      "width": 672,
+      "height": 64,
+      "tokens": [
+        "from",
+        "Fut",
+        "X",
+        "Visual Studio Code (18)",
+        "60,3%",
+        "2 045,8 MB",
+        "0,1 MB/s",
+        "System",
+        "6,4%",
+        "0,1 MB",
+        "2,8 MB/s"
+      ]
+    }
+  ],
+  "hint": "wnicySzczegoly Ustugi v 100% 67% 1% 1% Procesor.... Pamiec Dysk Siec Pro from Fut X Visual Studio Code (18) 60,3% 2 045,8 MB 0,1 MB/s System 6,4% 0,1 MB 2,8 MB/s",
+  "hint_norm": "wnicyszczegoly ustugi v 100% 67% 1% 1% procesor.... pamiec dysk siec pro from fut x visual studio code (18) 60,3% 2 045,8 mb 0,1 mb/s system 6,4% 0,1 mb 2,8 mb/s",
+  "core": "wnicyszczegoly",
+  "candidates": [
+    {
+      "pid": "2290353277840",
+      "url": "https://www.google.com/",
+      "title": "Google",
+      "scores": {
+        "s_url": 0.07017543859649122,
+        "s_dom": 0.08,
+        "s_title": 0.04790419161676647,
+        "url_has_core": 0.0,
+        "dom_has_core": 0.0,
+        "title_has_core": 0.0,
+        "contains_dom": 0.0,
+        "contains_brand": 0.0,
+        "total": 0.08
+      }
+    }
+  ]
+}

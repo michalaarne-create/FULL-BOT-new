@@ -1,0 +1,749 @@
+{
+  "image": "E:\\BOT ANK\\bot\\moje_AI\\yolov8\\FULL BOT\\data\\screen\\raw screen\\Zrzut ekranu 2025-10-25 163249_annot.png",
+  "color_histogram": {
+    "top": [
+      {
+        "rgb": [
+          248,
+          248,
+          248
+        ],
+        "pct": 0.874395
+      },
+      {
+        "rgb": [
+          248,
+          104,
+          104
+        ],
+        "pct": 0.05383
+      },
+      {
+        "rgb": [
+          248,
+          152,
+          200
+        ],
+        "pct": 0.011895
+      },
+      {
+        "rgb": [
+          248,
+          8,
+          8
+        ],
+        "pct": 0.011743
+      },
+      {
+        "rgb": [
+          8,
+          136,
+          248
+        ],
+        "pct": 0.008965
+      },
+      {
+        "rgb": [
+          248,
+          248,
+          40
+        ],
+        "pct": 0.007203
+      },
+      {
+        "rgb": [
+          24,
+          24,
+          24
+        ],
+        "pct": 0.005449
+      },
+      {
+        "rgb": [
+          152,
+          56,
+          104
+        ],
+        "pct": 0.003866
+      }
+    ],
+    "dominant_pct": 0.8743950781825878,
+    "dominant_rgb": [
+      248,
+      248,
+      248
+    ]
+  },
+  "dominant_bg_over_50": true,
+  "results": [
+    {
+      "text": "",
+      "conf": 0.5,
+      "text_box": [
+        248,
+        636,
+        368,
+        657
+      ],
+      "has_frame": true,
+      "frame_hits": 4,
+      "dropdown_box": [
+        0,
+        199,
+        392,
+        770
+      ],
+      "frame_rgb": [
+        255,
+        149,
+        202
+      ],
+      "laser_endpoints": [
+        [
+          392,
+          646
+        ],
+        [
+          81,
+          646
+        ],
+        [
+          308,
+          207
+        ],
+        [
+          308,
+          746
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "conf": 0.5,
+      "text_box": [
+        249,
+        600,
+        367,
+        635
+      ],
+      "has_frame": false,
+      "frame_hits": 3,
+      "dropdown_box": [
+        0,
+        199,
+        392,
+        770
+      ],
+      "frame_rgb": [
+        255,
+        149,
+        202
+      ],
+      "laser_endpoints": [
+        [
+          392,
+          617
+        ],
+        [
+          308,
+          617
+        ],
+        [
+          308,
+          207
+        ],
+        [
+          308,
+          746
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "conf": 0.5,
+      "text_box": [
+        39,
+        523,
+        367,
+        599
+      ],
+      "has_frame": false,
+      "frame_hits": 3,
+      "dropdown_box": [
+        0,
+        199,
+        392,
+        770
+      ],
+      "frame_rgb": [
+        255,
+        149,
+        202
+      ],
+      "laser_endpoints": [
+        [
+          392,
+          561
+        ],
+        [
+          203,
+          561
+        ],
+        [
+          203,
+          207
+        ],
+        [
+          203,
+          746
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "conf": 0.5,
+      "text_box": [
+        260,
+        513,
+        367,
+        548
+      ],
+      "has_frame": false,
+      "frame_hits": 3,
+      "dropdown_box": [
+        0,
+        199,
+        392,
+        770
+      ],
+      "frame_rgb": [
+        255,
+        149,
+        202
+      ],
+      "laser_endpoints": [
+        [
+          392,
+          530
+        ],
+        [
+          313,
+          530
+        ],
+        [
+          313,
+          207
+        ],
+        [
+          313,
+          746
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "conf": 0.5,
+      "text_box": [
+        39,
+        483,
+        257,
+        522
+      ],
+      "has_frame": false,
+      "frame_hits": 0,
+      "dropdown_box": [
+        253,
+        478,
+        285,
+        511
+      ],
+      "frame_rgb": null,
+      "laser_endpoints": [
+        [
+          148,
+          502
+        ],
+        [
+          148,
+          502
+        ],
+        [
+          148,
+          502
+        ],
+        [
+          148,
+          502
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "conf": 0.5,
+      "text_box": [
+        260,
+        477,
+        337,
+        512
+      ],
+      "has_frame": false,
+      "frame_hits": 1,
+      "dropdown_box": [
+        308,
+        478,
+        360,
+        511
+      ],
+      "frame_rgb": [
+        255,
+        255,
+        35
+      ],
+      "laser_endpoints": [
+        [
+          360,
+          494
+        ],
+        [
+          298,
+          494
+        ],
+        [
+          298,
+          494
+        ],
+        [
+          298,
+          494
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "conf": 0.5,
+      "text_box": [
+        260,
+        441,
+        324,
+        476
+      ],
+      "has_frame": false,
+      "frame_hits": 1,
+      "dropdown_box": [
+        308,
+        442,
+        360,
+        475
+      ],
+      "frame_rgb": [
+        255,
+        255,
+        35
+      ],
+      "laser_endpoints": [
+        [
+          360,
+          458
+        ],
+        [
+          292,
+          458
+        ],
+        [
+          292,
+          458
+        ],
+        [
+          292,
+          458
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "conf": 0.5,
+      "text_box": [
+        39,
+        441,
+        257,
+        482
+      ],
+      "has_frame": false,
+      "frame_hits": 0,
+      "dropdown_box": [
+        252,
+        442,
+        285,
+        475
+      ],
+      "frame_rgb": null,
+      "laser_endpoints": [
+        [
+          148,
+          461
+        ],
+        [
+          148,
+          461
+        ],
+        [
+          148,
+          461
+        ],
+        [
+          148,
+          461
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "conf": 0.5,
+      "text_box": [
+        39,
+        403,
+        368,
+        442
+      ],
+      "has_frame": false,
+      "frame_hits": 3,
+      "dropdown_box": [
+        0,
+        199,
+        392,
+        770
+      ],
+      "frame_rgb": [
+        255,
+        149,
+        202
+      ],
+      "laser_endpoints": [
+        [
+          392,
+          422
+        ],
+        [
+          203,
+          422
+        ],
+        [
+          203,
+          207
+        ],
+        [
+          203,
+          746
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "conf": 0.5,
+      "text_box": [
+        39,
+        380,
+        258,
+        402
+      ],
+      "has_frame": false,
+      "frame_hits": 3,
+      "dropdown_box": [
+        0,
+        199,
+        392,
+        770
+      ],
+      "frame_rgb": [
+        255,
+        149,
+        202
+      ],
+      "laser_endpoints": [
+        [
+          392,
+          391
+        ],
+        [
+          148,
+          391
+        ],
+        [
+          148,
+          207
+        ],
+        [
+          148,
+          746
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "conf": 0.5,
+      "text_box": [
+        965,
+        272,
+        1113,
+        330
+      ],
+      "has_frame": false,
+      "frame_hits": 0,
+      "dropdown_box": [
+        974,
+        276,
+        1079,
+        324
+      ],
+      "frame_rgb": null,
+      "laser_endpoints": [
+        [
+          1039,
+          301
+        ],
+        [
+          944,
+          301
+        ],
+        [
+          1039,
+          246
+        ],
+        [
+          1039,
+          353
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "conf": 0.5,
+      "text_box": [
+        121,
+        252,
+        210,
+        265
+      ],
+      "has_frame": false,
+      "frame_hits": 2,
+      "dropdown_box": [
+        160,
+        245,
+        219,
+        280
+      ],
+      "frame_rgb": null,
+      "laser_endpoints": [
+        [
+          165,
+          258
+        ],
+        [
+          165,
+          258
+        ],
+        [
+          165,
+          238
+        ],
+        [
+          165,
+          288
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "conf": 0.5,
+      "text_box": [
+        39,
+        240,
+        405,
+        285
+      ],
+      "has_frame": false,
+      "frame_hits": 0,
+      "dropdown_box": [
+        400,
+        242,
+        1002,
+        282
+      ],
+      "frame_rgb": [
+        222,
+        222,
+        223
+      ],
+      "laser_endpoints": [
+        [
+          222,
+          262
+        ],
+        [
+          222,
+          262
+        ],
+        [
+          222,
+          262
+        ],
+        [
+          222,
+          262
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "conf": 0.5,
+      "text_box": [
+        1071,
+        236,
+        1113,
+        257
+      ],
+      "has_frame": false,
+      "frame_hits": 0,
+      "dropdown_box": null,
+      "frame_rgb": null,
+      "laser_endpoints": null
+    },
+    {
+      "text": "",
+      "conf": 0.5,
+      "text_box": [
+        1072,
+        200,
+        1113,
+        218
+      ],
+      "has_frame": false,
+      "frame_hits": 0,
+      "dropdown_box": null,
+      "frame_rgb": null,
+      "laser_endpoints": null
+    },
+    {
+      "text": "",
+      "conf": 0.5,
+      "text_box": [
+        1072,
+        175,
+        1113,
+        193
+      ],
+      "has_frame": false,
+      "frame_hits": 0,
+      "dropdown_box": null,
+      "frame_rgb": null,
+      "laser_endpoints": null
+    },
+    {
+      "text": "",
+      "conf": 0.5,
+      "text_box": [
+        1072,
+        151,
+        1113,
+        169
+      ],
+      "has_frame": false,
+      "frame_hits": 0,
+      "dropdown_box": null,
+      "frame_rgb": null,
+      "laser_endpoints": null
+    },
+    {
+      "text": "",
+      "conf": 0.5,
+      "text_box": [
+        1072,
+        128,
+        1113,
+        145
+      ],
+      "has_frame": false,
+      "frame_hits": 0,
+      "dropdown_box": null,
+      "frame_rgb": null,
+      "laser_endpoints": null
+    },
+    {
+      "text": "",
+      "conf": 0.5,
+      "text_box": [
+        1072,
+        104,
+        1113,
+        121
+      ],
+      "has_frame": false,
+      "frame_hits": 0,
+      "dropdown_box": null,
+      "frame_rgb": null,
+      "laser_endpoints": null
+    },
+    {
+      "text": "",
+      "conf": 0.5,
+      "text_box": [
+        1072,
+        80,
+        1113,
+        97
+      ],
+      "has_frame": false,
+      "frame_hits": 0,
+      "dropdown_box": null,
+      "frame_rgb": null,
+      "laser_endpoints": null
+    },
+    {
+      "text": "",
+      "conf": 0.5,
+      "text_box": [
+        1041,
+        56,
+        1113,
+        73
+      ],
+      "has_frame": false,
+      "frame_hits": 0,
+      "dropdown_box": null,
+      "frame_rgb": null,
+      "laser_endpoints": null
+    },
+    {
+      "text": "",
+      "conf": 0.5,
+      "text_box": [
+        1041,
+        32,
+        1113,
+        49
+      ],
+      "has_frame": false,
+      "frame_hits": 0,
+      "dropdown_box": null,
+      "frame_rgb": null,
+      "laser_endpoints": null
+    },
+    {
+      "text": "",
+      "conf": 0.5,
+      "text_box": [
+        1072,
+        7,
+        1113,
+        25
+      ],
+      "has_frame": false,
+      "frame_hits": 0,
+      "dropdown_box": null,
+      "frame_rgb": null,
+      "laser_endpoints": null
+    }
+  ],
+  "triangles": [],
+  "ocr_debug": null
+}

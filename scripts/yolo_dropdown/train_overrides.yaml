@@ -1,0 +1,35 @@
+# Ultralytics train overrides for dropdown detector
+epochs: 40
+imgsz: 512
+batch: 12
+optimizer: sgd
+device: 0
+project: runs_dropdown
+name: train
+patience: 25
+cos_lr: false
+lr0: 0.01
+lrf: 0.01
+weight_decay: 0.0005
+warmup_epochs: 2.0
+rect: false
+workers: 2
+save_period: 0
+exist_ok: true
+deterministic: false  # allow cuDNN autotune for higher throughput
+# Let PyTorch JIT/compile optimize model graph (first epoch slower)
+compile: false  # disable torch.compile; Triton not available on your setup
+# Use rectangular training to reduce padding overhead and speed IO
+rect: true
+# Reduce augments that can harm small UI markers
+flipud: 0.0
+mosaic: 0.0
+erasing: 0.0
+copy_paste: 0.0
+translate: 0.02
+scale: 0.2
+hsv_h: 0.005
+hsv_s: 0.3
+hsv_v: 0.2
+val: false
+plots: false

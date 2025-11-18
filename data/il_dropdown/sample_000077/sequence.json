@@ -1,0 +1,275 @@
+{
+  "frames": [
+    {
+      "path": "frame_000.png",
+      "state": {
+        "open": false
+      }
+    },
+    {
+      "path": "frame_001.png",
+      "state": {
+        "open": true,
+        "scroll_idx": 0
+      }
+    },
+    {
+      "path": "frame_002.png",
+      "state": {
+        "open": true,
+        "scroll_idx": 1
+      }
+    },
+    {
+      "path": "frame_003.png",
+      "state": {
+        "open": true,
+        "scroll_idx": 2
+      }
+    },
+    {
+      "path": "frame_004.png",
+      "state": {
+        "open": true,
+        "scroll_idx": 3
+      }
+    },
+    {
+      "path": "frame_005.png",
+      "state": {
+        "open": true,
+        "scroll_idx": 4
+      }
+    },
+    {
+      "path": "frame_006.png",
+      "state": {
+        "open": true,
+        "scroll_idx": 5
+      }
+    },
+    {
+      "path": "frame_007.png",
+      "state": {
+        "open": true,
+        "scroll_idx": 6
+      }
+    },
+    {
+      "path": "frame_008.png",
+      "state": {
+        "open": true,
+        "scroll_idx": 7
+      }
+    },
+    {
+      "path": "frame_009.png",
+      "state": {
+        "open": true,
+        "scroll_idx": 8
+      }
+    },
+    {
+      "path": "frame_010.png",
+      "state": {
+        "open": true,
+        "scroll_idx": 9
+      }
+    }
+  ],
+  "actions": [
+    {
+      "frame": 0,
+      "type": "click",
+      "x": 175,
+      "y": 370
+    },
+    {
+      "frame": 1,
+      "type": "move",
+      "points": [
+        [
+          173,
+          371,
+          0.0
+        ],
+        [
+          181,
+          371,
+          0.041666666666666664
+        ],
+        [
+          182,
+          376,
+          0.08333333333333333
+        ],
+        [
+          185,
+          380,
+          0.125
+        ],
+        [
+          192,
+          384,
+          0.16666666666666666
+        ],
+        [
+          192,
+          388,
+          0.20833333333333334
+        ],
+        [
+          199,
+          391,
+          0.25
+        ],
+        [
+          202,
+          391,
+          0.2916666666666667
+        ],
+        [
+          204,
+          393,
+          0.3333333333333333
+        ],
+        [
+          210,
+          400,
+          0.375
+        ],
+        [
+          214,
+          399,
+          0.4166666666666667
+        ],
+        [
+          216,
+          405,
+          0.4583333333333333
+        ],
+        [
+          224,
+          406,
+          0.5
+        ],
+        [
+          227,
+          411,
+          0.5416666666666666
+        ],
+        [
+          227,
+          412,
+          0.5833333333333334
+        ],
+        [
+          234,
+          418,
+          0.625
+        ],
+        [
+          238,
+          421,
+          0.6666666666666666
+        ],
+        [
+          242,
+          422,
+          0.7083333333333334
+        ],
+        [
+          246,
+          427,
+          0.75
+        ],
+        [
+          247,
+          430,
+          0.7916666666666666
+        ],
+        [
+          252,
+          432,
+          0.8333333333333334
+        ],
+        [
+          256,
+          434,
+          0.875
+        ],
+        [
+          260,
+          441,
+          0.9166666666666666
+        ],
+        [
+          264,
+          441,
+          0.9583333333333334
+        ],
+        [
+          269,
+          445,
+          1.0
+        ]
+      ]
+    },
+    {
+      "frame": 2,
+      "type": "scroll",
+      "amount": 1
+    },
+    {
+      "frame": 3,
+      "type": "scroll",
+      "amount": 1
+    },
+    {
+      "frame": 4,
+      "type": "scroll",
+      "amount": 1
+    },
+    {
+      "frame": 5,
+      "type": "scroll",
+      "amount": 1
+    },
+    {
+      "frame": 6,
+      "type": "scroll",
+      "amount": 1
+    },
+    {
+      "frame": 7,
+      "type": "scroll",
+      "amount": 1
+    },
+    {
+      "frame": 8,
+      "type": "scroll",
+      "amount": 1
+    },
+    {
+      "frame": 9,
+      "type": "scroll",
+      "amount": 1
+    },
+    {
+      "frame": 10,
+      "type": "scroll",
+      "amount": 1
+    },
+    {
+      "frame": 10,
+      "type": "click",
+      "x": 175,
+      "y": 487
+    }
+  ],
+  "meta": {
+    "opt_h": 28,
+    "vis_rows": 4,
+    "total_rows": 13
+  }
+}

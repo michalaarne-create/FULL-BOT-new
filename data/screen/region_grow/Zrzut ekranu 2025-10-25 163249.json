@@ -1,0 +1,1134 @@
+{
+  "image": "E:\\BOT ANK\\bot\\moje_AI\\yolov8\\FULL BOT\\data\\screen\\raw screen\\Zrzut ekranu 2025-10-25 163249.png",
+  "color_histogram": {
+    "top": [
+      {
+        "rgb": [
+          248,
+          248,
+          248
+        ],
+        "pct": 0.968915
+      },
+      {
+        "rgb": [
+          24,
+          24,
+          24
+        ],
+        "pct": 0.005722
+      },
+      {
+        "rgb": [
+          216,
+          216,
+          216
+        ],
+        "pct": 0.004917
+      },
+      {
+        "rgb": [
+          232,
+          232,
+          232
+        ],
+        "pct": 0.004354
+      },
+      {
+        "rgb": [
+          8,
+          8,
+          8
+        ],
+        "pct": 0.001903
+      },
+      {
+        "rgb": [
+          168,
+          216,
+          216
+        ],
+        "pct": 0.001618
+      },
+      {
+        "rgb": [
+          184,
+          184,
+          184
+        ],
+        "pct": 0.000413
+      },
+      {
+        "rgb": [
+          104,
+          104,
+          104
+        ],
+        "pct": 0.000407
+      }
+    ],
+    "dominant_pct": 0.9689148373963524,
+    "dominant_rgb": [
+      248,
+      248,
+      248
+    ]
+  },
+  "dominant_bg_over_50": true,
+  "results": [
+    {
+      "text": "Searcl",
+      "conf": 0.9510068694750468,
+      "text_box": [
+        1078,
+        7,
+        1112,
+        25
+      ],
+      "has_frame": false,
+      "frame_hits": 0,
+      "dropdown_box": null,
+      "frame_rgb": null,
+      "laser_endpoints": null
+    },
+    {
+      "text": "Multi",
+      "conf": 0.977160120010376,
+      "text_box": [
+        1078,
+        30,
+        1112,
+        49
+      ],
+      "has_frame": false,
+      "frame_hits": 1,
+      "dropdown_box": [
+        1046,
+        0,
+        1113,
+        742
+      ],
+      "frame_rgb": [
+        222,
+        222,
+        223
+      ],
+      "laser_endpoints": [
+        [
+          1095,
+          39
+        ],
+        [
+          1045,
+          39
+        ],
+        [
+          1095,
+          0
+        ],
+        [
+          1095,
+          584
+        ]
+      ]
+    },
+    {
+      "text": "Trending repos today",
+      "conf": 0.9598416358232498,
+      "text_box": [
+        80,
+        43,
+        237,
+        63
+      ],
+      "has_frame": false,
+      "frame_hits": 3,
+      "dropdown_box": [
+        0,
+        0,
+        1045,
+        813
+      ],
+      "frame_rgb": [
+        222,
+        222,
+        223
+      ],
+      "laser_endpoints": [
+        [
+          1045,
+          53
+        ],
+        [
+          64,
+          53
+        ],
+        [
+          158,
+          53
+        ],
+        [
+          158,
+          241
+        ]
+      ]
+    },
+    {
+      "text": "Multip",
+      "conf": 0.8903199682633082,
+      "text_box": [
+        1078,
+        55,
+        1112,
+        73
+      ],
+      "has_frame": false,
+      "frame_hits": 1,
+      "dropdown_box": [
+        1046,
+        0,
+        1113,
+        767
+      ],
+      "frame_rgb": [
+        222,
+        222,
+        223
+      ],
+      "laser_endpoints": [
+        [
+          1095,
+          64
+        ],
+        [
+          1045,
+          64
+        ],
+        [
+          1095,
+          0
+        ],
+        [
+          1095,
+          584
+        ]
+      ]
+    },
+    {
+      "text": "Searcl",
+      "conf": 0.9573774337768555,
+      "text_box": [
+        1078,
+        78,
+        1112,
+        98
+      ],
+      "has_frame": false,
+      "frame_hits": 0,
+      "dropdown_box": null,
+      "frame_rgb": null,
+      "laser_endpoints": null
+    },
+    {
+      "text": "Searcl",
+      "conf": 0.9510068694750468,
+      "text_box": [
+        1078,
+        103,
+        1112,
+        121
+      ],
+      "has_frame": false,
+      "frame_hits": 0,
+      "dropdown_box": null,
+      "frame_rgb": null,
+      "laser_endpoints": null
+    },
+    {
+      "text": "Inline",
+      "conf": 0.9944895406564077,
+      "text_box": [
+        1078,
+        126,
+        1112,
+        145
+      ],
+      "has_frame": false,
+      "frame_hits": 0,
+      "dropdown_box": null,
+      "frame_rgb": null,
+      "laser_endpoints": null
+    },
+    {
+      "text": "Pointing",
+      "conf": 0.9994540438055992,
+      "text_box": [
+        41,
+        159,
+        114,
+        184
+      ],
+      "has_frame": false,
+      "frame_hits": 1,
+      "dropdown_box": [
+        0,
+        0,
+        936,
+        813
+      ],
+      "frame_rgb": [
+        246,
+        246,
+        246
+      ],
+      "laser_endpoints": [
+        [
+          965,
+          171
+        ],
+        [
+          77,
+          171
+        ],
+        [
+          77,
+          171
+        ],
+        [
+          77,
+          241
+        ]
+      ]
+    },
+    {
+      "text": "Pointi",
+      "conf": 0.9987859427928925,
+      "text_box": [
+        1078,
+        150,
+        1112,
+        169
+      ],
+      "has_frame": false,
+      "frame_hits": 0,
+      "dropdown_box": null,
+      "frame_rgb": null,
+      "laser_endpoints": null
+    },
+    {
+      "text": "<>",
+      "conf": 0.6635547578334808,
+      "text_box": [
+        987,
+        167,
+        1003,
+        179
+      ],
+      "has_frame": false,
+      "frame_hits": 2,
+      "dropdown_box": [
+        357,
+        0,
+        1045,
+        275
+      ],
+      "frame_rgb": [
+        222,
+        222,
+        223
+      ],
+      "laser_endpoints": [
+        [
+          1045,
+          173
+        ],
+        [
+          327,
+          173
+        ],
+        [
+          995,
+          173
+        ],
+        [
+          995,
+          241
+        ]
+      ]
+    },
+    {
+      "text": "Floati",
+      "conf": 0.9939529101053873,
+      "text_box": [
+        1077,
+        172,
+        1112,
+        194
+      ],
+      "has_frame": false,
+      "frame_hits": 0,
+      "dropdown_box": null,
+      "frame_rgb": null,
+      "laser_endpoints": null
+    },
+    {
+      "text": "A dropdown can be formatted so that its menu is pointing",
+      "conf": 0.9901066944003105,
+      "text_box": [
+        40,
+        185,
+        451,
+        209
+      ],
+      "has_frame": false,
+      "frame_hits": 2,
+      "dropdown_box": [
+        0,
+        0,
+        1045,
+        813
+      ],
+      "frame_rgb": [
+        222,
+        222,
+        223
+      ],
+      "laser_endpoints": [
+        [
+          1045,
+          197
+        ],
+        [
+          245,
+          197
+        ],
+        [
+          245,
+          197
+        ],
+        [
+          245,
+          241
+        ]
+      ]
+    },
+    {
+      "text": "Simple",
+      "conf": 0.9404212335745493,
+      "text_box": [
+        1078,
+        198,
+        1112,
+        217
+      ],
+      "has_frame": false,
+      "frame_hits": 0,
+      "dropdown_box": null,
+      "frame_rgb": null,
+      "laser_endpoints": null
+    },
+    {
+      "text": "Cont",
+      "conf": 0.9933846294879913,
+      "text_box": [
+        1079,
+        237,
+        1112,
+        256
+      ],
+      "has_frame": false,
+      "frame_hits": 0,
+      "dropdown_box": null,
+      "frame_rgb": null,
+      "laser_endpoints": null
+    },
+    {
+      "text": "Home",
+      "conf": 0.9993060082197189,
+      "text_box": [
+        57,
+        252,
+        102,
+        273
+      ],
+      "has_frame": true,
+      "frame_hits": 4,
+      "dropdown_box": [
+        44,
+        242,
+        112,
+        282
+      ],
+      "frame_rgb": [
+        223,
+        223,
+        224
+      ],
+      "laser_endpoints": [
+        [
+          112,
+          262
+        ],
+        [
+          43,
+          262
+        ],
+        [
+          79,
+          241
+        ],
+        [
+          79,
+          282
+        ]
+      ]
+    },
+    {
+      "text": "Shopping",
+      "conf": 0.9998331889510155,
+      "text_box": [
+        125,
+        251,
+        193,
+        275
+      ],
+      "has_frame": true,
+      "frame_hits": 4,
+      "dropdown_box": [
+        113,
+        242,
+        221,
+        282
+      ],
+      "frame_rgb": [
+        222,
+        222,
+        223
+      ],
+      "laser_endpoints": [
+        [
+          201,
+          263
+        ],
+        [
+          112,
+          263
+        ],
+        [
+          159,
+          241
+        ],
+        [
+          159,
+          282
+        ]
+      ]
+    },
+    {
+      "text": "Forums",
+      "conf": 0.9956344664096832,
+      "text_box": [
+        235,
+        252,
+        287,
+        273
+      ],
+      "has_frame": true,
+      "frame_hits": 4,
+      "dropdown_box": [
+        222,
+        242,
+        299,
+        282
+      ],
+      "frame_rgb": [
+        222,
+        222,
+        223
+      ],
+      "laser_endpoints": [
+        [
+          299,
+          262
+        ],
+        [
+          221,
+          262
+        ],
+        [
+          261,
+          241
+        ],
+        [
+          261,
+          282
+        ]
+      ]
+    },
+    {
+      "text": "Contact Us",
+      "conf": 0.9990978181362152,
+      "text_box": [
+        314,
+        252,
+        388,
+        272
+      ],
+      "has_frame": true,
+      "frame_hits": 4,
+      "dropdown_box": [
+        300,
+        242,
+        399,
+        282
+      ],
+      "frame_rgb": [
+        222,
+        222,
+        223
+      ],
+      "laser_endpoints": [
+        [
+          399,
+          262
+        ],
+        [
+          299,
+          262
+        ],
+        [
+          351,
+          241
+        ],
+        [
+          351,
+          282
+        ]
+      ]
+    },
+    {
+      "text": "State",
+      "conf": 0.9972683668136597,
+      "text_box": [
+        1076,
+        272,
+        1112,
+        294
+      ],
+      "has_frame": false,
+      "frame_hits": 0,
+      "dropdown_box": null,
+      "frame_rgb": null,
+      "laser_endpoints": null
+    },
+    {
+      "text": "View Source",
+      "conf": 0.9925016923384233,
+      "text_box": [
+        985,
+        284,
+        1068,
+        308
+      ],
+      "has_frame": false,
+      "frame_hits": 3,
+      "dropdown_box": [
+        974,
+        275,
+        1079,
+        324
+      ],
+      "frame_rgb": [
+        255,
+        255,
+        255
+      ],
+      "laser_endpoints": [
+        [
+          1108,
+          296
+        ],
+        [
+          973,
+          296
+        ],
+        [
+          1026,
+          274
+        ],
+        [
+          1026,
+          318
+        ]
+      ]
+    },
+    {
+      "text": "Varia",
+      "conf": 0.9940292596817016,
+      "text_box": [
+        1079,
+        309,
+        1112,
+        328
+      ],
+      "has_frame": false,
+      "frame_hits": 0,
+      "dropdown_box": null,
+      "frame_rgb": null,
+      "laser_endpoints": null
+    },
+    {
+      "text": "Home",
+      "conf": 0.999394491314888,
+      "text_box": [
+        56,
+        390,
+        103,
+        414
+      ],
+      "has_frame": true,
+      "frame_hits": 4,
+      "dropdown_box": [
+        44,
+        382,
+        252,
+        422
+      ],
+      "frame_rgb": [
+        223,
+        223,
+        224
+      ],
+      "laser_endpoints": [
+        [
+          252,
+          402
+        ],
+        [
+          43,
+          402
+        ],
+        [
+          79,
+          381
+        ],
+        [
+          79,
+          422
+        ]
+      ]
+    },
+    {
+      "text": "Messages",
+      "conf": 0.9993273317813873,
+      "text_box": [
+        57,
+        432,
+        124,
+        454
+      ],
+      "has_frame": true,
+      "frame_hits": 4,
+      "dropdown_box": [
+        44,
+        423,
+        251,
+        462
+      ],
+      "frame_rgb": [
+        222,
+        222,
+        223
+      ],
+      "laser_endpoints": [
+        [
+          226,
+          443
+        ],
+        [
+          43,
+          443
+        ],
+        [
+          90,
+          422
+        ],
+        [
+          90,
+          462
+        ]
+      ]
+    },
+    {
+      "text": "Inbox",
+      "conf": 0.9959577798843384,
+      "text_box": [
+        266,
+        431,
+        308,
+        452
+      ],
+      "has_frame": true,
+      "frame_hits": 4,
+      "dropdown_box": [
+        249,
+        423,
+        362,
+        574
+      ],
+      "frame_rgb": [
+        222,
+        222,
+        223
+      ],
+      "laser_endpoints": [
+        [
+          362,
+          441
+        ],
+        [
+          249,
+          441
+        ],
+        [
+          287,
+          422
+        ],
+        [
+          287,
+          574
+        ]
+      ]
+    },
+    {
+      "text": "Browse",
+      "conf": 0.9991530875364939,
+      "text_box": [
+        57,
+        470,
+        110,
+        495
+      ],
+      "has_frame": true,
+      "frame_hits": 4,
+      "dropdown_box": [
+        44,
+        463,
+        251,
+        502
+      ],
+      "frame_rgb": [
+        232,
+        233,
+        233
+      ],
+      "laser_endpoints": [
+        [
+          252,
+          482
+        ],
+        [
+          43,
+          482
+        ],
+        [
+          83,
+          462
+        ],
+        [
+          83,
+          502
+        ]
+      ]
+    },
+    {
+      "text": "Starred",
+      "conf": 0.939724692276546,
+      "text_box": [
+        265,
+        465,
+        317,
+        489
+      ],
+      "has_frame": true,
+      "frame_hits": 4,
+      "dropdown_box": [
+        249,
+        423,
+        362,
+        574
+      ],
+      "frame_rgb": [
+        222,
+        222,
+        223
+      ],
+      "laser_endpoints": [
+        [
+          362,
+          477
+        ],
+        [
+          252,
+          477
+        ],
+        [
+          291,
+          422
+        ],
+        [
+          291,
+          574
+        ]
+      ]
+    },
+    {
+      "text": "Help",
+      "conf": 0.9916196912527084,
+      "text_box": [
+        57,
+        511,
+        93,
+        534
+      ],
+      "has_frame": true,
+      "frame_hits": 4,
+      "dropdown_box": [
+        44,
+        503,
+        251,
+        542
+      ],
+      "frame_rgb": [
+        222,
+        222,
+        223
+      ],
+      "laser_endpoints": [
+        [
+          252,
+          522
+        ],
+        [
+          43,
+          522
+        ],
+        [
+          75,
+          502
+        ],
+        [
+          75,
+          542
+        ]
+      ]
+    },
+    {
+      "text": "Sent Mail",
+      "conf": 0.9995336201455858,
+      "text_box": [
+        266,
+        502,
+        331,
+        523
+      ],
+      "has_frame": true,
+      "frame_hits": 4,
+      "dropdown_box": [
+        249,
+        423,
+        362,
+        574
+      ],
+      "frame_rgb": [
+        222,
+        222,
+        223
+      ],
+      "laser_endpoints": [
+        [
+          362,
+          512
+        ],
+        [
+          252,
+          512
+        ],
+        [
+          298,
+          422
+        ],
+        [
+          298,
+          574
+        ]
+      ]
+    },
+    {
+      "text": "Drafts (143)",
+      "conf": 0.999543289343516,
+      "text_box": [
+        266,
+        539,
+        347,
+        559
+      ],
+      "has_frame": true,
+      "frame_hits": 4,
+      "dropdown_box": [
+        249,
+        423,
+        362,
+        574
+      ],
+      "frame_rgb": [
+        222,
+        222,
+        223
+      ],
+      "laser_endpoints": [
+        [
+          362,
+          549
+        ],
+        [
+          252,
+          549
+        ],
+        [
+          306,
+          422
+        ],
+        [
+          306,
+          574
+        ]
+      ]
+    },
+    {
+      "text": "Spam (1009)",
+      "conf": 0.9994750239632346,
+      "text_box": [
+        267,
+        590,
+        350,
+        611
+      ],
+      "has_frame": true,
+      "frame_hits": 4,
+      "dropdown_box": [
+        253,
+        575,
+        362,
+        654
+      ],
+      "frame_rgb": [
+        222,
+        222,
+        223
+      ],
+      "laser_endpoints": [
+        [
+          362,
+          600
+        ],
+        [
+          252,
+          600
+        ],
+        [
+          308,
+          574
+        ],
+        [
+          308,
+          654
+        ]
+      ]
+    },
+    {
+      "text": "Trash",
+      "conf": 0.999862539768219,
+      "text_box": [
+        267,
+        626,
+        306,
+        645
+      ],
+      "has_frame": true,
+      "frame_hits": 4,
+      "dropdown_box": [
+        253,
+        575,
+        362,
+        654
+      ],
+      "frame_rgb": [
+        222,
+        222,
+        223
+      ],
+      "laser_endpoints": [
+        [
+          362,
+          635
+        ],
+        [
+          252,
+          635
+        ],
+        [
+          286,
+          574
+        ],
+        [
+          286,
+          654
+        ]
+      ]
+    },
+    {
+      "text": "Bottom pointing dropdown menus have sub-menus open upwards",
+      "conf": 0.997553676366806,
+      "text_box": [
+        63,
+        761,
+        472,
+        781
+      ],
+      "has_frame": true,
+      "frame_hits": 4,
+      "dropdown_box": [
+        44,
+        748,
+        742,
+        794
+      ],
+      "frame_rgb": [
+        169,
+        213,
+        222
+      ],
+      "laser_endpoints": [
+        [
+          742,
+          771
+        ],
+        [
+          43,
+          771
+        ],
+        [
+          267,
+          747
+        ],
+        [
+          267,
+          794
+        ]
+      ]
+    }
+  ],
+  "triangles": [],
+  "ocr_debug": null
+}

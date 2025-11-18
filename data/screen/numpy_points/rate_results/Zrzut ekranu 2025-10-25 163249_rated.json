@@ -1,0 +1,1094 @@
+{
+  "image": "E:\\BOT ANK\\bot\\moje_AI\\yolov8\\FULL BOT\\data\\numpy_test\\Zrzut ekranu 2025-10-25 163249.png",
+  "total_elements": 37,
+  "elements": [
+    {
+      "id": "cand_1",
+      "box": "A dropdown can be formatted so that its menu is pointing",
+      "text": "A dropdown can be formatted so that its menu is pointing",
+      "bbox": [
+        41,
+        187,
+        446,
+        206
+      ],
+      "scores": {
+        "next_inactive": 0.0,
+        "next_active": 0.0,
+        "dropdown": 0.8913,
+        "answer_single": 0.0,
+        "answer_multi": 0.05,
+        "cookie_accept": 0.0,
+        "cookie_reject": 0.0
+      },
+      "predictions": {
+        "next_inactive": false,
+        "next_active": false,
+        "dropdown": true,
+        "answer_single": false,
+        "answer_multi": false,
+        "cookie_accept": false,
+        "cookie_reject": false
+      }
+    },
+    {
+      "id": "cand_3",
+      "box": "Messages",
+      "text": "Messages",
+      "bbox": [
+        58,
+        433,
+        120,
+        449
+      ],
+      "scores": {
+        "next_inactive": 0.075,
+        "next_active": 0.075,
+        "dropdown": 0.8836,
+        "answer_single": 0.0,
+        "answer_multi": 0.0,
+        "cookie_accept": 0.0,
+        "cookie_reject": 0.0
+      },
+      "predictions": {
+        "next_inactive": false,
+        "next_active": false,
+        "dropdown": true,
+        "answer_single": false,
+        "answer_multi": false,
+        "cookie_accept": false,
+        "cookie_reject": false
+      }
+    },
+    {
+      "id": "cand_5",
+      "box": "Starred",
+      "text": "Starred",
+      "bbox": [
+        266,
+        467,
+        314,
+        482
+      ],
+      "scores": {
+        "next_inactive": 0.075,
+        "next_active": 0.075,
+        "dropdown": 0.8836,
+        "answer_single": 0.0,
+        "answer_multi": 0.05,
+        "cookie_accept": 0.0,
+        "cookie_reject": 0.0
+      },
+      "predictions": {
+        "next_inactive": false,
+        "next_active": false,
+        "dropdown": true,
+        "answer_single": false,
+        "answer_multi": false,
+        "cookie_accept": false,
+        "cookie_reject": false
+      }
+    },
+    {
+      "id": "cand_14",
+      "box": "Home",
+      "text": "Home",
+      "bbox": [
+        58,
+        253,
+        99,
+        269
+      ],
+      "scores": {
+        "next_inactive": 0.075,
+        "next_active": 0.075,
+        "dropdown": 0.8836,
+        "answer_single": 0.0,
+        "answer_multi": 0.0,
+        "cookie_accept": 0.0,
+        "cookie_reject": 0.0
+      },
+      "predictions": {
+        "next_inactive": false,
+        "next_active": false,
+        "dropdown": true,
+        "answer_single": false,
+        "answer_multi": false,
+        "cookie_accept": false,
+        "cookie_reject": false
+      }
+    },
+    {
+      "id": "cand_16",
+      "box": "Home",
+      "text": "Home",
+      "bbox": [
+        59,
+        394,
+        98,
+        408
+      ],
+      "scores": {
+        "next_inactive": 0.075,
+        "next_active": 0.075,
+        "dropdown": 0.8836,
+        "answer_single": 0.0,
+        "answer_multi": 0.0,
+        "cookie_accept": 0.0,
+        "cookie_reject": 0.0
+      },
+      "predictions": {
+        "next_inactive": false,
+        "next_active": false,
+        "dropdown": true,
+        "answer_single": false,
+        "answer_multi": false,
+        "cookie_accept": false,
+        "cookie_reject": false
+      }
+    },
+    {
+      "id": "cand_25",
+      "box": "Inbox",
+      "text": "Inbox",
+      "bbox": [
+        267,
+        430,
+        305,
+        447
+      ],
+      "scores": {
+        "next_inactive": 0.075,
+        "next_active": 0.075,
+        "dropdown": 0.8836,
+        "answer_single": 0.0,
+        "answer_multi": 0.05,
+        "cookie_accept": 0.0,
+        "cookie_reject": 0.0
+      },
+      "predictions": {
+        "next_inactive": false,
+        "next_active": false,
+        "dropdown": true,
+        "answer_single": false,
+        "answer_multi": false,
+        "cookie_accept": false,
+        "cookie_reject": false
+      }
+    },
+    {
+      "id": "cand_23",
+      "box": "Bottom pointing dropdown menus have sub-menus open upwards",
+      "text": "Bottom pointing dropdown menus have sub-menus open upwards",
+      "bbox": [
+        64,
+        762,
+        468,
+        776
+      ],
+      "scores": {
+        "next_inactive": 0.0,
+        "next_active": 0.0,
+        "dropdown": 0.8792,
+        "answer_single": 0.0,
+        "answer_multi": 0.0,
+        "cookie_accept": 0.0,
+        "cookie_reject": 0.0
+      },
+      "predictions": {
+        "next_inactive": false,
+        "next_active": false,
+        "dropdown": true,
+        "answer_single": false,
+        "answer_multi": false,
+        "cookie_accept": false,
+        "cookie_reject": false
+      }
+    },
+    {
+      "id": "cand_8",
+      "box": "Browse",
+      "text": "Browse",
+      "bbox": [
+        59,
+        473,
+        106,
+        488
+      ],
+      "scores": {
+        "next_inactive": 0.075,
+        "next_active": 0.075,
+        "dropdown": 0.8706,
+        "answer_single": 0.0,
+        "answer_multi": 0.0,
+        "cookie_accept": 0.0,
+        "cookie_reject": 0.0
+      },
+      "predictions": {
+        "next_inactive": false,
+        "next_active": false,
+        "dropdown": true,
+        "answer_single": false,
+        "answer_multi": false,
+        "cookie_accept": false,
+        "cookie_reject": false
+      }
+    },
+    {
+      "id": "cand_18",
+      "box": "ViewSource",
+      "text": "ViewSource",
+      "bbox": [
+        986,
+        288,
+        1064,
+        303
+      ],
+      "scores": {
+        "next_inactive": 0.075,
+        "next_active": 0.075,
+        "dropdown": 0.8706,
+        "answer_single": 0.0,
+        "answer_multi": 0.0,
+        "cookie_accept": 0.0,
+        "cookie_reject": 0.0
+      },
+      "predictions": {
+        "next_inactive": false,
+        "next_active": false,
+        "dropdown": true,
+        "answer_single": false,
+        "answer_multi": false,
+        "cookie_accept": false,
+        "cookie_reject": false
+      }
+    },
+    {
+      "id": "cand_19",
+      "box": "Help",
+      "text": "Help",
+      "bbox": [
+        56,
+        511,
+        91,
+        530
+      ],
+      "scores": {
+        "next_inactive": 0.075,
+        "next_active": 0.075,
+        "dropdown": 0.8706,
+        "answer_single": 0.0,
+        "answer_multi": 0.0,
+        "cookie_accept": 0.0,
+        "cookie_reject": 0.0
+      },
+      "predictions": {
+        "next_inactive": false,
+        "next_active": false,
+        "dropdown": true,
+        "answer_single": false,
+        "answer_multi": false,
+        "cookie_accept": false,
+        "cookie_reject": false
+      }
+    },
+    {
+      "id": "cand_26",
+      "box": "Sent Mail",
+      "text": "Sent Mail",
+      "bbox": [
+        268,
+        504,
+        328,
+        518
+      ],
+      "scores": {
+        "next_inactive": 0.075,
+        "next_active": 0.075,
+        "dropdown": 0.8706,
+        "answer_single": 0.0,
+        "answer_multi": 0.0,
+        "cookie_accept": 0.0,
+        "cookie_reject": 0.0
+      },
+      "predictions": {
+        "next_inactive": false,
+        "next_active": false,
+        "dropdown": true,
+        "answer_single": false,
+        "answer_multi": false,
+        "cookie_accept": false,
+        "cookie_reject": false
+      }
+    },
+    {
+      "id": "cand_27",
+      "box": "Drafts (143",
+      "text": "Drafts (143",
+      "bbox": [
+        267,
+        540,
+        343,
+        555
+      ],
+      "scores": {
+        "next_inactive": 0.075,
+        "next_active": 0.075,
+        "dropdown": 0.8706,
+        "answer_single": 0.0,
+        "answer_multi": 0.0,
+        "cookie_accept": 0.0,
+        "cookie_reject": 0.0
+      },
+      "predictions": {
+        "next_inactive": false,
+        "next_active": false,
+        "dropdown": true,
+        "answer_single": false,
+        "answer_multi": false,
+        "cookie_accept": false,
+        "cookie_reject": false
+      }
+    },
+    {
+      "id": "cand_0",
+      "box": "Pointing",
+      "text": "Pointing",
+      "bbox": [
+        41,
+        161,
+        111,
+        182
+      ],
+      "scores": {
+        "next_inactive": 0.075,
+        "next_active": 0.075,
+        "dropdown": 0.8448,
+        "answer_single": 0.0,
+        "answer_multi": 0.0,
+        "cookie_accept": 0.0,
+        "cookie_reject": 0.0
+      },
+      "predictions": {
+        "next_inactive": false,
+        "next_active": false,
+        "dropdown": true,
+        "answer_single": false,
+        "answer_multi": false,
+        "cookie_accept": false,
+        "cookie_reject": false
+      }
+    },
+    {
+      "id": "cand_17",
+      "box": "Multi",
+      "text": "Multi",
+      "bbox": [
+        1078,
+        31,
+        1112,
+        47
+      ],
+      "scores": {
+        "next_inactive": 0.075,
+        "next_active": 0.075,
+        "dropdown": 0.8448,
+        "answer_single": 0.0,
+        "answer_multi": 0.15,
+        "cookie_accept": 0.0,
+        "cookie_reject": 0.0
+      },
+      "predictions": {
+        "next_inactive": false,
+        "next_active": false,
+        "dropdown": true,
+        "answer_single": false,
+        "answer_multi": false,
+        "cookie_accept": false,
+        "cookie_reject": false
+      }
+    },
+    {
+      "id": "cand_22",
+      "box": "Multip",
+      "text": "Multip",
+      "bbox": [
+        1079,
+        54,
+        1112,
+        70
+      ],
+      "scores": {
+        "next_inactive": 0.075,
+        "next_active": 0.075,
+        "dropdown": 0.8448,
+        "answer_single": 0.0,
+        "answer_multi": 0.15,
+        "cookie_accept": 0.0,
+        "cookie_reject": 0.0
+      },
+      "predictions": {
+        "next_inactive": false,
+        "next_active": false,
+        "dropdown": true,
+        "answer_single": false,
+        "answer_multi": false,
+        "cookie_accept": false,
+        "cookie_reject": false
+      }
+    },
+    {
+      "id": "cand_28",
+      "box": "Trending repos today",
+      "text": "Trending repos today",
+      "bbox": [
+        80,
+        45,
+        232,
+        58
+      ],
+      "scores": {
+        "next_inactive": 0.025,
+        "next_active": 0.025,
+        "dropdown": 0.8448,
+        "answer_single": 0.0,
+        "answer_multi": 0.0,
+        "cookie_accept": 0.0,
+        "cookie_reject": 0.0
+      },
+      "predictions": {
+        "next_inactive": false,
+        "next_active": false,
+        "dropdown": true,
+        "answer_single": false,
+        "answer_multi": false,
+        "cookie_accept": false,
+        "cookie_reject": false
+      }
+    },
+    {
+      "id": "cand_32",
+      "box": "<>",
+      "text": "<>",
+      "bbox": [
+        985,
+        164,
+        1003,
+        179
+      ],
+      "scores": {
+        "next_inactive": 0.16,
+        "next_active": 0.16,
+        "dropdown": 0.8413,
+        "answer_single": 0.0,
+        "answer_multi": 0.0,
+        "cookie_accept": 0.0,
+        "cookie_reject": 0.0
+      },
+      "predictions": {
+        "next_inactive": false,
+        "next_active": false,
+        "dropdown": true,
+        "answer_single": false,
+        "answer_multi": false,
+        "cookie_accept": false,
+        "cookie_reject": false
+      }
+    },
+    {
+      "id": "cand_2",
+      "box": "Shopping",
+      "text": "Shopping",
+      "bbox": [
+        127,
+        253,
+        189,
+        269
+      ],
+      "scores": {
+        "next_inactive": 0.075,
+        "next_active": 0.075,
+        "dropdown": 0.8275,
+        "answer_single": 0.0,
+        "answer_multi": 0.0,
+        "cookie_accept": 0.0,
+        "cookie_reject": 0.0
+      },
+      "predictions": {
+        "next_inactive": false,
+        "next_active": false,
+        "dropdown": true,
+        "answer_single": false,
+        "answer_multi": false,
+        "cookie_accept": false,
+        "cookie_reject": false
+      }
+    },
+    {
+      "id": "cand_6",
+      "box": "Trash",
+      "text": "Trash",
+      "bbox": [
+        266,
+        627,
+        303,
+        642
+      ],
+      "scores": {
+        "next_inactive": 0.075,
+        "next_active": 0.075,
+        "dropdown": 0.8275,
+        "answer_single": 0.0,
+        "answer_multi": 0.0,
+        "cookie_accept": 0.0,
+        "cookie_reject": 0.0
+      },
+      "predictions": {
+        "next_inactive": false,
+        "next_active": false,
+        "dropdown": true,
+        "answer_single": false,
+        "answer_multi": false,
+        "cookie_accept": false,
+        "cookie_reject": false
+      }
+    },
+    {
+      "id": "cand_7",
+      "box": "Contact Us",
+      "text": "Contact Us",
+      "bbox": [
+        315,
+        254,
+        384,
+        266
+      ],
+      "scores": {
+        "next_inactive": 0.075,
+        "next_active": 0.075,
+        "dropdown": 0.8275,
+        "answer_single": 0.0,
+        "answer_multi": 0.0,
+        "cookie_accept": 0.0,
+        "cookie_reject": 0.0
+      },
+      "predictions": {
+        "next_inactive": false,
+        "next_active": false,
+        "dropdown": true,
+        "answer_single": false,
+        "answer_multi": false,
+        "cookie_accept": false,
+        "cookie_reject": false
+      }
+    },
+    {
+      "id": "cand_11",
+      "box": "Forums",
+      "text": "Forums",
+      "bbox": [
+        237,
+        253,
+        285,
+        267
+      ],
+      "scores": {
+        "next_inactive": 0.075,
+        "next_active": 0.075,
+        "dropdown": 0.8275,
+        "answer_single": 0.0,
+        "answer_multi": 0.0,
+        "cookie_accept": 0.0,
+        "cookie_reject": 0.0
+      },
+      "predictions": {
+        "next_inactive": false,
+        "next_active": false,
+        "dropdown": true,
+        "answer_single": false,
+        "answer_multi": false,
+        "cookie_accept": false,
+        "cookie_reject": false
+      }
+    },
+    {
+      "id": "cand_12",
+      "box": "Spam(1009",
+      "text": "Spam(1009",
+      "bbox": [
+        267,
+        590,
+        346,
+        606
+      ],
+      "scores": {
+        "next_inactive": 0.075,
+        "next_active": 0.075,
+        "dropdown": 0.8275,
+        "answer_single": 0.0,
+        "answer_multi": 0.0,
+        "cookie_accept": 0.0,
+        "cookie_reject": 0.0
+      },
+      "predictions": {
+        "next_inactive": false,
+        "next_active": false,
+        "dropdown": true,
+        "answer_single": false,
+        "answer_multi": false,
+        "cookie_accept": false,
+        "cookie_reject": false
+      }
+    },
+    {
+      "id": "cand_35",
+      "box": "C",
+      "text": "C",
+      "bbox": [
+        61,
+        637,
+        69,
+        645
+      ],
+      "scores": {
+        "next_inactive": 0.075,
+        "next_active": 0.075,
+        "dropdown": 0.8275,
+        "answer_single": 0.0,
+        "answer_multi": 0.0,
+        "cookie_accept": 0.0,
+        "cookie_reject": 0.0
+      },
+      "predictions": {
+        "next_inactive": false,
+        "next_active": false,
+        "dropdown": true,
+        "answer_single": false,
+        "answer_multi": false,
+        "cookie_accept": false,
+        "cookie_reject": false
+      }
+    },
+    {
+      "id": "cand_36",
+      "box": ".C",
+      "text": ".C",
+      "bbox": [
+        58,
+        637,
+        68,
+        647
+      ],
+      "scores": {
+        "next_inactive": 0.075,
+        "next_active": 0.075,
+        "dropdown": 0.8275,
+        "answer_single": 0.0,
+        "answer_multi": 0.0,
+        "cookie_accept": 0.0,
+        "cookie_reject": 0.0
+      },
+      "predictions": {
+        "next_inactive": false,
+        "next_active": false,
+        "dropdown": true,
+        "answer_single": false,
+        "answer_multi": false,
+        "cookie_accept": false,
+        "cookie_reject": false
+      }
+    },
+    {
+      "id": "cand_31",
+      "box": "<>",
+      "text": "<>",
+      "bbox": [
+        985,
+        331,
+        1004,
+        346
+      ],
+      "scores": {
+        "next_inactive": 0.16,
+        "next_active": 0.16,
+        "dropdown": 0.7884,
+        "answer_single": 0.0,
+        "answer_multi": 0.0,
+        "cookie_accept": 0.0,
+        "cookie_reject": 0.0
+      },
+      "predictions": {
+        "next_inactive": false,
+        "next_active": false,
+        "dropdown": true,
+        "answer_single": false,
+        "answer_multi": false,
+        "cookie_accept": false,
+        "cookie_reject": false
+      }
+    },
+    {
+      "id": "cand_33",
+      "box": "<>",
+      "text": "<>",
+      "bbox": [
+        985,
+        591,
+        1003,
+        606
+      ],
+      "scores": {
+        "next_inactive": 0.16,
+        "next_active": 0.16,
+        "dropdown": 0.7884,
+        "answer_single": 0.0,
+        "answer_multi": 0.0,
+        "cookie_accept": 0.0,
+        "cookie_reject": 0.0
+      },
+      "predictions": {
+        "next_inactive": false,
+        "next_active": false,
+        "dropdown": true,
+        "answer_single": false,
+        "answer_multi": false,
+        "cookie_accept": false,
+        "cookie_reject": false
+      }
+    },
+    {
+      "id": "cand_34",
+      "box": "<>",
+      "text": "<>",
+      "bbox": [
+        984,
+        710,
+        1004,
+        726
+      ],
+      "scores": {
+        "next_inactive": 0.211,
+        "next_active": 0.211,
+        "dropdown": 0.7884,
+        "answer_single": 0.0,
+        "answer_multi": 0.0,
+        "cookie_accept": 0.0,
+        "cookie_reject": 0.0
+      },
+      "predictions": {
+        "next_inactive": false,
+        "next_active": false,
+        "dropdown": true,
+        "answer_single": false,
+        "answer_multi": false,
+        "cookie_accept": false,
+        "cookie_reject": false
+      }
+    },
+    {
+      "id": "cand_13",
+      "box": "Pointi",
+      "text": "Pointi",
+      "bbox": [
+        1080,
+        151,
+        1112,
+        166
+      ],
+      "scores": {
+        "next_inactive": 0.075,
+        "next_active": 0.075,
+        "dropdown": 0.325,
+        "answer_single": 0.0,
+        "answer_multi": 0.05,
+        "cookie_accept": 0.0,
+        "cookie_reject": 0.0
+      },
+      "predictions": {
+        "next_inactive": false,
+        "next_active": false,
+        "dropdown": false,
+        "answer_single": false,
+        "answer_multi": false,
+        "cookie_accept": false,
+        "cookie_reject": false
+      }
+    },
+    {
+      "id": "cand_20",
+      "box": "Searc",
+      "text": "Searc",
+      "bbox": [
+        1078,
+        7,
+        1112,
+        23
+      ],
+      "scores": {
+        "next_inactive": 0.075,
+        "next_active": 0.075,
+        "dropdown": 0.325,
+        "answer_single": 0.0,
+        "answer_multi": 0.15,
+        "cookie_accept": 0.0,
+        "cookie_reject": 0.0
+      },
+      "predictions": {
+        "next_inactive": false,
+        "next_active": false,
+        "dropdown": false,
+        "answer_single": false,
+        "answer_multi": false,
+        "cookie_accept": false,
+        "cookie_reject": false
+      }
+    },
+    {
+      "id": "cand_21",
+      "box": "Inline",
+      "text": "Inline",
+      "bbox": [
+        1078,
+        127,
+        1112,
+        142
+      ],
+      "scores": {
+        "next_inactive": 0.075,
+        "next_active": 0.075,
+        "dropdown": 0.325,
+        "answer_single": 0.0,
+        "answer_multi": 0.05,
+        "cookie_accept": 0.0,
+        "cookie_reject": 0.0
+      },
+      "predictions": {
+        "next_inactive": false,
+        "next_active": false,
+        "dropdown": false,
+        "answer_single": false,
+        "answer_multi": false,
+        "cookie_accept": false,
+        "cookie_reject": false
+      }
+    },
+    {
+      "id": "cand_24",
+      "box": "Search",
+      "text": "Search",
+      "bbox": [
+        1079,
+        103,
+        1112,
+        117
+      ],
+      "scores": {
+        "next_inactive": 0.075,
+        "next_active": 0.075,
+        "dropdown": 0.325,
+        "answer_single": 0.0,
+        "answer_multi": 0.05,
+        "cookie_accept": 0.0,
+        "cookie_reject": 0.0
+      },
+      "predictions": {
+        "next_inactive": false,
+        "next_active": false,
+        "dropdown": false,
+        "answer_single": false,
+        "answer_multi": false,
+        "cookie_accept": false,
+        "cookie_reject": false
+      }
+    },
+    {
+      "id": "cand_30",
+      "box": "Searcl",
+      "text": "Searcl",
+      "bbox": [
+        1079,
+        80,
+        1112,
+        93
+      ],
+      "scores": {
+        "next_inactive": 0.075,
+        "next_active": 0.075,
+        "dropdown": 0.325,
+        "answer_single": 0.0,
+        "answer_multi": 0.05,
+        "cookie_accept": 0.0,
+        "cookie_reject": 0.0
+      },
+      "predictions": {
+        "next_inactive": false,
+        "next_active": false,
+        "dropdown": false,
+        "answer_single": false,
+        "answer_multi": false,
+        "cookie_accept": false,
+        "cookie_reject": false
+      }
+    },
+    {
+      "id": "cand_10",
+      "box": "Floati",
+      "text": "Floati",
+      "bbox": [
+        1080,
+        176,
+        1112,
+        188
+      ],
+      "scores": {
+        "next_inactive": 0.075,
+        "next_active": 0.075,
+        "dropdown": 0.25,
+        "answer_single": 0.0,
+        "answer_multi": 0.0,
+        "cookie_accept": 0.0,
+        "cookie_reject": 0.0
+      },
+      "predictions": {
+        "next_inactive": false,
+        "next_active": false,
+        "dropdown": false,
+        "answer_single": false,
+        "answer_multi": false,
+        "cookie_accept": false,
+        "cookie_reject": false
+      }
+    },
+    {
+      "id": "cand_29",
+      "box": "Simple",
+      "text": "Simple",
+      "bbox": [
+        1080,
+        200,
+        1112,
+        213
+      ],
+      "scores": {
+        "next_inactive": 0.075,
+        "next_active": 0.075,
+        "dropdown": 0.25,
+        "answer_single": 0.0,
+        "answer_multi": 0.0,
+        "cookie_accept": 0.0,
+        "cookie_reject": 0.0
+      },
+      "predictions": {
+        "next_inactive": false,
+        "next_active": false,
+        "dropdown": false,
+        "answer_single": false,
+        "answer_multi": false,
+        "cookie_accept": false,
+        "cookie_reject": false
+      }
+    },
+    {
+      "id": "cand_4",
+      "box": "Cont",
+      "text": "Cont",
+      "bbox": [
+        1079,
+        237,
+        1112,
+        252
+      ],
+      "scores": {
+        "next_inactive": 0.075,
+        "next_active": 0.075,
+        "dropdown": 0.0,
+        "answer_single": 0.0,
+        "answer_multi": 0.0,
+        "cookie_accept": 0.0,
+        "cookie_reject": 0.0
+      },
+      "predictions": {
+        "next_inactive": false,
+        "next_active": false,
+        "dropdown": false,
+        "answer_single": false,
+        "answer_multi": false,
+        "cookie_accept": false,
+        "cookie_reject": false
+      }
+    },
+    {
+      "id": "cand_9",
+      "box": "State",
+      "text": "State",
+      "bbox": [
+        1079,
+        273,
+        1112,
+        289
+      ],
+      "scores": {
+        "next_inactive": 0.075,
+        "next_active": 0.075,
+        "dropdown": 0.0,
+        "answer_single": 0.0,
+        "answer_multi": 0.0,
+        "cookie_accept": 0.0,
+        "cookie_reject": 0.0
+      },
+      "predictions": {
+        "next_inactive": false,
+        "next_active": false,
+        "dropdown": false,
+        "answer_single": false,
+        "answer_multi": false,
+        "cookie_accept": false,
+        "cookie_reject": false
+      }
+    },
+    {
+      "id": "cand_15",
+      "box": "Varia",
+      "text": "Varia",
+      "bbox": [
+        1079,
+        310,
+        1112,
+        325
+      ],
+      "scores": {
+        "next_inactive": 0.075,
+        "next_active": 0.075,
+        "dropdown": 0.0,
+        "answer_single": 0.0,
+        "answer_multi": 0.0,
+        "cookie_accept": 0.0,
+        "cookie_reject": 0.0
+      },
+      "predictions": {
+        "next_inactive": false,
+        "next_active": false,
+        "dropdown": false,
+        "answer_single": false,
+        "answer_multi": false,
+        "cookie_accept": false,
+        "cookie_reject": false
+      }
+    }
+  ],
+  "thresholds": {
+    "next_active": 0.45,
+    "next_inactive": 0.45,
+    "dropdown": 0.5,
+    "answer_single": 0.4,
+    "answer_multi": 0.4,
+    "cookie_accept": 0.65,
+    "cookie_reject": 0.65
+  },
+  "summary": {
+    "next_detected": 0,
+    "dropdown_detected": 27,
+    "question_detected": 0,
+    "cookies_detected": 0
+  }
+}

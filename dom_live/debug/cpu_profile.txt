@@ -1,0 +1,305 @@
+Total tottime: 92.7356s
+
+== Per function (top 200, by % tottime) ==
+ 49.59%  45.9860s  <built-in method paddle.base.libpaddle.run>  (~:0) calls=357
+ 28.42%  26.3568s  <built-in method _overlapped.GetQueuedCompletionStatus>  (~:0) calls=17020
+  6.88%  6.3789s  _grab_impl  (E:\miniconda3\envs\ai_cuda\Lib\site-packages\mss\windows.py:196) calls=448
+  2.17%  2.0165s  <built-in method zlib.compress>  (~:0) calls=336
+  1.88%  1.7430s  <built-in method paddle.base.libpaddle.create_predictor>  (~:0) calls=4
+  0.99%  0.9206s  <built-in method nt.stat>  (~:0) calls=28299
+  0.68%  0.6276s  _replace_guids_with_channels  (E:\miniconda3\envs\ai_cuda\Lib\site-packages\playwright\_impl\_connection.py:529) calls=486413
+  0.67%  0.6183s  raw_decode  (E:\miniconda3\envs\ai_cuda\Lib\json\decoder.py:343) calls=1420
+  0.55%  0.5092s  _ocr_active_url_hint_text  (e:\BOT ANK\bot\moje_AI\yolov8\FULL BOT\dom_renderer\ai_recorder_browser.py:438) calls=112
+  0.35%  0.3248s  <built-in method builtins.next>  (~:0) calls=23953
+  0.34%  0.3174s  <built-in method paddle.base.libpaddle.try_shrink_memory>  (~:0) calls=178
+  0.33%  0.3085s  <built-in method builtins.print>  (~:0) calls=1624
+  0.32%  0.3001s  run  (E:\miniconda3\envs\ai_cuda\Lib\site-packages\playwright\_impl\_transport.py:137) calls=3460
+  0.29%  0.2711s  find_longest_match  (E:\miniconda3\envs\ai_cuda\Lib\difflib.py:305) calls=7760
+  0.26%  0.2433s  <built-in method io.open>  (~:0) calls=2095
+  0.21%  0.1910s  <built-in method builtins.isinstance>  (~:0) calls=1534212
+  0.21%  0.1907s  <method '__exit__' of '_io._IOBase' objects>  (~:0) calls=2101
+  0.18%  0.1687s  from_maybe_impl  (E:\miniconda3\envs\ai_cuda\Lib\site-packages\playwright\_impl\_impl_to_api_mapping.py:40) calls=110045
+  0.17%  0.1618s  getframeinfo  (E:\miniconda3\envs\ai_cuda\Lib\inspect.py:1658) calls=20058
+  0.17%  0.1533s  rgb  (E:\miniconda3\envs\ai_cuda\Lib\site-packages\mss\screenshot.py:88) calls=560
+  0.15%  0.1411s  <method 'copy' of 'numpy.ndarray' objects>  (~:0) calls=1350
+  0.15%  0.1385s  parse_value  (E:\miniconda3\envs\ai_cuda\Lib\site-packages\playwright\_impl\_js_handle.py:213) calls=106711
+  0.13%  0.1170s  <method 'get' of 'dict' objects>  (~:0) calls=979672
+  0.11%  0.1063s  __call__  (E:\miniconda3\envs\ai_cuda\Lib\site-packages\paddleocr\ppocr\data\imaug\operators.py:86) calls=179
+  0.11%  0.1061s  resize_norm_img  (E:\miniconda3\envs\ai_cuda\Lib\site-packages\paddleocr\tools\infer\predict_rec.py:150) calls=549
+  0.11%  0.0992s  _run_once  (E:\miniconda3\envs\ai_cuda\Lib\asyncio\base_events.py:1859) calls=11493
+  0.10%  0.0961s  <method 'astype' of 'numpy.ndarray' objects>  (~:0) calls=2323
+  0.10%  0.0909s  ControlFromHandle  (E:\miniconda3\envs\ai_cuda\Lib\site-packages\uiautomation\uiautomation.py:10454) calls=45
+  0.10%  0.0897s  __call__  (E:\miniconda3\envs\ai_cuda\Lib\site-packages\paddleocr\tools\infer\predict_rec.py:393) calls=179
+  0.10%  0.0882s  <method 'reduce' of 'numpy.ufunc' objects>  (~:0) calls=4531
+  0.09%  0.0858s  <resize>  (~:0) calls=728
+  0.09%  0.0835s  getsourcefile  (E:\miniconda3\envs\ai_cuda\Lib\inspect.py:932) calls=20058
+  0.08%  0.0776s  <built-in method gc.collect>  (~:0) calls=1
+  0.08%  0.0766s  <method 'decode' of 'bytes' objects>  (~:0) calls=1719
+  0.08%  0.0762s  _extract_stack_trace_information_from_stack  (E:\miniconda3\envs\ai_cuda\Lib\site-packages\playwright\_impl\_connection.py:602) calls=1354
+  0.07%  0.0690s  _extract_from_extended_frame_gen  (E:\miniconda3\envs\ai_cuda\Lib\traceback.py:394) calls=1354
+  0.07%  0.0667s  <built-in method builtins.__build_class__>  (~:0) calls=454
+  0.07%  0.0640s  _poll  (E:\miniconda3\envs\ai_cuda\Lib\asyncio\windows_events.py:812) calls=11495
+  0.07%  0.0606s  <built-in method paddle.base.libpaddle._copy_from_cpu_bind>  (~:0) calls=357
+  0.06%  0.0582s  getfile  (E:\miniconda3\envs\ai_cuda\Lib\inspect.py:892) calls=20059
+  0.06%  0.0512s  getouterframes  (E:\miniconda3\envs\ai_cuda\Lib\inspect.py:1719) calls=1354
+  0.05%  0.0441s  _iterencode_dict  (E:\miniconda3\envs\ai_cuda\Lib\json\encoder.py:334) calls=118799
+  0.04%  0.0415s  <method 'items' of 'dict' objects>  (~:0) calls=268552
+  0.04%  0.0399s  <method 'run' of '_contextvars.Context' objects>  (~:0) calls=20257
+  0.04%  0.0399s  boxes_from_bitmap  (E:\miniconda3\envs\ai_cuda\Lib\site-packages\paddleocr\ppocr\postprocess\db_postprocess.py:104) calls=179
+  0.04%  0.0392s  <built-in method builtins.any>  (~:0) calls=42916
+  0.04%  0.0380s  _call_soon  (E:\miniconda3\envs\ai_cuda\Lib\asyncio\base_events.py:781) calls=19656
+  0.04%  0.0374s  <listcomp>  (E:\miniconda3\envs\ai_cuda\Lib\site-packages\mss\tools.py:31) calls=336
+  0.04%  0.0370s  readexactly  (E:\miniconda3\envs\ai_cuda\Lib\asyncio\streams.py:720) calls=7753
+  0.04%  0.0367s  __chain_b  (E:\miniconda3\envs\ai_cuda\Lib\difflib.py:266) calls=1143
+  0.04%  0.0346s  <built-in method paddle.base.libpaddle.copy_to_cpu>  (~:0) calls=357
+  0.04%  0.0345s  <method 'strftime' of 'datetime.date' objects>  (~:0) calls=1623
+  0.04%  0.0333s  <method 'write' of '_io.BufferedWriter' objects>  (~:0) calls=336
+  0.04%  0.0329s  iterencode  (E:\miniconda3\envs\ai_cuda\Lib\json\encoder.py:205) calls=1540
+  0.04%  0.0326s  _loop_reading  (E:\miniconda3\envs\ai_cuda\Lib\asyncio\proactor_events.py:276) calls=4042
+  0.04%  0.0325s  _get_code_position  (E:\miniconda3\envs\ai_cuda\Lib\inspect.py:1651) calls=20058
+  0.03%  0.0314s  <warpPerspective>  (~:0) calls=549
+  0.03%  0.0312s  <method 'ReadFileInto' of '_overlapped.Overlapped' objects>  (~:0) calls=4042
+  0.03%  0.0305s  <built-in method numpy.array>  (~:0) calls=3342
+  0.03%  0.0305s  __init__  (E:\miniconda3\envs\ai_cuda\Lib\asyncio\events.py:35) calls=20692
+  0.03%  0.0303s  <built-in method __new__ of type object at 0x00007FFF8D4EEBC0>  (~:0) calls=78826
+  0.03%  0.0296s  extract_clickables  (e:\BOT ANK\bot\moje_AI\yolov8\FULL BOT\dom_renderer\ai_recorder_base.py:481) calls=129
+  0.03%  0.0281s  __new__  (E:\miniconda3\envs\ai_cuda\Lib\inspect.py:1636) calls=20058
+  0.03%  0.0276s  create_string_buffer  (E:\miniconda3\envs\ai_cuda\Lib\ctypes\__init__.py:48) calls=448
+  0.03%  0.0273s  __call__  (E:\miniconda3\envs\ai_cuda\Lib\site-packages\paddleocr\tools\infer\predict_system.py:67) calls=179
+  0.03%  0.0268s  _send_message_to_server  (E:\miniconda3\envs\ai_cuda\Lib\site-packages\playwright\_impl\_connection.py:352) calls=1354
+  0.03%  0.0261s  _var  (E:\miniconda3\envs\ai_cuda\Lib\site-packages\numpy\core\_methods.py:135) calls=112
+  0.03%  0.0256s  _register  (E:\miniconda3\envs\ai_cuda\Lib\asyncio\windows_events.py:765) calls=5528
+  0.03%  0.0248s  box_score_fast  (E:\miniconda3\envs\ai_cuda\Lib\site-packages\paddleocr\ppocr\postprocess\db_postprocess.py:182) calls=635
+  0.03%  0.0247s  <built-in method builtins.len>  (~:0) calls=142864
+  0.03%  0.0247s  <genexpr>  (E:\miniconda3\envs\ai_cuda\Lib\inspect.py:939) calls=60174
+  0.03%  0.0241s  <method 'append' of 'list' objects>  (~:0) calls=162400
+  0.03%  0.0238s  _run  (E:\miniconda3\envs\ai_cuda\Lib\asyncio\events.py:82) calls=20257
+  0.02%  0.0232s  call_soon  (E:\miniconda3\envs\ai_cuda\Lib\asyncio\base_events.py:752) calls=19653
+  0.02%  0.0231s  get_matching_blocks  (E:\miniconda3\envs\ai_cuda\Lib\difflib.py:421) calls=1143
+  0.02%  0.0228s  _ocr_pick_visible_page  (e:\BOT ANK\bot\moje_AI\yolov8\FULL BOT\dom_renderer\ai_recorder_browser.py:606) calls=98
+  0.02%  0.0218s  <method 'endswith' of 'str' objects>  (~:0) calls=80355
+  0.02%  0.0214s  exists  (<frozen genericpath>:16) calls=20093
+  0.02%  0.0212s  dump  (E:\miniconda3\envs\ai_cuda\Lib\json\__init__.py:120) calls=122
+  0.02%  0.0211s  checkcache  (E:\miniconda3\envs\ai_cuda\Lib\linecache.py:52) calls=7972
+  0.02%  0.0211s  <method 'join' of 'bytes' objects>  (~:0) calls=1350
+  0.02%  0.0206s  log  (e:\BOT ANK\bot\moje_AI\yolov8\FULL BOT\dom_renderer\ai_recorder_common.py:58) calls=1803
+  0.02%  0.0202s  _replace_channels_with_guids  (E:\miniconda3\envs\ai_cuda\Lib\site-packages\playwright\_impl\_connection.py:508) calls=7387
+  0.02%  0.0195s  Name  (E:\miniconda3\envs\ai_cuda\Lib\site-packages\uiautomation\uiautomation.py:6792) calls=45
+  0.02%  0.0194s  _reselect_active_page  (e:\BOT ANK\bot\moje_AI\yolov8\FULL BOT\dom_renderer\ai_recorder_browser.py:804) calls=595
+  0.02%  0.0184s  parse_parts  (E:\miniconda3\envs\ai_cuda\Lib\pathlib.py:56) calls=1989
+  0.02%  0.0183s  <genexpr>  (E:\miniconda3\envs\ai_cuda\Lib\inspect.py:942) calls=60174
+  0.02%  0.0180s  deserialize_message  (E:\miniconda3\envs\ai_cuda\Lib\site-packages\playwright\_impl\_transport.py:83) calls=1420
+  0.02%  0.0178s  recv_into  (E:\miniconda3\envs\ai_cuda\Lib\asyncio\windows_events.py:481) calls=4042
+  0.02%  0.0175s  __new__  (E:\miniconda3\envs\ai_cuda\Lib\inspect.py:1708) calls=20058
+  0.02%  0.0170s  <method 'WriteFile' of '_overlapped.Overlapped' objects>  (~:0) calls=1353
+  0.02%  0.0169s  istraceback  (E:\miniconda3\envs\ai_cuda\Lib\inspect.py:456) calls=40116
+  0.02%  0.0168s  select  (E:\miniconda3\envs\ai_cuda\Lib\asyncio\windows_events.py:442) calls=11495
+  0.02%  0.0165s  _inner_send  (E:\miniconda3\envs\ai_cuda\Lib\site-packages\playwright\_impl\_connection.py:109) calls=2707
+  0.02%  0.0165s  <method 'write' of '_io.TextIOWrapper' objects>  (~:0) calls=52359
+  0.02%  0.0163s  <method 'connect' of '_socket.socket' objects>  (~:0) calls=1
+  0.02%  0.0160s  isframe  (E:\miniconda3\envs\ai_cuda\Lib\inspect.py:466) calls=40116
+  0.02%  0.0153s  Release  (E:\miniconda3\envs\ai_cuda\Lib\site-packages\comtypes\_post_coinit\unknwn.py:418) calls=46
+  0.02%  0.0153s  <built-in method builtins.max>  (~:0) calls=10090
+  0.02%  0.0151s  <method 'set_result' of '_asyncio.Future' objects>  (~:0) calls=11422
+  0.02%  0.0151s  __setitem__  (E:\miniconda3\envs\ai_cuda\Lib\site-packages\playwright\_impl\_map.py:27) calls=29423
+  0.02%  0.0150s  <built-in method builtins.id>  (~:0) calls=62662
+  0.02%  0.0149s  __init__  (E:\miniconda3\envs\ai_cuda\Lib\asyncio\windows_events.py:54) calls=5528
+  0.02%  0.0146s  getline  (E:\miniconda3\envs\ai_cuda\Lib\linecache.py:26) calls=13540
+  0.02%  0.0146s  wrap_api_call  (E:\miniconda3\envs\ai_cuda\Lib\site-packages\playwright\_impl\_connection.py:543) calls=2707
+  0.02%  0.0144s  <method 'extend' of 'bytearray' objects>  (~:0) calls=4041
+  0.02%  0.0144s  line  (E:\miniconda3\envs\ai_cuda\Lib\traceback.py:313) calls=13540
+  0.02%  0.0141s  <built-in method builtins.min>  (~:0) calls=12653
+  0.01%  0.0139s  unclip  (E:\miniconda3\envs\ai_cuda\Lib\site-packages\paddleocr\ppocr\postprocess\db_postprocess.py:151) calls=549
+  0.01%  0.0137s  decode  (E:\miniconda3\envs\ai_cuda\Lib\site-packages\paddleocr\ppocr\postprocess\rec_postprocess.py:70) calls=178
+  0.01%  0.0135s  __contains__  (E:\miniconda3\envs\ai_cuda\Lib\_weakrefset.py:75) calls=11053
+  0.01%  0.0133s  <built-in method numpy.zeros>  (~:0) calls=1733
+  0.01%  0.0131s  _iterencode  (E:\miniconda3\envs\ai_cuda\Lib\json\encoder.py:414) calls=50858
+  0.01%  0.0129s  __contains__  (E:\miniconda3\envs\ai_cuda\Lib\site-packages\playwright\_impl\_map.py:24) calls=29423
+  0.01%  0.0125s  __str__  (E:\miniconda3\envs\ai_cuda\Lib\pathlib.py:536) calls=2536
+  0.01%  0.0124s  <built-in method nt.mkdir>  (~:0) calls=168
+  0.01%  0.0123s  CreateControlFromElement  (E:\miniconda3\envs\ai_cuda\Lib\site-packages\uiautomation\uiautomation.py:6464) calls=45
+  0.01%  0.0122s  <findContours>  (~:0) calls=179
+  0.01%  0.0121s  _iterencode_list  (E:\miniconda3\envs\ai_cuda\Lib\json\encoder.py:278) calls=40827
+  0.01%  0.0120s  create_future  (E:\miniconda3\envs\ai_cuda\Lib\asyncio\base_events.py:426) calls=5978
+  0.01%  0.0118s  __getitem__  (<frozen os>:674) calls=3437
+  0.01%  0.0118s  to_png  (E:\miniconda3\envs\ai_cuda\Lib\site-packages\mss\tools.py:16) calls=336
+  0.01%  0.0117s  __call__  (E:\miniconda3\envs\ai_cuda\Lib\site-packages\paddleocr\ppocr\postprocess\db_postprocess.py:220) calls=179
+  0.01%  0.0114s  norm  (E:\miniconda3\envs\ai_cuda\Lib\site-packages\numpy\linalg\linalg.py:2383) calls=3294
+  0.01%  0.0110s  feed_data  (E:\miniconda3\envs\ai_cuda\Lib\asyncio\streams.py:497) calls=4040
+  0.01%  0.0110s  _clip  (E:\miniconda3\envs\ai_cuda\Lib\site-packages\numpy\core\_methods.py:90) calls=3638
+  0.01%  0.0109s  _filter_none  (E:\miniconda3\envs\ai_cuda\Lib\site-packages\playwright\_impl\_connection.py:658) calls=3766
+  0.01%  0.0107s  _wait  (E:\miniconda3\envs\ai_cuda\Lib\asyncio\tasks.py:507) calls=2709
+  0.01%  0.0106s  _mean  (E:\miniconda3\envs\ai_cuda\Lib\site-packages\numpy\core\_methods.py:101) calls=816
+  0.01%  0.0104s  <built-in method zlib.crc32>  (~:0) calls=1008
+  0.01%  0.0103s  get_mini_boxes  (E:\miniconda3\envs\ai_cuda\Lib\site-packages\paddleocr\ppocr\postprocess\db_postprocess.py:159) calls=1510
+  0.01%  0.0103s  wait  (E:\miniconda3\envs\ai_cuda\Lib\asyncio\tasks.py:399) calls=2709
+  0.01%  0.0101s  get_rotate_crop_image  (E:\miniconda3\envs\ai_cuda\Lib\site-packages\paddleocr\tools\infer\utility.py:602) calls=549
+  0.01%  0.0100s  _loop_writing  (E:\miniconda3\envs\ai_cuda\Lib\asyncio\proactor_events.py:375) calls=2679
+  0.01%  0.0100s  linearrings  (E:\miniconda3\envs\ai_cuda\Lib\site-packages\shapely\creation.py:234) calls=549
+  0.01%  0.0098s  __call__  (E:\miniconda3\envs\ai_cuda\Lib\site-packages\paddleocr\tools\infer\predict_det.py:220) calls=179
+  0.01%  0.0097s  wrapped  (E:\miniconda3\envs\ai_cuda\Lib\site-packages\shapely\decorators.py:73) calls=2196
+  0.01%  0.0097s  <minAreaRect>  (~:0) calls=1510
+  0.01%  0.0094s  __init__  (E:\miniconda3\envs\ai_cuda\Lib\traceback.py:261) calls=13540
+  0.01%  0.0094s  order_points_clockwise  (E:\miniconda3\envs\ai_cuda\Lib\site-packages\paddleocr\tools\infer\predict_det.py:176) calls=549
+  0.01%  0.0092s  send  (E:\miniconda3\envs\ai_cuda\Lib\asyncio\windows_events.py:570) calls=1353
+  0.01%  0.0092s  _do_snapshot  (e:\BOT ANK\bot\moje_AI\yolov8\FULL BOT\dom_renderer\ai_recorder_capture.py:709) calls=1414
+  0.01%  0.0090s  time  (E:\miniconda3\envs\ai_cuda\Lib\asyncio\base_events.py:701) calls=14005
+  0.01%  0.0089s  <built-in method _abc._abc_instancecheck>  (~:0) calls=11536
+  0.01%  0.0085s  ismodule  (E:\miniconda3\envs\ai_cuda\Lib\inspect.py:283) calls=20059
+  0.01%  0.0084s  <method 'setdefault' of 'dict' objects>  (~:0) calls=59330
+  0.01%  0.0084s  evaluate  (E:\miniconda3\envs\ai_cuda\Lib\site-packages\playwright\async_api\_generated.py:8461) calls=2411
+  0.01%  0.0084s  getlines  (E:\miniconda3\envs\ai_cuda\Lib\linecache.py:36) calls=13540
+  0.01%  0.0083s  _parse_args  (E:\miniconda3\envs\ai_cuda\Lib\pathlib.py:484) calls=1989
+  0.01%  0.0083s  extended_frame_gen  (E:\miniconda3\envs\ai_cuda\Lib\traceback.py:386) calls=14894
+  0.01%  0.0082s  set_result  (E:\miniconda3\envs\ai_cuda\Lib\asyncio\windows_events.py:91) calls=5525
+  0.01%  0.0082s  lazycache  (E:\miniconda3\envs\ai_cuda\Lib\linecache.py:147) calls=13540
+  0.01%  0.0082s  <method 'match' of 're.Pattern' objects>  (~:0) calls=3097
+  0.01%  0.0080s  is_closed  (E:\miniconda3\envs\ai_cuda\Lib\site-packages\playwright\async_api\_generated.py:9797) calls=3011
+  0.01%  0.0077s  <method 'add_done_callback' of '_asyncio.Future' objects>  (~:0) calls=9723
+  0.01%  0.0077s  delete  (E:\miniconda3\envs\ai_cuda\Lib\site-packages\numpy\lib\function_base.py:5173) calls=549
+  0.01%  0.0077s  isclass  (E:\miniconda3\envs\ai_cuda\Lib\inspect.py:292) calls=20058
+  0.01%  0.0076s  ismethod  (E:\miniconda3\envs\ai_cuda\Lib\inspect.py:300) calls=20068
+  0.01%  0.0076s  <method 'split' of 'str' objects>  (~:0) calls=10466
+  0.01%  0.0075s  _wrapfunc  (E:\miniconda3\envs\ai_cuda\Lib\site-packages\numpy\core\fromnumeric.py:53) calls=8302
+  0.01%  0.0075s  iscode  (E:\miniconda3\envs\ai_cuda\Lib\inspect.py:480) calls=20058
+  0.01%  0.0074s  write  (E:\miniconda3\envs\ai_cuda\Lib\asyncio\proactor_events.py:337) calls=1354
+  0.01%  0.0073s  isfunction  (E:\miniconda3\envs\ai_cuda\Lib\inspect.py:378) calls=20058
+  0.01%  0.0073s  get_debug  (E:\miniconda3\envs\ai_cuda\Lib\asyncio\base_events.py:1954) calls=35367
+  0.01%  0.0072s  fuzzy_ratio  (e:\BOT ANK\bot\moje_AI\yolov8\FULL BOT\dom_renderer\ai_recorder_common.py:130) calls=1143
+  0.01%  0.0070s  extract_question_text  (e:\BOT ANK\bot\moje_AI\yolov8\FULL BOT\dom_renderer\ai_recorder_capture.py:458) calls=338
+  0.01%  0.0070s  extract_stack  (E:\miniconda3\envs\ai_cuda\Lib\traceback.py:217) calls=1354
+  0.01%  0.0070s  _call  (E:\miniconda3\envs\ai_cuda\Lib\asyncio\base_subprocess.py:194) calls=4041
+  0.01%  0.0069s  dispatch  (E:\miniconda3\envs\ai_cuda\Lib\site-packages\playwright\_impl\_connection.py:407) calls=1420
+  0.01%  0.0067s  <built-in method builtins.hasattr>  (~:0) calls=6147
+  0.01%  0.0067s  <method 'startswith' of 'str' objects>  (~:0) calls=23894
+  0.01%  0.0066s  walk_stack  (E:\miniconda3\envs\ai_cuda\Lib\traceback.py:322) calls=14894
+  0.01%  0.0066s  evaluate  (E:\miniconda3\envs\ai_cuda\Lib\site-packages\playwright\_impl\_frame.py:318) calls=2411
+  0.01%  0.0066s  _compile  (E:\miniconda3\envs\ai_cuda\Lib\re\__init__.py:272) calls=2748
+  0.01%  0.0065s  polygons  (E:\miniconda3\envs\ai_cuda\Lib\site-packages\shapely\creation.py:332) calls=549
+  0.01%  0.0065s  _data_received  (E:\miniconda3\envs\ai_cuda\Lib\asyncio\proactor_events.py:251) calls=4041
+  0.01%  0.0065s  <method 'co_positions' of 'code' objects>  (~:0) calls=20058
+  0.01%  0.0064s  loads  (E:\miniconda3\envs\ai_cuda\Lib\json\__init__.py:299) calls=1420
+  0.01%  0.0064s  <method 'argmax' of 'numpy.ndarray' objects>  (~:0) calls=1825
+  0.01%  0.0064s  clip_det_res  (E:\miniconda3\envs\ai_cuda\Lib\site-packages\paddleocr\tools\infer\predict_det.py:187) calls=549
+  0.01%  0.0064s  splitroot  (E:\miniconda3\envs\ai_cuda\Lib\pathlib.py:147) calls=1989
+  0.01%  0.0063s  serialize_message  (E:\miniconda3\envs\ai_cuda\Lib\site-packages\playwright\_impl\_transport.py:77) calls=1354
+  0.01%  0.0062s  <boxPoints>  (~:0) calls=1510
+  0.01%  0.0062s  decode  (E:\miniconda3\envs\ai_cuda\Lib\json\decoder.py:332) calls=1420
+  0.01%  0.0062s  <built-in method now>  (~:0) calls=3043
+  0.01%  0.0060s  send  (E:\miniconda3\envs\ai_cuda\Lib\site-packages\playwright\_impl\_transport.py:173) calls=1354
+  0.01%  0.0060s  run  (e:\BOT ANK\bot\moje_AI\yolov8\FULL BOT\dom_renderer\ai_recorder_base.py:763) calls=277
+  0.01%  0.0060s  <method 'astype' of 'numpy.generic' objects>  (~:0) calls=2540
+  0.01%  0.0060s  <method 'sub' of 're.Pattern' objects>  (~:0) calls=2095
+  0.01%  0.0060s  wait_for  (E:\miniconda3\envs\ai_cuda\Lib\asyncio\tasks.py:436) calls=1250
+  0.01%  0.0059s  <built-in method builtins.getattr>  (~:0) calls=17194
+  0.01%  0.0059s  __init__  (E:\miniconda3\envs\ai_cuda\Lib\site-packages\playwright\_impl\_connection.py:221) calls=1354
+  0.01%  0.0059s  <built-in method sys.intern>  (~:0) calls=10136
+  0.01%  0.0058s  ones  (E:\miniconda3\envs\ai_cuda\Lib\site-packages\numpy\core\numeric.py:136) calls=1098
+  0.01%  0.0058s  filter_tag_det_res  (E:\miniconda3\envs\ai_cuda\Lib\site-packages\paddleocr\tools\infer\predict_det.py:193) calls=179
+  0.01%  0.0058s  diff  (E:\miniconda3\envs\ai_cuda\Lib\site-packages\numpy\lib\function_base.py:1324) calls=549
+  0.01%  0.0058s  sleep  (E:\miniconda3\envs\ai_cuda\Lib\asyncio\tasks.py:637) calls=3716
+  0.01%  0.0058s  __contains__  (<frozen _collections_abc>:778) calls=2776
+  0.01%  0.0057s  _check_closed  (E:\miniconda3\envs\ai_cuda\Lib\asyncio\base_events.py:518) calls=21425
+  0.01%  0.0057s  _page_state_quick  (e:\BOT ANK\bot\moje_AI\yolov8\FULL BOT\dom_renderer\ai_recorder_browser.py:295) calls=1573
+
+== Per file/module (by % tottime) ==
+ 86.63%  80.3402s  ~
+  6.88%  6.3792s  E:\miniconda3\envs\ai_cuda\Lib\site-packages\mss\windows.py
+  0.88%  0.8199s  E:\miniconda3\envs\ai_cuda\Lib\site-packages\playwright\_impl\_connection.py
+  0.67%  0.6245s  E:\miniconda3\envs\ai_cuda\Lib\json\decoder.py
+  0.62%  0.5730s  e:\BOT ANK\bot\moje_AI\yolov8\FULL BOT\dom_renderer\ai_recorder_browser.py
+  0.59%  0.5504s  E:\miniconda3\envs\ai_cuda\Lib\inspect.py
+  0.37%  0.3412s  E:\miniconda3\envs\ai_cuda\Lib\difflib.py
+  0.36%  0.3305s  E:\miniconda3\envs\ai_cuda\Lib\site-packages\playwright\_impl\_transport.py
+  0.22%  0.2085s  E:\miniconda3\envs\ai_cuda\Lib\asyncio\base_events.py
+  0.21%  0.1958s  E:\miniconda3\envs\ai_cuda\Lib\site-packages\paddleocr\tools\infer\predict_rec.py
+  0.18%  0.1701s  E:\miniconda3\envs\ai_cuda\Lib\asyncio\windows_events.py
+  0.18%  0.1701s  E:\miniconda3\envs\ai_cuda\Lib\site-packages\playwright\_impl\_impl_to_api_mapping.py
+  0.17%  0.1585s  E:\miniconda3\envs\ai_cuda\Lib\site-packages\mss\screenshot.py
+  0.16%  0.1481s  E:\miniconda3\envs\ai_cuda\Lib\site-packages\playwright\_impl\_js_handle.py
+  0.13%  0.1238s  E:\miniconda3\envs\ai_cuda\Lib\site-packages\uiautomation\uiautomation.py
+  0.13%  0.1179s  E:\miniconda3\envs\ai_cuda\Lib\traceback.py
+  0.12%  0.1105s  E:\miniconda3\envs\ai_cuda\Lib\site-packages\paddleocr\ppocr\data\imaug\operators.py
+  0.12%  0.1101s  E:\miniconda3\envs\ai_cuda\Lib\json\encoder.py
+  0.11%  0.1024s  E:\miniconda3\envs\ai_cuda\Lib\site-packages\paddleocr\ppocr\postprocess\db_postprocess.py
+  0.08%  0.0764s  E:\miniconda3\envs\ai_cuda\Lib\pathlib.py
+  0.07%  0.0652s  E:\miniconda3\envs\ai_cuda\Lib\asyncio\events.py
+  0.07%  0.0610s  E:\miniconda3\envs\ai_cuda\Lib\asyncio\proactor_events.py
+  0.07%  0.0609s  E:\miniconda3\envs\ai_cuda\Lib\asyncio\streams.py
+  0.06%  0.0568s  E:\miniconda3\envs\ai_cuda\Lib\site-packages\numpy\core\_methods.py
+  0.06%  0.0524s  E:\miniconda3\envs\ai_cuda\Lib\linecache.py
+  0.05%  0.0492s  E:\miniconda3\envs\ai_cuda\Lib\site-packages\mss\tools.py
+  0.05%  0.0461s  E:\miniconda3\envs\ai_cuda\Lib\asyncio\tasks.py
+  0.05%  0.0430s  e:\BOT ANK\bot\moje_AI\yolov8\FULL BOT\dom_renderer\ai_recorder_common.py
+  0.04%  0.0397s  e:\BOT ANK\bot\moje_AI\yolov8\FULL BOT\dom_renderer\ai_recorder_base.py
+  0.04%  0.0355s  E:\miniconda3\envs\ai_cuda\Lib\json\__init__.py
+  0.03%  0.0319s  e:\BOT ANK\bot\moje_AI\yolov8\FULL BOT\dom_renderer\ai_recorder_capture.py
+  0.03%  0.0315s  E:\miniconda3\envs\ai_cuda\Lib\site-packages\paddleocr\tools\infer\predict_det.py
+  0.03%  0.0304s  E:\miniconda3\envs\ai_cuda\Lib\site-packages\paddleocr\tools\infer\predict_system.py
+  0.03%  0.0303s  E:\miniconda3\envs\ai_cuda\Lib\site-packages\playwright\_impl\_map.py
+  0.03%  0.0287s  E:\miniconda3\envs\ai_cuda\Lib\ctypes\__init__.py
+  0.03%  0.0233s  E:\miniconda3\envs\ai_cuda\Lib\site-packages\comtypes\_post_coinit\unknwn.py
+  0.02%  0.0214s  <frozen genericpath>
+  0.02%  0.0214s  E:\miniconda3\envs\ai_cuda\Lib\site-packages\numpy\core\fromnumeric.py
+  0.02%  0.0195s  E:\miniconda3\envs\ai_cuda\Lib\site-packages\paddleocr\ppocr\postprocess\rec_postprocess.py
+  0.02%  0.0179s  <frozen os>
+  0.02%  0.0175s  E:\miniconda3\envs\ai_cuda\Lib\site-packages\playwright\async_api\_generated.py
+  0.02%  0.0166s  E:\miniconda3\envs\ai_cuda\Lib\site-packages\shapely\creation.py
+  0.02%  0.0156s  E:\miniconda3\envs\ai_cuda\Lib\_weakrefset.py
+  0.02%  0.0150s  E:\miniconda3\envs\ai_cuda\Lib\asyncio\base_subprocess.py
+  0.02%  0.0149s  E:\miniconda3\envs\ai_cuda\Lib\site-packages\shapely\decorators.py
+  0.02%  0.0148s  E:\miniconda3\envs\ai_cuda\Lib\site-packages\numpy\lib\function_base.py
+  0.01%  0.0134s  E:\miniconda3\envs\ai_cuda\Lib\site-packages\numpy\linalg\linalg.py
+  0.01%  0.0126s  E:\miniconda3\envs\ai_cuda\Lib\site-packages\comtypes\_memberspec.py
+  0.01%  0.0114s  E:\miniconda3\envs\ai_cuda\Lib\re\__init__.py
+  0.01%  0.0107s  E:\miniconda3\envs\ai_cuda\Lib\site-packages\paddleocr\tools\infer\utility.py
+  0.01%  0.0095s  e:\BOT ANK\bot\moje_AI\yolov8\FULL BOT\dom_renderer\ai_recorder_windows.py
+  0.01%  0.0090s  E:\miniconda3\envs\ai_cuda\Lib\site-packages\shapely\measurement.py
+  0.01%  0.0077s  E:\miniconda3\envs\ai_cuda\Lib\site-packages\numpy\core\numeric.py
+  0.01%  0.0073s  E:\miniconda3\envs\ai_cuda\Lib\site-packages\playwright\_impl\_frame.py
+  0.01%  0.0072s  E:\miniconda3\envs\ai_cuda\Lib\site-packages\playwright\_impl\_page.py
+  0.01%  0.0071s  E:\miniconda3\envs\ai_cuda\Lib\argparse.py
+  0.01%  0.0071s  <frozen _collections_abc>
+  0.01%  0.0065s  <frozen abc>
+  0.01%  0.0062s  E:\miniconda3\envs\ai_cuda\Lib\enum.py
+  0.01%  0.0056s  <string>
+  0.01%  0.0054s  E:\miniconda3\envs\ai_cuda\Lib\site-packages\comtypes\_post_coinit\misc.py
+  0.01%  0.0050s  E:\miniconda3\envs\ai_cuda\Lib\site-packages\shapely\geometry\polygon.py
+  0.01%  0.0048s  E:\miniconda3\envs\ai_cuda\Lib\site-packages\numpy\core\numerictypes.py
+  0.00%  0.0045s  E:\miniconda3\envs\ai_cuda\Lib\site-packages\paddleocr\paddleocr.py
+  0.00%  0.0044s  E:\miniconda3\envs\ai_cuda\Lib\asyncio\subprocess.py
+  0.00%  0.0042s  E:\miniconda3\envs\ai_cuda\Lib\random.py
+  0.00%  0.0039s  E:\miniconda3\envs\ai_cuda\Lib\asyncio\coroutines.py
+  0.00%  0.0038s  E:\miniconda3\envs\ai_cuda\Lib\copy.py
+  0.00%  0.0036s  E:\miniconda3\envs\ai_cuda\Lib\threading.py
+  0.00%  0.0036s  E:\miniconda3\envs\ai_cuda\Lib\contextlib.py
+  0.00%  0.0035s  E:\miniconda3\envs\ai_cuda\Lib\asyncio\futures.py
+  0.00%  0.0032s  E:\miniconda3\envs\ai_cuda\Lib\collections\__init__.py
+  0.00%  0.0032s  E:\miniconda3\envs\ai_cuda\Lib\site-packages\mss\base.py
+  0.00%  0.0029s  E:\miniconda3\envs\ai_cuda\Lib\site-packages\psutil\__init__.py
+  0.00%  0.0028s  E:\miniconda3\envs\ai_cuda\Lib\asyncio\base_futures.py
+  0.00%  0.0027s  E:\miniconda3\envs\ai_cuda\Lib\site-packages\numpy\lib\shape_base.py
+  0.00%  0.0026s  <frozen ntpath>
+  0.00%  0.0024s  <frozen codecs>
+  0.00%  0.0023s  E:\miniconda3\envs\ai_cuda\Lib\asyncio\windows_utils.py
+  0.00%  0.0023s  E:\miniconda3\envs\ai_cuda\Lib\site-packages\psutil\_pswindows.py
+  0.00%  0.0019s  E:\miniconda3\envs\ai_cuda\Lib\concurrent\futures\_base.py
+  0.00%  0.0019s  E:\miniconda3\envs\ai_cuda\Lib\site-packages\paddleocr\ppocr\data\imaug\__init__.py
+  0.00%  0.0018s  E:\miniconda3\envs\ai_cuda\Lib\concurrent\futures\thread.py
+  0.00%  0.0018s  E:\miniconda3\envs\ai_cuda\Lib\site-packages\comtypes\_post_coinit\_cominterface_meta_patcher.py
+  0.00%  0.0017s  E:\miniconda3\envs\ai_cuda\Lib\site-packages\comtypes\typeinfo.py
+  0.00%  0.0016s  <frozen importlib._bootstrap>
+  0.00%  0.0016s  E:\miniconda3\envs\ai_cuda\Lib\logging\__init__.py
+  0.00%  0.0014s  E:\miniconda3\envs\ai_cuda\Lib\site-packages\pyee\base.py
+  0.00%  0.0013s  E:\miniconda3\envs\ai_cuda\Lib\shutil.py
+  0.00%  0.0013s  E:\miniconda3\envs\ai_cuda\Lib\site-packages\shapely\geometry\base.py
+  0.00%  0.0013s  E:\miniconda3\envs\ai_cuda\Lib\site-packages\pyee\asyncio.py
+  0.00%  0.0011s  E:\miniconda3\envs\ai_cuda\Lib\site-packages\comtypes\gen\_944DE083_8FB8_45CF_BCB7_C477ACB2F897_0_1_0.py
+  0.00%  0.0010s  E:\miniconda3\envs\ai_cuda\Lib\site-packages\paddle\inference\wrapper.py
+  0.00%  0.0010s  E:\miniconda3\envs\ai_cuda\Lib\site-packages\psutil\_common.py
+  0.00%  0.0009s  <frozen importlib._bootstrap_external>
+  0.00%  0.0009s  E:\miniconda3\envs\ai_cuda\Lib\asyncio\transports.py
+  0.00%  0.0008s  E:\miniconda3\envs\ai_cuda\Lib\site-packages\comtypes\GUID.py
+  0.00%  0.0008s  E:\miniconda3\envs\ai_cuda\Lib\site-packages\comtypes\patcher.py
+  0.00%  0.0006s  E:\miniconda3\envs\ai_cuda\Lib\urllib\request.py
+  0.00%  0.0005s  E:\miniconda3\envs\ai_cuda\Lib\site-packages\numpy\core\_ufunc_config.py

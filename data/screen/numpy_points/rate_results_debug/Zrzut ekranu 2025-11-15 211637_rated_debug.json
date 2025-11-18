@@ -1,0 +1,149 @@
+{
+  "image": "E:\\BOT ANK\\bot\\moje_AI\\yolov8\\FULL BOT\\data\\screen\\raw screen\\Zrzut ekranu 2025-11-15 211637.png",
+  "total_elements": 5,
+  "elements": [
+    {
+      "id": "cand_0",
+      "text": "",
+      "bbox": [
+        1166,
+        292,
+        1324,
+        339
+      ],
+      "debug": {
+        "dropdown": {
+          "text": "",
+          "signals": {
+            "has_dropdown_box": 0.77
+          },
+          "bonuses": {},
+          "exclusions": {
+            "no_text": -0.9
+          },
+          "final_calc": {
+            "combined_scores": 0.77,
+            "total_exclusions": -0.9,
+            "before_cap": -0.13,
+            "final": 0.0
+          }
+        }
+      }
+    },
+    {
+      "id": "cand_1",
+      "text": "",
+      "bbox": [
+        76,
+        211,
+        196,
+        229
+      ],
+      "debug": {
+        "dropdown": {
+          "text": "",
+          "signals": {
+            "has_dropdown_box": 0.77,
+            "ramka_listy": 0.25
+          },
+          "bonuses": {},
+          "exclusions": {
+            "no_text": -0.9
+          },
+          "final_calc": {
+            "combined_scores": 0.8275,
+            "total_exclusions": -0.9,
+            "before_cap": -0.07250000000000001,
+            "final": 0.0
+          }
+        }
+      }
+    },
+    {
+      "id": "cand_2",
+      "text": "",
+      "bbox": [
+        76,
+        149,
+        138,
+        167
+      ],
+      "debug": {
+        "dropdown": {
+          "text": "",
+          "signals": {
+            "has_dropdown_box": 0.77,
+            "ramka_listy": 0.25
+          },
+          "bonuses": {},
+          "exclusions": {
+            "no_text": -0.9
+          },
+          "final_calc": {
+            "combined_scores": 0.8275,
+            "total_exclusions": -0.9,
+            "before_cap": -0.07250000000000001,
+            "final": 0.0
+          }
+        }
+      }
+    },
+    {
+      "id": "cand_3",
+      "text": "",
+      "bbox": [
+        76,
+        87,
+        161,
+        106
+      ],
+      "debug": {
+        "dropdown": {
+          "text": "",
+          "signals": {
+            "has_dropdown_box": 0.77,
+            "ramka_listy": 0.25
+          },
+          "bonuses": {},
+          "exclusions": {
+            "no_text": -0.9
+          },
+          "final_calc": {
+            "combined_scores": 0.8275,
+            "total_exclusions": -0.9,
+            "before_cap": -0.07250000000000001,
+            "final": 0.0
+          }
+        }
+      }
+    },
+    {
+      "id": "cand_4",
+      "text": "",
+      "bbox": [
+        20,
+        31,
+        80,
+        46
+      ],
+      "debug": {
+        "dropdown": {
+          "text": "",
+          "signals": {
+            "has_dropdown_box": 0.77
+          },
+          "bonuses": {},
+          "exclusions": {
+            "no_text": -0.9
+          },
+          "final_calc": {
+            "combined_scores": 0.77,
+            "total_exclusions": -0.9,
+            "before_cap": -0.13,
+            "final": 0.0
+          }
+        }
+      }
+    }
+  ]
+}

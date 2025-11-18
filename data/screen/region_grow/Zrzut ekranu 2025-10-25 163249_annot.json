@@ -1,0 +1,530 @@
+{
+  "image": "E:\\BOT ANK\\bot\\moje_AI\\yolov8\\FULL BOT\\data\\screen\\raw screen\\Zrzut ekranu 2025-10-25 163249_annot.png",
+  "color_histogram": {
+    "top": [
+      {
+        "rgb": [
+          248,
+          248,
+          248
+        ],
+        "pct": 0.828416
+      },
+      {
+        "rgb": [
+          248,
+          104,
+          104
+        ],
+        "pct": 0.078309
+      },
+      {
+        "rgb": [
+          248,
+          152,
+          200
+        ],
+        "pct": 0.018207
+      },
+      {
+        "rgb": [
+          248,
+          8,
+          8
+        ],
+        "pct": 0.017558
+      },
+      {
+        "rgb": [
+          248,
+          248,
+          40
+        ],
+        "pct": 0.014682
+      },
+      {
+        "rgb": [
+          152,
+          56,
+          104
+        ],
+        "pct": 0.006688
+      },
+      {
+        "rgb": [
+          8,
+          136,
+          248
+        ],
+        "pct": 0.006328
+      },
+      {
+        "rgb": [
+          168,
+          8,
+          8
+        ],
+        "pct": 0.003334
+      }
+    ],
+    "dominant_pct": 0.8284160469637042,
+    "dominant_rgb": [
+      248,
+      248,
+      248
+    ]
+  },
+  "dominant_bg_over_50": true,
+  "results": [
+    {
+      "text": "Sehrc",
+      "conf": 0.8403276205062866,
+      "text_box": [
+        1078,
+        9,
+        1112,
+        23
+      ],
+      "has_frame": false,
+      "frame_hits": 0,
+      "dropdown_box": null,
+      "frame_rgb": null,
+      "laser_endpoints": null
+    },
+    {
+      "text": "Trending re pos today",
+      "conf": 0.9303632946241469,
+      "text_box": [
+        79,
+        28,
+        182,
+        46
+      ],
+      "has_frame": false,
+      "frame_hits": 1,
+      "dropdown_box": [
+        156,
+        0,
+        242,
+        51
+      ],
+      "frame_rgb": [
+        255,
+        149,
+        202
+      ],
+      "laser_endpoints": [
+        [
+          242,
+          37
+        ],
+        [
+          130,
+          37
+        ],
+        [
+          130,
+          0
+        ],
+        [
+          130,
+          80
+        ]
+      ]
+    },
+    {
+      "text": "Trending repos today",
+      "conf": 0.9720072984695435,
+      "text_box": [
+        77,
+        45,
+        225,
+        62
+      ],
+      "has_frame": false,
+      "frame_hits": 0,
+      "dropdown_box": null,
+      "frame_rgb": null,
+      "laser_endpoints": null
+    },
+    {
+      "text": "ME",
+      "conf": 0.5720180124044418,
+      "text_box": [
+        1076,
+        53,
+        1112,
+        72
+      ],
+      "has_frame": false,
+      "frame_hits": 0,
+      "dropdown_box": null,
+      "frame_rgb": null,
+      "laser_endpoints": null
+    },
+    {
+      "text": "Searc!",
+      "conf": 0.8991978913545609,
+      "text_box": [
+        1077,
+        80,
+        1112,
+        96
+      ],
+      "has_frame": false,
+      "frame_hits": 0,
+      "dropdown_box": null,
+      "frame_rgb": null,
+      "laser_endpoints": null
+    },
+    {
+      "text": "Sehrc",
+      "conf": 0.7300596415996552,
+      "text_box": [
+        1077,
+        105,
+        1112,
+        120
+      ],
+      "has_frame": false,
+      "frame_hits": 0,
+      "dropdown_box": null,
+      "frame_rgb": null,
+      "laser_endpoints": null
+    },
+    {
+      "text": "121",
+      "conf": 0.7616826097170512,
+      "text_box": [
+        1095,
+        96,
+        1111,
+        104
+      ],
+      "has_frame": false,
+      "frame_hits": 1,
+      "dropdown_box": [
+        1097,
+        96,
+        1113,
+        104
+      ],
+      "frame_rgb": null,
+      "laser_endpoints": [
+        [
+          1103,
+          100
+        ],
+        [
+          1067,
+          100
+        ],
+        [
+          1103,
+          66
+        ],
+        [
+          1103,
+          124
+        ]
+      ]
+    },
+    {
+      "text": "lnline",
+      "conf": 0.8566873917977015,
+      "text_box": [
+        1078,
+        128,
+        1111,
+        143
+      ],
+      "has_frame": false,
+      "frame_hits": 0,
+      "dropdown_box": null,
+      "frame_rgb": null,
+      "laser_endpoints": null
+    },
+    {
+      "text": "Pointing",
+      "conf": 0.9536643922328949,
+      "text_box": [
+        40,
+        144,
+        80,
+        159
+      ],
+      "has_frame": false,
+      "frame_hits": 3,
+      "dropdown_box": [
+        77,
+        61,
+        155,
+        170
+      ],
+      "frame_rgb": [
+        255,
+        149,
+        202
+      ],
+      "laser_endpoints": [
+        [
+          155,
+          151
+        ],
+        [
+          60,
+          151
+        ],
+        [
+          60,
+          55
+        ],
+        [
+          60,
+          168
+        ]
+      ]
+    },
+    {
+      "text": "Pointi",
+      "conf": 0.9209035933017731,
+      "text_box": [
+        1078,
+        151,
+        1112,
+        167
+      ],
+      "has_frame": false,
+      "frame_hits": 0,
+      "dropdown_box": null,
+      "frame_rgb": null,
+      "laser_endpoints": null
+    },
+    {
+      "text": "Fldati",
+      "conf": 0.8961674571037292,
+      "text_box": [
+        1078,
+        173,
+        1112,
+        191
+      ],
+      "has_frame": false,
+      "frame_hits": 0,
+      "dropdown_box": null,
+      "frame_rgb": null,
+      "laser_endpoints": null
+    },
+    {
+      "text": "A dropdown can be formatted so that its menu is pointing",
+      "conf": 0.981945093188967,
+      "text_box": [
+        39,
+        184,
+        449,
+        209
+      ],
+      "has_frame": false,
+      "frame_hits": 0,
+      "dropdown_box": null,
+      "frame_rgb": null,
+      "laser_endpoints": null
+    },
+    {
+      "text": "Sirhpl",
+      "conf": 0.8230353246132532,
+      "text_box": [
+        1077,
+        198,
+        1112,
+        216
+      ],
+      "has_frame": false,
+      "frame_hits": 0,
+      "dropdown_box": null,
+      "frame_rgb": null,
+      "laser_endpoints": null
+    },
+    {
+      "text": "Cont",
+      "conf": 0.9949445128440857,
+      "text_box": [
+        1078,
+        222,
+        1106,
+        236
+      ],
+      "has_frame": false,
+      "frame_hits": 0,
+      "dropdown_box": [
+        1097,
+        217,
+        1113,
+        236
+      ],
+      "frame_rgb": [
+        255,
+        149,
+        202
+      ],
+      "laser_endpoints": [
+        [
+          1092,
+          229
+        ],
+        [
+          1067,
+          229
+        ],
+        [
+          1092,
+          187
+        ],
+        [
+          1092,
+          229
+        ]
+      ]
+    },
+    {
+      "text": "Cont",
+      "conf": 0.9838199466466904,
+      "text_box": [
+        1077,
+        234,
+        1112,
+        256
+      ],
+      "has_frame": false,
+      "frame_hits": 0,
+      "dropdown_box": null,
+      "frame_rgb": null,
+      "laser_endpoints": null
+    },
+    {
+      "text": "IS",
+      "conf": 0.7265985310077667,
+      "text_box": [
+        1079,
+        259,
+        1099,
+        274
+      ],
+      "has_frame": false,
+      "frame_hits": 0,
+      "dropdown_box": [
+        1097,
+        255,
+        1113,
+        274
+      ],
+      "frame_rgb": null,
+      "laser_endpoints": [
+        [
+          1089,
+          266
+        ],
+        [
+          1067,
+          266
+        ],
+        [
+          1089,
+          266
+        ],
+        [
+          1089,
+          266
+        ]
+      ]
+    },
+    {
+      "text": "State",
+      "conf": 0.9930769443511963,
+      "text_box": [
+        1077,
+        272,
+        1112,
+        294
+      ],
+      "has_frame": false,
+      "frame_hits": 0,
+      "dropdown_box": null,
+      "frame_rgb": null,
+      "laser_endpoints": null
+    },
+    {
+      "text": "Vara",
+      "conf": 0.9521918445825577,
+      "text_box": [
+        1081,
+        295,
+        1111,
+        310
+      ],
+      "has_frame": false,
+      "frame_hits": 0,
+      "dropdown_box": null,
+      "frame_rgb": null,
+      "laser_endpoints": null
+    },
+    {
+      "text": "Varia",
+      "conf": 0.9948773384094238,
+      "text_box": [
+        1079,
+        309,
+        1112,
+        328
+      ],
+      "has_frame": false,
+      "frame_hits": 0,
+      "dropdown_box": null,
+      "frame_rgb": null,
+      "laser_endpoints": null
+    },
+    {
+      "text": "DULLUI",
+      "conf": 0.864159365495046,
+      "text_box": [
+        66,
+        769,
+        100,
+        776
+      ],
+      "has_frame": true,
+      "frame_hits": 4,
+      "dropdown_box": [
+        89,
+        770,
+        114,
+        776
+      ],
+      "frame_rgb": [
+        150,
+        53,
+        105
+      ],
+      "laser_endpoints": [
+        [
+          107,
+          772
+        ],
+        [
+          63,
+          772
+        ],
+        [
+          83,
+          767
+        ],
+        [
+          83,
+          792
+        ]
+      ]
+    }
+  ],
+  "triangles": [],
+  "ocr_debug": null
+}

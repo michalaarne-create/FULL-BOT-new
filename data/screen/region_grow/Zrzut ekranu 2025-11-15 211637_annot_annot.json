@@ -1,0 +1,276 @@
+{
+  "image": "E:\\BOT ANK\\bot\\moje_AI\\yolov8\\FULL BOT\\data\\screen\\raw screen\\Zrzut ekranu 2025-11-15 211637_annot_annot.png",
+  "color_histogram": {
+    "top": [
+      {
+        "rgb": [
+          248,
+          248,
+          248
+        ],
+        "pct": 0.526205
+      },
+      {
+        "rgb": [
+          248,
+          104,
+          104
+        ],
+        "pct": 0.322866
+      },
+      {
+        "rgb": [
+          248,
+          8,
+          8
+        ],
+        "pct": 0.046214
+      },
+      {
+        "rgb": [
+          8,
+          136,
+          248
+        ],
+        "pct": 0.025771
+      },
+      {
+        "rgb": [
+          248,
+          104,
+          152
+        ],
+        "pct": 0.025002
+      },
+      {
+        "rgb": [
+          248,
+          248,
+          40
+        ],
+        "pct": 0.020612
+      },
+      {
+        "rgb": [
+          248,
+          152,
+          200
+        ],
+        "pct": 0.012805
+      },
+      {
+        "rgb": [
+          200,
+          72,
+          88
+        ],
+        "pct": 0.008522
+      }
+    ],
+    "dominant_pct": 0.5262049398273081,
+    "dominant_rgb": [
+      248,
+      248,
+      248
+    ]
+  },
+  "dominant_bg_over_50": true,
+  "results": [
+    {
+      "text": "Jeste",
+      "conf": 0.8387673735618592,
+      "text_box": [
+        21,
+        12,
+        62,
+        30
+      ],
+      "has_frame": false,
+      "frame_hits": 3,
+      "dropdown_box": [
+        50,
+        2,
+        92,
+        38
+      ],
+      "frame_rgb": [
+        247,
+        248,
+        250
+      ],
+      "laser_endpoints": [
+        [
+          92,
+          21
+        ],
+        [
+          41,
+          21
+        ],
+        [
+          41,
+          1
+        ],
+        [
+          41,
+          66
+        ]
+      ]
+    },
+    {
+      "text": "Jestem:",
+      "conf": 0.8977478529725756,
+      "text_box": [
+        24,
+        31,
+        77,
+        48
+      ],
+      "has_frame": false,
+      "frame_hits": 0,
+      "dropdown_box": null,
+      "frame_rgb": null,
+      "laser_endpoints": null
+    },
+    {
+      "text": "OMezo",
+      "conf": 0.7678355932235718,
+      "text_box": [
+        57,
+        68,
+        89,
+        80
+      ],
+      "has_frame": true,
+      "frame_hits": 4,
+      "dropdown_box": [
+        51,
+        69,
+        92,
+        93
+      ],
+      "frame_rgb": [
+        253,
+        147,
+        201
+      ],
+      "laser_endpoints": [
+        [
+          92,
+          74
+        ],
+        [
+          50,
+          74
+        ],
+        [
+          73,
+          66
+        ],
+        [
+          73,
+          83
+        ]
+      ]
+    },
+    {
+      "text": "O kobiet",
+      "conf": 0.7633195891976357,
+      "text_box": [
+        54,
+        130,
+        91,
+        140
+      ],
+      "has_frame": false,
+      "frame_hits": 3,
+      "dropdown_box": [
+        95,
+        131,
+        105,
+        142
+      ],
+      "frame_rgb": [
+        254,
+        254,
+        34
+      ],
+      "laser_endpoints": [
+        [
+          94,
+          135
+        ],
+        [
+          72,
+          135
+        ],
+        [
+          72,
+          128
+        ],
+        [
+          72,
+          143
+        ]
+      ]
+    },
+    {
+      "text": "TOwlcvpe je Inovic",
+      "conf": 0.8065635197692447,
+      "text_box": [
+        30,
+        204,
+        123,
+        218
+      ],
+      "has_frame": false,
+      "frame_hits": 0,
+      "dropdown_box": [
+        126,
+        209,
+        193,
+        216
+      ],
+      "frame_rgb": [
+        150,
+        53,
+        105
+      ],
+      "laser_endpoints": [
+        [
+          76,
+          211
+        ],
+        [
+          76,
+          211
+        ],
+        [
+          76,
+          211
+        ],
+        [
+          76,
+          211
+        ]
+      ]
+    },
+    {
+      "text": "Owole.",
+      "conf": 0.9019392232100168,
+      "text_box": [
+        55,
+        195,
+        89,
+        204
+      ],
+      "has_frame": false,
+      "frame_hits": 0,
+      "dropdown_box": null,
+      "frame_rgb": null,
+      "laser_endpoints": null
+    }
+  ],
+  "triangles": [],
+  "ocr_debug": null
+}

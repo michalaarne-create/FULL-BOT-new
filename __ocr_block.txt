@@ -1,0 +1,80 @@
+        print("JSON OUTPUT:")
+        print("="*60)
+        print(json_output)
+        print("\n" + "="*60)
+        print(f"Annotation: {out_path}")
+        print("="*60)
+    
+    except Exception as e:
+        print(f"\n[ERROR] Script failed: {e}")
+        import traceback
+        traceback.print_exc()
+    
+    print("\n[DEBUG] SCRIPT END")
+
+# ===================== OCR =====================
+_paddle = None
+_rapid = None
+_last_ocr_debug = {}
+
+def get_ocr():
+    global _paddle
+    if _paddle is None:
+        print("[DEBUG] Initializing PaddleOCR on GPU...")
+        try:
+            device_label = "cpu"
+            if paddle is not None:
+                try:
+                    paddle.set_device(f"gpu:{PADDLE_GPU_ID}")
+                    device_label = f"gpu:{PADDLE_GPU_ID}"
+                except Exception:
+                    try:
+                        paddle.set_device("gpu")
+                        device_label = "gpu"
+                    except Exception:
+                        paddle.set_device("cpu")
+                        device_label = "cpu"
+            _paddle = PaddleOCR(
+                lang="en",
+                use_textline_orientation=False,
+                text_recognition_batch_size=PADDLE_REC_BATCH,
+            )
+            print(f"[DEBUG] PaddleOCR initialized on {device_label} (batch={PADDLE_REC_BATCH})")
+        except Exception as exc:
+            print(f"[WARN] PaddleOCR GPU init failed ({exc}), falling back to CPU")
+            try:
+                _paddle = PaddleOCR(
+                    lang="en",
+                    use_textline_orientation=False,
+                    text_recognition_batch_size=PADDLE_REC_BATCH,
+                )
+                print("[DEBUG] PaddleOCR initialized on CPU")
+            except Exception as exc2:
+                print(f"[ERROR] PaddleOCR initialization failed: {exc2}")
+                _paddle = None
+    return _paddle
+
+def _preprocess_for_ocr(img_pil: Image.Image):
+    w, h = img_pil.size
+    base_scale = 1.0
+    target_side = 1700
+    if max(w, h) < target_side:
+        base_scale = target_side / float(max(w, h))
+    
+    tgt = img_pil.resize((int(w * base_scale), int(h * base_scale)), Image.BILINEAR)
+    arr0 = np.array(tgt)
+    
+    lab = cv2.cvtColor(arr0, cv2.COLOR_RGB2LAB)
+    L, A, B = cv2.split(lab)
+    L = cv2.createCLAHE(2.0, (8, 8)).apply(L)
+    arr0 = cv2.cvtColor(cv2.merge([L, A, B]), cv2.COLOR_LAB2RGB)
+    arr0 = cv2.addWeighted(arr0, 1.5, cv2.GaussianBlur(arr0, (0, 0), 1.0), -0.5, 0)
+    
+    return arr0, base_scale
+
+def _parse_rec_result(res) -> Tuple[str, float]:
+    try:
+        if not isinstance(res, list) or not res:
+            return "", 0.0
+        entry = res[0]
+

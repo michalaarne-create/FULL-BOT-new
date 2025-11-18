@@ -1,0 +1,320 @@
+def read_ocr_faster(img_pil: Image.Image, timer: Optional[StageTimer] = None):
+    print("[DEBUG] OCR: Preprocessing...")
+    arr0, base_scale = _preprocess_for_ocr(img_pil)
+    if timer: timer.mark("OCR preprocess")
+    
+    ocr = get_ocr()
+    det_quads = []
+    
+    # DET multi-scale
+    print("[DEBUG] OCR: Detection phase...")
+    for s in OCR_SCALES:
+        try:
+            arr = cv2.resize(arr0, None, fx=s, fy=s, interpolation=cv2.INTER_LINEAR)
+            det = ocr.ocr(arr, det=True, rec=False, cls=False)
+            qlist = det[0] if isinstance(det, list) and len(det) else []
+            inv = 1.0 / (base_scale * s)
+            for q in qlist:
+                det_quads.append([(int(x*inv), int(y*inv)) for (x, y) in q])
+            print(f"[DEBUG] OCR: Scale {s} -> {len(qlist)} boxes")
+        except Exception as e:
+            print(f"[ERROR] OCR detection scale {s}: {e}")
+
+    if not det_quads:
+        print("[DEBUG] OCR: No detections found")
+        if timer: timer.mark("OCR det (no boxes)")
+        return []
+
+    # NMS + limit
+    det_boxes = suppress_ocr_overlaps([(q, "", 0.0) for q in det_quads], OCR_NMS_IOU)
+    if len(det_boxes) > MAX_OCR_ITEMS:
+        det_boxes = det_boxes[:MAX_OCR_ITEMS]
+    
+    print(f"[DEBUG] OCR: After NMS -> {len(det_boxes)} boxes")
+
+    # REC batchem
+    print("[DEBUG] OCR: Recognition phase...")
+    arr_full = np.array(img_pil)
+    crops, boxes = [], []
+    
+    for q, _, _ in det_boxes:
+        xs = [int(p[0]) for p in q]
+        ys = [int(p[1]) for p in q]
+        x1, y1 = max(0, min(xs)), max(0, min(ys))
+        x2, y2 = min(arr_full.shape[1], max(xs)), min(arr_full.shape[0], max(ys))
+        if x2 - x1 <= 1 or y2 - y1 <= 1: 
+            continue
+        crops.append(arr_full[y1:y2, x1:x2])
+        boxes.append(q)
+
+    rec_outs = []
+    if crops:
+        try:
+            res_list = ocr.ocr(crops, det=False, rec=True, cls=True)
+        except Exception:
+            print("[DEBUG] OCR: Batch rec failed, using loop fallback")
+            res_list = []
+            for c in crops:
+                res_list.append(ocr.ocr(c, det=False, rec=True, cls=True))
+
+        for q, res in zip(boxes, res_list):
+            txt, conf = _parse_rec_result(res)
+            rec_outs.append((q, txt, conf))
+
+    outs = [r for r in rec_outs if float(r[2]) >= OCR_CONF_MIN]
+    
+    if (not outs or not any((t.strip() != "") for _, t, _ in outs)) and FORCE_DET_ONLY_IF_EMPTY_TEXT:
+        print("[DEBUG] OCR: No text found, using det-only mode")
+        outs = [(q, "", 0.5) for (q, _, _) in det_boxes]
+
+    outs.sort(key=lambda r: float(r[2]), reverse=True)
+    outs = suppress_ocr_overlaps(outs, OCR_NMS_IOU)
+    
+    if len(outs) > MAX_OCR_ITEMS:
+        outs = outs[:MAX_OCR_ITEMS]
+    
+    print(f"[DEBUG] OCR: Final -> {len(outs)} results")
+    if timer: timer.mark("OCR finalize")
+    return outs
+
+def read_ocr_full(img_pil: Image.Image, timer: Optional[StageTimer] = None):
+    global _last_ocr_debug
+    print("[DEBUG] OCR: Using FULL mode...")
+    arr0, base_scale = _preprocess_for_ocr(img_pil)
+    if timer: timer.mark("OCR preprocess")
+    
+    ocr = get_ocr()
+    outs = []
+    dbg = {
+        "ppocr": "v4", 
+        "base_scale": base_scale, 
+        "scales": [],
+        "boxes_rec_raw": 0, 
+        "boxes_kept_after_thr_nms": 0,
+        "det_only_used": False, 
+        "det_only_boxes": 0, 
+        "tesseract_boxes": 0,
+        "cv_boxes": 0,
+        "errors": []
+    }
+
+    for s in OCR_SCALES:
+        try:
+            arr = cv2.resize(arr0, None, fx=s, fy=s, interpolation=cv2.INTER_LINEAR)
+            res = ocr.ocr(arr, cls=True)
+            lines = res[0] if isinstance(res, list) and len(res) > 0 else []
+            dbg["scales"].append({"scale": s, "raw": len(lines)})
+            inv = 1.0 / (base_scale * s)
+            for it in lines:
+                quad = it[0]
+                txt = (it[1][0] or "").strip()
+                conf = float(it[1][1] or 0.0)
+                quad = [(int(x * inv), int(y * inv)) for (x, y) in quad]
+                outs.append((quad, txt, conf))
+        except Exception as e:
+            dbg["errors"].append(f"rec_scale{s}: {e}")
+
+    if timer: timer.mark("OCR full total")
+
+    dbg["boxes_rec_raw"] = len(outs)
+    has_text = any((t.strip() != "") for (_, t, _) in outs)
+
+    # Fallback: jeœli wyników jest ma³o lub brak tekstu, spróbuj
+    # (a) wykryæ boxy det-only na kilku skalach, a nastêpnie
+    # (b) uruchomiæ rozpoznawanie na ka¿dym wykrytym boxie (bez kolejnej detekcji).
+    need_det_only = (
+        ((len(outs) == 0) or not has_text) and FORCE_DET_ONLY_IF_EMPTY_TEXT
+    ) or (len(outs) < MIN_OCR_RESULTS)
+    if need_det_only:
+        det_quads = []
+        try:
+            arr_full = np.array(img_pil)
+        except Exception:
+            arr_full = None
+        for s in OCR_SCALES:
+            try:
+                arr = cv2.resize(arr0, None, fx=s, fy=s, interpolation=cv2.INTER_LINEAR)
+                res = ocr.ocr(arr, det=True, rec=False, cls=False)
+                boxes = res[0] if isinstance(res, list) and len(res) > 0 else []
+                inv = 1.0 / (base_scale * s)
+                for quad in boxes:
+                    quad = [(int(x * inv), int(y * inv)) for (x, y) in quad]
+                    det_quads.append(quad)
+            except Exception as e:
+                dbg["errors"].append(f"det_scale{s}: {e}")
+
+        if not det_quads and arr_full is not None:
+            cv_quads = _cv_text_regions(arr_full)
+            det_quads.extend(cv_quads)
+            dbg["cv_boxes"] = len(cv_quads)
+
+        # Rozpoznanie per-box na oryginalnym obrazie (bez dodatkowej detekcji)
+        rec_outs = []
+        for quad in det_quads:
+            try:
+                xs = [int(p[0]) for p in quad]
+                ys = [int(p[1]) for p in quad]
+                x1, y1, x2, y2 = min(xs), min(ys), max(xs), max(ys)
+                if arr_full is None:
+                    crop = None
+                else:
+                    x1c = max(0, x1); y1c = max(0, y1)
+                    x2c = min(arr_full.shape[1], x2); y2c = min(arr_full.shape[0], y2)
+                    if x2c - x1c > 1 and y2c - y1c > 1:
+                        crop = arr_full[y1c:y2c, x1c:x2c]
+                    else:
+                        crop = None
+                if crop is not None:
+                    res = ocr.ocr(crop, det=False, rec=True, cls=True)
+                    txt, c = _parse_rec_result(res)
+                    rec_outs.append((quad, txt, float(c)))
+                else:
+                    rec_outs.append((quad, "", 0.5))
+            except Exception as e:
+                dbg["errors"].append(f"rec_box: {e}")
+                rec_outs.append((quad, "", 0.5))
+
+        outs.extend(rec_outs)
+        dbg["det_only_used"] = True
+        dbg["det_only_boxes"] = len(det_quads)
+
+        if len(outs) < MIN_OCR_RESULTS:
+            tess_outs = _tesseract_fallback(img_pil)
+            if tess_outs:
+                outs.extend(tess_outs)
+                dbg["tesseract_boxes"] = len(tess_outs)
+
+    outs = [r for r in outs if float(r[2]) >= OCR_CONF_MIN]
+    outs.sort(key=lambda r: float(r[2]), reverse=True)
+    outs = suppress_ocr_overlaps(outs, OCR_NMS_IOU)
+    
+    if len(outs) > MAX_OCR_ITEMS:
+        outs = outs[:MAX_OCR_ITEMS]
+    
+    dbg["boxes_kept_after_thr_nms"] = len(outs)
+    _last_ocr_debug = dbg
+    return outs
+
+def read_ocr_wrapper(img_pil: Image.Image, timer: Optional[StageTimer] = None):
+    if USE_RAPID_OCR:
+        rapid = get_rapid_ocr()
+        if rapid is None:
+            raise RuntimeError("RapidOCR not initialized (paddle backend unavailable)")
+        rapid_out = read_ocr_rapid(img_pil, rapid, timer=timer)
+        if not rapid_out:
+            raise RuntimeError("RapidOCR returned no results")
+        return rapid_out
+
+    if FAST_OCR:
+        return read_ocr_faster(img_pil, timer=timer)
+    return read_ocr_full(img_pil, timer=timer)
+
+def _to_quad_from_points(points):
+    if not points:
+        return None
+    if isinstance(points[0], (list, tuple)):
+        if len(points) == 4:
+            return [(int(p[0]), int(p[1])) for p in points]
+        if len(points) >= 8:
+            pts = []
+            for idx in range(0, len(points), 2):
+                if idx + 1 >= len(points):
+                    break
+                pts.append((int(points[idx]), int(points[idx + 1])))
+            if pts:
+                return pts[:4]
+    elif isinstance(points, (list, tuple)) and len(points) == 8:
+        return [(int(points[i]), int(points[i + 1])) for i in range(0, 8, 2)]
+    return None
+
+def read_ocr_rapid(img_pil: Image.Image, rapid_engine, timer: Optional[StageTimer] = None):
+    arr = np.array(img_pil)
+    if arr is None or arr.size == 0:
+        return []
+    t0 = time.perf_counter()
+    result = rapid_engine(arr)
+    if isinstance(result, tuple):
+        result = result[0]
+    outs = []
+    if isinstance(result, list):
+        for item in result:
+            quad = None
+            text = ""
+            conf = 0.0
+            if isinstance(item, dict):
+                quad = _to_quad_from_points(item.get("boxes") or item.get("box"))
+                text = item.get("text") or ""
+                conf = float(item.get("score") or item.get("conf") or 0.0)
+            elif isinstance(item, (list, tuple)):
+                if item:
+                    quad = _to_quad_from_points(item[0])
+                if len(item) >= 2:
+                    payload = item[1]
+                    if isinstance(payload, (list, tuple)):
+                        text = str(payload[0] or "")
+                        if len(payload) > 1:
+                            conf = float(payload[1] or 0.0)
+                    elif isinstance(payload, str):
+                        text = payload
+                        if len(item) > 2:
+                            conf = float(item[2] or 0.0)
+            if quad is None:
+                continue
+            outs.append((quad, (text or "").strip(), conf))
+    if timer:
+        timer.mark("OCR rapid total")
+    return outs
+
+def _ocr_text_for_bbox(img_rgb: np.ndarray, bbox: Optional[List[int]], pad: int = 4,
+                       min_conf: float = 0.2) -> str:
+    """
+    Dodatkowe rozpoznanie tekstu wewn¹trz zadanego bboxa (np. po flood fillu).
+    Przydaje siê, gdy pocz¹tkowy OCR zwróci³ pusty string, a chcemy zapisaæ
+    tekst opisuj¹cy ca³y box odpowiedzi/dropdown.
+    """
+    if bbox is None:
+        return ""
+    rapid = None
+    ocr = None
+    if USE_RAPID_OCR:
+        rapid = get_rapid_ocr()
+        if rapid is None:
+            return ""
+    else:
+        try:
+            ocr = get_ocr()
+        except Exception:
+            ocr = None
+        if ocr is None or img_rgb is None or img_rgb.size == 0:
+            return ""
+
+    H, W = img_rgb.shape[:2]
+    x1, y1, x2, y2 = bbox
+    x1 = max(0, int(x1) - pad)
+    y1 = max(0, int(y1) - pad)
+    x2 = min(W, int(x2) + pad)
+    y2 = min(H, int(y2) + pad)
+    if x2 - x1 < 2 or y2 - y1 < 2:
+        return ""
+
+    crop_rgb = img_rgb[y1:y2, x1:x2]
+    if crop_rgb.size == 0:
+        return ""
+
+    try:
+        if USE_RAPID_OCR and rapid is not None:
+            result = rapid(crop_rgb)
+            if isinstance(result, tuple):
+                result = result[0]
+            if isinstance(result, list) and result:
+                best = result[0]
+                text = ""
+                conf = 0.0
+                if isinstance(best, dict):
+                    text = best.get("text") or ""
+                    conf = float(best.get("score") or 0.0)
+                elif isinstance(best, (list, tuple)) and len(best) >= 2:
+                    payload = best[1]
+                    if isinstance(payload, (list, tuple)):
+                        text = payload[0]
+                        if len(payload) > 1:

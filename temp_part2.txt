@@ -1,0 +1,260 @@
+    if isinstance(obj, (int, np.integer)):
+        return int(obj)
+    if isinstance(obj, (float, np.floating)):
+        val = float(obj)
+        # SprawdŸ NaN/Inf
+        if np.isnan(val) or np.isinf(val):
+            return None
+        return val
+    if isinstance(obj, (str, bytes)):
+        return str(obj)
+    if isinstance(obj, np.ndarray):
+        return obj.tolist()
+    if isinstance(obj, (list, tuple)):
+        return [to_py(x) for x in obj]
+    if isinstance(obj, dict):
+        return {str(k): to_py(v) for k, v in obj.items()}
+    # Fallback
+    try:
+        return obj.item()
+    except (AttributeError, ValueError):
+        return str(obj)
+
+# Zamieñ funkcjê main() na tê z lepszym debugowaniem:
+def main():
+    print("="*60)
+    print("[DEBUG] SCRIPT START")
+    print("="*60)
+    
+    import sys
+    
+    try:
+        path = sys.argv[1] if len(sys.argv) > 1 else DEFAULT_IMAGE_PATH
+        print(f"[DEBUG] Image path: {path}")
+        
+        if not os.path.isfile(path):
+            print(f"[ERROR] File not found: {path}")
+            return
+        
+        print("[DEBUG] Running detection...")
+        out = run_dropdown_detection(path)
+        print(f"[DEBUG] Detection returned {len(out.get('results', []))} results")
+        
+        print("[DEBUG] Creating annotation...")
+        out_path = annotate_and_save(path, out.get("results", []), out.get("triangles"), output_dir=JSON_OUT_DIR)
+        print(f"[DEBUG] Annotation created: {out_path}")
+        
+        print("\n[DEBUG] Converting to Python types...")
+        try:
+            out_py = to_py(out)
+            print(f"[DEBUG] Conversion OK, keys: {list(out_py.keys())}")
+        except Exception as e:
+            print(f"[ERROR] to_py() failed: {e}")
+            import traceback
+            traceback.print_exc()
+            out_py = {"error": str(e)}
+        
+        print("\n[DEBUG] Generating JSON...")
+        try:
+            json_output = json.dumps(out_py, ensure_ascii=False, indent=2)
+            print(f"[DEBUG] JSON length: {len(json_output)} chars")
+        except Exception as e:
+            print(f"[ERROR] json.dumps() failed: {e}")
+            import traceback
+            traceback.print_exc()
+            # Fallback - prosta wersja
+            json_output = json.dumps({
+                "image": out_py.get("image"),
+                "results_count": len(out_py.get("results", [])),
+                "error": str(e)
+            }, indent=2)
+        
+        print("\n" + "="*60)
+        print("JSON OUTPUT:")
+        print("="*60)
+        print(json_output)
+        print("\n" + "="*60)
+        print(f"Annotation: {out_path}")
+        print("="*60)
+    
+    except Exception as e:
+        print(f"\n[ERROR] Script failed: {e}")
+        import traceback
+        traceback.print_exc()
+    
+    print("\n[DEBUG] SCRIPT END")
+
+# ===================== OCR =====================
+_paddle = None
+_rapid = None
+_last_ocr_debug = {}
+
+def get_ocr():
+    global _paddle
+    if _paddle is None:
+        print("[DEBUG] Initializing PaddleOCR on GPU...")
+        try:
+            device_label = "cpu"
+            if paddle is not None:
+                try:
+                    paddle.set_device(f"gpu:{PADDLE_GPU_ID}")
+                    device_label = f"gpu:{PADDLE_GPU_ID}"
+                except Exception:
+                    try:
+                        paddle.set_device("gpu")
+                        device_label = "gpu"
+                    except Exception:
+                        paddle.set_device("cpu")
+                        device_label = "cpu"
+            _paddle = PaddleOCR(
+                lang="en",
+                use_textline_orientation=False,
+                text_recognition_batch_size=PADDLE_REC_BATCH,
+            )
+            print(f"[DEBUG] PaddleOCR initialized on {device_label} (batch={PADDLE_REC_BATCH})")
+        except Exception as exc:
+            print(f"[WARN] PaddleOCR GPU init failed ({exc}), falling back to CPU")
+            try:
+                _paddle = PaddleOCR(
+                    lang="en",
+                    use_textline_orientation=False,
+                    text_recognition_batch_size=PADDLE_REC_BATCH,
+                )
+                print("[DEBUG] PaddleOCR initialized on CPU")
+            except Exception as exc2:
+                print(f"[ERROR] PaddleOCR initialization failed: {exc2}")
+                _paddle = None
+    return _paddle
+
+def get_rapid_ocr():
+    global _rapid
+    if _rapid is None and RapidOCR is not None:
+        try:
+            if paddle is not None:
+                try:
+                    paddle.device.set_device(f"gpu:{PADDLE_GPU_ID}")
+                except Exception:
+                    paddle.device.set_device("gpu")
+            _rapid = RapidOCR(use_gpu=True)
+            print("[DEBUG] RapidOCR (paddle) initialized")
+        except Exception as exc:
+            print(f"[WARN] RapidOCR init failed: {exc}")
+            _rapid = None
+    return _rapid
+
+def _preprocess_for_ocr(img_pil: Image.Image):
+    w, h = img_pil.size
+    base_scale = 1.0
+    max_side = float(max(w, h))
+    if max_side > OCR_MAX_SIDE:
+        base_scale = OCR_MAX_SIDE / max_side
+    tgt = img_pil if base_scale == 1.0 else img_pil.resize((int(w * base_scale), int(h * base_scale)), Image.BILINEAR)
+    arr0 = np.array(tgt)
+    
+    lab = cv2.cvtColor(arr0, cv2.COLOR_RGB2LAB)
+    L, A, B = cv2.split(lab)
+    L = cv2.createCLAHE(2.0, (8, 8)).apply(L)
+    arr0 = cv2.cvtColor(cv2.merge([L, A, B]), cv2.COLOR_LAB2RGB)
+    arr0 = cv2.addWeighted(arr0, 1.5, cv2.GaussianBlur(arr0, (0, 0), 1.0), -0.5, 0)
+    
+    return arr0, base_scale
+
+def _parse_rec_result(res) -> Tuple[str, float]:
+    try:
+        if not isinstance(res, list) or not res:
+            return "", 0.0
+        entry = res[0]
+
+        def _try_unpack(node):
+            if isinstance(node, (list, tuple)) and len(node) >= 2 and isinstance(node[1], (int, float)):
+                return (node[0] or "").strip(), float(node[1] or 0.0)
+            if (
+                isinstance(node, (list, tuple))
+                and len(node) >= 2
+                and isinstance(node[1], (list, tuple))
+                and len(node[1]) >= 2
+            ):
+                return (node[1][0] or "").strip(), float(node[1][1] or 0.0)
+            return None
+
+        # Case 1: entry is already a (text, conf) tuple/list
+        unpacked = _try_unpack(entry)
+        if unpacked:
+            return unpacked
+
+        # Case 2: entry is a list whose first element is (text, conf)
+        if isinstance(entry, (list, tuple)) and entry:
+            unpacked = _try_unpack(entry[0])
+            if unpacked:
+                return unpacked
+    except Exception:
+        pass
+    return "", 0.0
+
+def _tesseract_fallback(img_pil: Image.Image) -> List[Tuple[List[Tuple[int, int]], str, float]]:
+    """Generuje (quad, text, conf) wykorzystuj¹c pytesseract, gdy Paddle nie widzi pól."""
+    if pytesseract is None:
+        return []
+    try:
+        data = pytesseract.image_to_data(
+            img_pil,
+            output_type=getattr(pytesseract, "Output", None).DICT if hasattr(pytesseract, "Output") else None,
+        )
+    except Exception:
+        return []
+
+    # Jeœli pytesseract.Output.DICT nie jest dostêpny (stare wersje), spróbuj parsowaæ rêcznie
+    if not isinstance(data, dict) or "text" not in data:
+        return []
+
+    outs = []
+    n = len(data.get("text", []))
+    for i in range(n):
+        try:
+            txt = (data["text"][i] or "").strip()
+            if len(txt) < 2:
+                continue
+            conf = float(data.get("conf", ["0"]*n)[i])
+            if conf <= 0:
+                continue
+            x = int(data.get("left", [0]*n)[i])
+            y = int(data.get("top", [0]*n)[i])
+            w = int(data.get("width", [0]*n)[i])
+            h = int(data.get("height", [0]*n)[i])
+            if w <= 1 or h <= 1:
+                continue
+            quad = [
+                (x, y),
+                (x + w, y),
+                (x + w, y + h),
+                (x, y + h),
+            ]
+            outs.append((quad, txt, conf / 100.0))
+        except Exception:
+            continue
+
+    return outs
+
+def _cv_text_regions(img_rgb: np.ndarray) -> List[List[Tuple[int, int]]]:
+    """Wykrywa prostok¹ty tekstu klasycznymi metodami CV (fallback gdy OCR nic nie widzi)."""
+    gray = cv2.cvtColor(img_rgb, cv2.COLOR_RGB2GRAY)
+    gray = cv2.GaussianBlur(gray, (5, 5), 0)
+    bw = cv2.adaptiveThreshold(gray, 255, cv2.ADAPTIVE_THRESH_MEAN_C,
+                               cv2.THRESH_BINARY_INV, 23, 15)
+    kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (9, 3))
+    dil = cv2.dilate(bw, kernel, iterations=1)
+    contours, _ = cv2.findContours(dil, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    quads = []
+    for cnt in contours:
+        x, y, w, h = cv2.boundingRect(cnt)
+        if w < 30 or h < 12:
+            continue
+        if w * h < 400:
+            continue
+        aspect = w / float(h)
+        if aspect < 1.5:
+            continue
+        x2, y2 = x + w, y + h
+        quads.append([(x, y), (x2, y), (x2, y2), (x, y2)])
+    return quads
+

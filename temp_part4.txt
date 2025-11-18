@@ -1,0 +1,160 @@
+        if len(outs) < MIN_OCR_RESULTS:
+            tess_outs = _tesseract_fallback(img_pil)
+            if tess_outs:
+                outs.extend(tess_outs)
+                dbg["tesseract_boxes"] = len(tess_outs)
+
+    outs = [r for r in outs if float(r[2]) >= OCR_CONF_MIN]
+    outs.sort(key=lambda r: float(r[2]), reverse=True)
+    outs = suppress_ocr_overlaps(outs, OCR_NMS_IOU)
+    
+    if len(outs) > MAX_OCR_ITEMS:
+        outs = outs[:MAX_OCR_ITEMS]
+    
+    dbg["boxes_kept_after_thr_nms"] = len(outs)
+    _last_ocr_debug = dbg
+    return outs
+
+def read_ocr_wrapper(img_pil: Image.Image, timer: Optional[StageTimer] = None):
+    if USE_RAPID_OCR:
+        rapid = get_rapid_ocr()
+        if rapid is None:
+            raise RuntimeError("RapidOCR not initialized (paddle backend unavailable)")
+        rapid_out = read_ocr_rapid(img_pil, rapid, timer=timer)
+        if not rapid_out:
+            raise RuntimeError("RapidOCR returned no results")
+        return rapid_out
+
+    if FAST_OCR:
+        return read_ocr_faster(img_pil, timer=timer)
+    return read_ocr_full(img_pil, timer=timer)
+
+def _to_quad_from_points(points):
+    if not points:
+        return None
+    if isinstance(points[0], (list, tuple)):
+        if len(points) == 4:
+            return [(int(p[0]), int(p[1])) for p in points]
+        if len(points) >= 8:
+            pts = []
+            for idx in range(0, len(points), 2):
+                if idx + 1 >= len(points):
+                    break
+                pts.append((int(points[idx]), int(points[idx + 1])))
+            if pts:
+                return pts[:4]
+    elif isinstance(points, (list, tuple)) and len(points) == 8:
+        return [(int(points[i]), int(points[i + 1])) for i in range(0, 8, 2)]
+    return None
+
+def read_ocr_rapid(img_pil: Image.Image, rapid_engine, timer: Optional[StageTimer] = None):
+    arr = np.array(img_pil)
+    if arr is None or arr.size == 0:
+        return []
+    t0 = time.perf_counter()
+    result = rapid_engine(arr)
+    if isinstance(result, tuple):
+        result = result[0]
+    outs = []
+    if isinstance(result, list):
+        for item in result:
+            quad = None
+            text = ""
+            conf = 0.0
+            if isinstance(item, dict):
+                quad = _to_quad_from_points(item.get("boxes") or item.get("box"))
+                text = item.get("text") or ""
+                conf = float(item.get("score") or item.get("conf") or 0.0)
+            elif isinstance(item, (list, tuple)):
+                if item:
+                    quad = _to_quad_from_points(item[0])
+                if len(item) >= 2:
+                    payload = item[1]
+                    if isinstance(payload, (list, tuple)):
+                        text = str(payload[0] or "")
+                        if len(payload) > 1:
+                            conf = float(payload[1] or 0.0)
+                    elif isinstance(payload, str):
+                        text = payload
+                        if len(item) > 2:
+                            conf = float(item[2] or 0.0)
+            if quad is None:
+                continue
+            outs.append((quad, (text or "").strip(), conf))
+    if timer:
+        timer.mark("OCR rapid total")
+    return outs
+
+def _ocr_text_for_bbox(img_rgb: np.ndarray, bbox: Optional[List[int]], pad: int = 4,
+                       min_conf: float = 0.2) -> str:
+    """
+    Dodatkowe rozpoznanie tekstu wewn¹trz zadanego bboxa (np. po flood fillu).
+    Przydaje siê, gdy pocz¹tkowy OCR zwróci³ pusty string, a chcemy zapisaæ
+    tekst opisuj¹cy ca³y box odpowiedzi/dropdown.
+    """
+    if bbox is None:
+        return ""
+    rapid = None
+    ocr = None
+    if USE_RAPID_OCR:
+        rapid = get_rapid_ocr()
+        if rapid is None:
+            return ""
+    else:
+        try:
+            ocr = get_ocr()
+        except Exception:
+            ocr = None
+        if ocr is None or img_rgb is None or img_rgb.size == 0:
+            return ""
+
+    H, W = img_rgb.shape[:2]
+    x1, y1, x2, y2 = bbox
+    x1 = max(0, int(x1) - pad)
+    y1 = max(0, int(y1) - pad)
+    x2 = min(W, int(x2) + pad)
+    y2 = min(H, int(y2) + pad)
+    if x2 - x1 < 2 or y2 - y1 < 2:
+        return ""
+
+    crop_rgb = img_rgb[y1:y2, x1:x2]
+    if crop_rgb.size == 0:
+        return ""
+
+    try:
+        if USE_RAPID_OCR and rapid is not None:
+            result = rapid(crop_rgb)
+            if isinstance(result, tuple):
+                result = result[0]
+            if isinstance(result, list) and result:
+                best = result[0]
+                text = ""
+                conf = 0.0
+                if isinstance(best, dict):
+                    text = best.get("text") or ""
+                    conf = float(best.get("score") or 0.0)
+                elif isinstance(best, (list, tuple)) and len(best) >= 2:
+                    payload = best[1]
+                    if isinstance(payload, (list, tuple)):
+                        text = payload[0]
+                        if len(payload) > 1:
+                            conf = float(payload[1] or 0.0)
+                    elif isinstance(payload, str):
+                        text = payload
+                if text and conf >= min_conf:
+                    return text
+        elif not USE_RAPID_OCR and ocr is not None:
+            crop_pil = Image.fromarray(crop_rgb)
+            arr_proc, _ = _preprocess_for_ocr(crop_pil)
+            res = ocr.ocr(arr_proc, cls=True)
+            lines = res[0] if isinstance(res, list) and len(res) > 0 else []
+            texts = []
+            for it in lines:
+                t = (it[1][0] or "").strip()
+                c = float(it[1][1] or 0.0)
+                if t and c >= min_conf:
+                    texts.append(t)
+            if texts:
+                return " ".join(texts)
+    except Exception:
+        pass

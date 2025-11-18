@@ -1,0 +1,166 @@
+{
+  "image": "E:\\BOT ANK\\bot\\moje_AI\\yolov8\\FULL BOT\\data\\screen\\raw screen\\Zrzut ekranu 2025-11-15 211637.png",
+  "total_elements": 5,
+  "elements": [
+    {
+      "id": "cand_0",
+      "box": "",
+      "text": "",
+      "bbox": [
+        1166,
+        292,
+        1324,
+        339
+      ],
+      "scores": {
+        "next_inactive": 0.1175,
+        "next_active": 0.1175,
+        "dropdown": 0.0,
+        "answer_single": 0.0,
+        "answer_multi": 0.0,
+        "cookie_accept": 0.0,
+        "cookie_reject": 0.0
+      },
+      "predictions": {
+        "next_inactive": false,
+        "next_active": false,
+        "dropdown": false,
+        "answer_single": false,
+        "answer_multi": false,
+        "cookie_accept": false,
+        "cookie_reject": false
+      }
+    },
+    {
+      "id": "cand_1",
+      "box": "",
+      "text": "",
+      "bbox": [
+        76,
+        211,
+        196,
+        229
+      ],
+      "scores": {
+        "next_inactive": 0.075,
+        "next_active": 0.075,
+        "dropdown": 0.0,
+        "answer_single": 0.0,
+        "answer_multi": 0.0,
+        "cookie_accept": 0.0,
+        "cookie_reject": 0.0
+      },
+      "predictions": {
+        "next_inactive": false,
+        "next_active": false,
+        "dropdown": false,
+        "answer_single": false,
+        "answer_multi": false,
+        "cookie_accept": false,
+        "cookie_reject": false
+      }
+    },
+    {
+      "id": "cand_2",
+      "box": "",
+      "text": "",
+      "bbox": [
+        76,
+        149,
+        138,
+        167
+      ],
+      "scores": {
+        "next_inactive": 0.075,
+        "next_active": 0.075,
+        "dropdown": 0.0,
+        "answer_single": 0.0,
+        "answer_multi": 0.0,
+        "cookie_accept": 0.0,
+        "cookie_reject": 0.0
+      },
+      "predictions": {
+        "next_inactive": false,
+        "next_active": false,
+        "dropdown": false,
+        "answer_single": false,
+        "answer_multi": false,
+        "cookie_accept": false,
+        "cookie_reject": false
+      }
+    },
+    {
+      "id": "cand_3",
+      "box": "",
+      "text": "",
+      "bbox": [
+        76,
+        87,
+        161,
+        106
+      ],
+      "scores": {
+        "next_inactive": 0.075,
+        "next_active": 0.075,
+        "dropdown": 0.0,
+        "answer_single": 0.0,
+        "answer_multi": 0.0,
+        "cookie_accept": 0.0,
+        "cookie_reject": 0.0
+      },
+      "predictions": {
+        "next_inactive": false,
+        "next_active": false,
+        "dropdown": false,
+        "answer_single": false,
+        "answer_multi": false,
+        "cookie_accept": false,
+        "cookie_reject": false
+      }
+    },
+    {
+      "id": "cand_4",
+      "box": "",
+      "text": "",
+      "bbox": [
+        20,
+        31,
+        80,
+        46
+      ],
+      "scores": {
+        "next_inactive": 0.075,
+        "next_active": 0.075,
+        "dropdown": 0.0,
+        "answer_single": 0.0,
+        "answer_multi": 0.0,
+        "cookie_accept": 0.0,
+        "cookie_reject": 0.0
+      },
+      "predictions": {
+        "next_inactive": false,
+        "next_active": false,
+        "dropdown": false,
+        "answer_single": false,
+        "answer_multi": false,
+        "cookie_accept": false,
+        "cookie_reject": false
+      }
+    }
+  ],
+  "thresholds": {
+    "next_active": 0.45,
+    "next_inactive": 0.45,
+    "dropdown": 0.5,
+    "answer_single": 0.4,
+    "answer_multi": 0.4,
+    "cookie_accept": 0.65,
+    "cookie_reject": 0.65
+  },
+  "summary": {
+    "next_detected": 0,
+    "dropdown_detected": 0,
+    "question_detected": 0,
+    "cookies_detected": 0
+  }
+}

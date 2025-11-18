@@ -1,0 +1,107 @@
+﻿#!/usr/bin/env python3
+from collections import deque
+from typing import Optional, Tuple
+import numpy as np
+
+def region_grow(image: np.ndarray, seed: Tuple[int, int], 
+                tolerance: int = 0, max_expansion: int = 100) -> Optional[dict]:
+    """
+    Rozlewa siÄ™ od punktu startowego jak ciecz, zatrzymujÄ…c siÄ™ na KAĹ»DEJ zmianie piksela.
+    
+    Args:
+        image: Obraz RGB/RGBA jako numpy array
+        seed: (x, y) punkt startowy
+        tolerance: Tolerancja zmiany koloru (0 = zatrzymuje na kaĹĽdej zmianie)
+        max_expansion: Max rozszerzenie w pikselach (domyĹ›lnie 100)
+    
+    Returns:
+        Dict z bbox i maskÄ… lub None jeĹ›li bĹ‚Ä…d
+    """
+    h, w = image.shape[:2]
+    x0, y0 = seed
+    
+    if not (0 <= x0 < w and 0 <= y0 < h):
+        return None
+    
+    # Ograniczenie obszaru poszukiwaĹ„
+    x_min = max(0, x0 - max_expansion)
+    x_max = min(w, x0 + max_expansion + 1)
+    y_min = max(0, y0 - max_expansion)
+    y_max = min(h, y0 + max_expansion + 1)
+    
+    visited = np.zeros((h, w), dtype=bool)
+    ref_color = image[y0, x0][:3].astype(np.int32)  # Tylko RGB
+    
+    # Ignoruj czarny tekst (jasnoĹ›Ä‡ < 40)
+    ref_brightness = np.mean(ref_color)
+    if ref_brightness < 40:
+        # JeĹ›li startujemy od czarnego tekstu, znajdĹş jasne tĹ‚o wokĂłĹ‚
+        for dy in range(-3, 4):
+            for dx in range(-3, 4):
+                ny, nx = y0 + dy, x0 + dx
+                if 0 <= nx < w and 0 <= ny < h:
+                    color = image[ny, nx][:3]
+                    if np.mean(color) > 40:
+                        ref_color = color.astype(np.int32)
+                        break
+    
+    q = deque([(x0, y0)])
+    points = []
+    
+    def color_similar(c1, c2):
+        """Sprawdza czy kolory sÄ… podobne z tolerancjÄ…."""
+        diff = np.abs(c1.astype(np.int32) - c2.astype(np.int32))
+        return np.all(diff <= tolerance)
+    
+    while q:
+        x, y = q.popleft()
+        
+        # SprawdĹş granice (w tym max_expansion)
+        if not (x_min <= x < x_max and y_min <= y < y_max):
+            continue
+        if visited[y, x]:
+            continue
+            
+        current_color = image[y, x][:3]
+        
+        # Ignoruj czarny tekst wewnÄ…trz regionu
+        if np.mean(current_color) < 40:
+            # Ale kontynuuj rozlewanie przez tekst
+            visited[y, x] = True
+            points.append((x, y))
+            for nx, ny in [(x+1, y), (x-1, y), (x, y+1), (x, y-1)]:
+                if x_min <= nx < x_max and y_min <= ny < y_max:
+                    q.append((nx, ny))
+            continue
+        
+        # SprawdĹş podobieĹ„stwo koloru
+        if not color_similar(current_color, ref_color):
+            continue
+            
+        visited[y, x] = True
+        points.append((x, y))
+        
+        # Dodaj sÄ…siadĂłw
+        for nx, ny in [(x+1, y), (x-1, y), (x, y+1), (x, y-1)]:
+            if x_min <= nx < x_max and y_min <= ny < y_max:
+                q.append((nx, ny))
+    
+    if not points:
+        return None
+    
+    # Wyznacz bounding box
+    xs = [x for x, y in points]
+    ys = [y for x, y in points]
+    bbox = (min(xs), min(ys), max(xs), max(ys))
+    
+    # StwĂłrz maskÄ™
+    mask = np.zeros((h, w), dtype=np.uint8)
+    for x, y in points:
+        mask[y, x] = 255
+    
+    return {
+        'bbox': bbox,
+        'mask': mask,
+        'points': points,
+        'seed': seed
+    }

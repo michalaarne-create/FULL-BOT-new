@@ -1,0 +1,80 @@
+    H, W = img_rgb.shape[:2]
+    x1, y1, x2, y2 = bbox
+    x1 = max(0, int(x1) - pad)
+    y1 = max(0, int(y1) - pad)
+    x2 = min(W, int(x2) + pad)
+    y2 = min(H, int(y2) + pad)
+    if x2 - x1 < 2 or y2 - y1 < 2:
+        return ""
+
+    crop_rgb = img_rgb[y1:y2, x1:x2]
+    if crop_rgb.size == 0:
+        return ""
+
+    try:
+        if USE_RAPID_OCR and rapid is not None:
+            result = rapid(crop_rgb)
+            if isinstance(result, tuple):
+                result = result[0]
+            if isinstance(result, list) and result:
+                best = result[0]
+                text = ""
+                conf = 0.0
+                if isinstance(best, dict):
+                    text = best.get("text") or ""
+                    conf = float(best.get("score") or 0.0)
+                elif isinstance(best, (list, tuple)) and len(best) >= 2:
+                    payload = best[1]
+                    if isinstance(payload, (list, tuple)):
+                        text = payload[0]
+                        if len(payload) > 1:
+                            conf = float(payload[1] or 0.0)
+                    elif isinstance(payload, str):
+                        text = payload
+                if text and conf >= min_conf:
+                    return text
+        elif not USE_RAPID_OCR and ocr is not None:
+            crop_pil = Image.fromarray(crop_rgb)
+            arr_proc, _ = _preprocess_for_ocr(crop_pil)
+            res = ocr.ocr(arr_proc, cls=True)
+            lines = res[0] if isinstance(res, list) and len(res) > 0 else []
+            texts = []
+            for it in lines:
+                t = (it[1][0] or "").strip()
+                c = float(it[1][1] or 0.0)
+                if t and c >= min_conf:
+                    texts.append(t)
+            if texts:
+                return " ".join(texts)
+    except Exception:
+        pass
+    return ""
+
+# ===================== MASKA TEKSTU =====================
+def build_text_mask_cv(ocr_items, W, H):
+    m = np.zeros((H, W), np.uint8)
+    for q, _, _ in ocr_items:
+        xs = [int(p[0]) for p in q]
+        ys = [int(p[1]) for p in q]
+        x1, y1, x2, y2 = min(xs), min(ys), max(xs), max(ys)
+        cv2.rectangle(m, (x1, y1), (min(W, x2+1), min(H, y2+1)), 1, thickness=-1)
+    
+    if TEXT_MASK_DILATE > 0:
+        k = cv2.getStructuringElement(cv2.MORPH_RECT, (1+2*TEXT_MASK_DILATE, 1+2*TEXT_MASK_DILATE))
+        dil = _gpu_binary_dilate(m, k, iterations=1)
+        if dil is not None:
+            m = dil.astype(np.uint8)
+        else:
+            m = cv2.dilate(m, k, iterations=1)
+    
+    return m.astype(bool)
+
+# ===================== HISTOGRAM =====================
+def quantize_rgb(img: np.ndarray, bits: int = HIST_BITS_PER_CH) -> np.ndarray:
+    return (img >> (8 - bits)).astype(np.uint8)
+
+def hist_color_percent(img: np.ndarray, bits: int = HIST_BITS_PER_CH, top_k: int = HIST_TOP_K):
+    uniq = cnt = None
+    if GPU_FLOOD_AVAILABLE:
+        try:
+            qg = (cp.asarray(img, dtype=cp.uint8) >> (8 - bits)).astype(cp.uint8)
