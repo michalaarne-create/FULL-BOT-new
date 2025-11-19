@@ -66,3 +66,5 @@ _recorder_profile/component_crx_cache/a96d0537e5204a795c385b49eb255a32ea46672642
 _recorder_profile/component_crx_cache/d0312aac7d10581b8661788ca5c51cc2277bd73d62f37dc2dee3d02e562cd767
 _recorder_profile/component_crx_cache/metadata.json
 _recorder_profile/segmentation_platform/ukm_db
+dom_live/rec.log
+dom_live/recorder_debug.log
