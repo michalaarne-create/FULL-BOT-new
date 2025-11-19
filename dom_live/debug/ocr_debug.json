@@ -1,7 +1,7 @@
 {
   "tab_bbox": {
-    "x_start": 926,
-    "x_end": 1250,
+    "x_start": 939,
+    "x_end": 1263,
     "width": 1920
   },
   "crops": [
@@ -14,43 +14,65 @@
       "file": "E:\\BOT ANK\\bot\\moje_AI\\yolov8\\FULL BOT\\dom_live\\debug\\ocr_strip1_active.png",
       "width": 324,
       "height": 129,
-      "tokens": [
-        "LL BOT [Administrator]",
-        "tgpt.py",
-        "kbd scroll agent.py",
-        "chatgpt."
-      ]
+      "tokens": []
     },
     {
       "file": "E:\\BOT ANK\\bot\\moje_AI\\yolov8\\FULL BOT\\dom_live\\debug\\ocr_strip2_center.png",
       "width": 672,
       "height": 64,
-      "tokens": [
-        "finally:",
-        "await rec.stop()",
-        "finally:",
-        "await rec.stop()"
-      ]
+      "tokens": []
     }
   ],
-  "hint": "LL BOT [Administrator] tgpt.py kbd scroll agent.py chatgpt. finally: await rec.stop() finally: await rec.stop()",
-  "hint_norm": "ll bot [administrator] tgpt.py kbd scroll agent.py chatgpt. finally: await rec.stop() finally: await rec.stop()",
-  "core": "administrator",
+  "hint": "Best BrowserScan Fingerprint Detection Tool - Improve your online privacy securi",
+  "hint_norm": "best browserscan fingerprint detection tool - improve your online privacy securi",
+  "core": "browserscan",
   "candidates": [
     {
-      "pid": "1790948731856",
-      "url": "https://www.google.com/",
-      "title": "Google",
+      "pid": "2711887239152",
+      "url": "https://www.browserscan.net/",
+      "title": "Best BrowserScan Fingerprint Detection Tool - Improve your online privacy security | BrowserScan",
       "scores": {
-        "s_url": 0.049586776859504134,
-        "s_dom": 0.048,
-        "s_title": 0.03418803418803419,
+        "s_url": 0.29473684210526313,
+        "s_dom": 0.2828282828282828,
+        "s_title": 0.9090909090909091,
+        "url_has_core": 1.0,
+        "dom_has_core": 1.0,
+        "title_has_core": 1.0,
+        "contains_dom": 0.0,
+        "contains_brand": 1.0,
+        "total": 1.0
+      }
+    },
+    {
+      "pid": "2711901211536",
+      "url": "https://chatgpt.com/",
+      "title": "ChatGPT",
+      "scores": {
+        "s_url": 0.06593406593406594,
+        "s_dom": 0.06593406593406594,
+        "s_title": 0.09195402298850575,
         "url_has_core": 0.0,
         "dom_has_core": 0.0,
         "title_has_core": 0.0,
         "contains_dom": 0.0,
         "contains_brand": 0.0,
-        "total": 0.048
+        "total": 0.06593406593406594
+      }
+    },
+    {
+      "pid": "2711901213776",
+      "url": "https://chatgpt.com/",
+      "title": "ChatGPT",
+      "scores": {
+        "s_url": 0.06593406593406594,
+        "s_dom": 0.06593406593406594,
+        "s_title": 0.09195402298850575,
+        "url_has_core": 0.0,
+        "dom_has_core": 0.0,
+        "title_has_core": 0.0,
+        "contains_dom": 0.0,
+        "contains_brand": 0.0,
+        "total": 0.06593406593406594
       }
     }
   ]

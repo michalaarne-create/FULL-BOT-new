@@ -1,24 +1,145 @@
 {
-  "timestamp": 1763393958.7044604,
-  "datetime": "2025-11-17T16:39:18.704460",
-  "url": "chrome://new-tab-page/",
-  "title": "New Tab",
-  "full_text": "",
-  "text_length": 0,
+  "timestamp": 1763566426.9456298,
+  "datetime": "2025-11-19T16:33:46.945631",
+  "url": "https://www.browserscan.net/",
+  "title": "Best BrowserScan Fingerprint Detection Tool - Improve your online privacy security | BrowserScan",
+  "full_text": "What websites see about you\nBrowser:\nISP:\nPlatform:\nProxy:\nIP Time Zone:\nAnonymous:\nBlacklist:\nLocation:\nlanguage:",
+  "text_length": 114,
   "sources": [
     "DOM_FILTERED_SMART"
   ],
   "area_type": "viewport",
   "viewport": {
     "width": 1920,
-    "height": 991
+    "height": 939
   },
-  "clickables_count": 0,
-  "lines_count": 0,
-  "words_count": 0,
+  "clickables_count": 111,
+  "lines_count": 10,
+  "words_count": 16,
   "ocr_available": false,
-  "has_content": false,
-  "main_question": null,
+  "has_content": true,
+  "main_question": {
+    "text": "What websites see about you",
+    "bbox": {
+      "x": 0,
+      "y": 965,
+      "width": 1916,
+      "height": 60
+    },
+    "tag": "h2",
+    "className": ""
+  },
   "question_elements": [],
-  "text_elements": []
+  "text_elements": [
+    {
+      "text": "What websites see about you",
+      "tag": "h2",
+      "bbox": {
+        "x": 0,
+        "y": 965,
+        "width": 1916,
+        "height": 60
+      },
+      "priority": 1
+    },
+    {
+      "text": "Browser:",
+      "tag": "h3",
+      "bbox": {
+        "x": 408,
+        "y": 275,
+        "width": 120,
+        "height": 24
+      },
+      "priority": 2
+    },
+    {
+      "text": "ISP:",
+      "tag": "h3",
+      "bbox": {
+        "x": 992,
+        "y": 275,
+        "width": 120,
+        "height": 24
+      },
+      "priority": 2
+    },
+    {
+      "text": "Platform:",
+      "tag": "h3",
+      "bbox": {
+        "x": 408,
+        "y": 320,
+        "width": 120,
+        "height": 24
+      },
+      "priority": 2
+    },
+    {
+      "text": "Proxy:",
+      "tag": "h3",
+      "bbox": {
+        "x": 992,
+        "y": 320,
+        "width": 120,
+        "height": 24
+      },
+      "priority": 2
+    },
+    {
+      "text": "IP Time Zone:",
+      "tag": "h3",
+      "bbox": {
+        "x": 408,
+        "y": 365,
+        "width": 120,
+        "height": 24
+      },
+      "priority": 2
+    },
+    {
+      "text": "Anonymous:",
+      "tag": "h3",
+      "bbox": {
+        "x": 992,
+        "y": 365,
+        "width": 120,
+        "height": 24
+      },
+      "priority": 2
+    },
+    {
+      "text": "Blacklist:",
+      "tag": "h3",
+      "bbox": {
+        "x": 992,
+        "y": 410,
+        "width": 120,
+        "height": 24
+      },
+      "priority": 2
+    },
+    {
+      "text": "Location:",
+      "tag": "h3",
+      "bbox": {
+        "x": 408,
+        "y": 410,
+        "width": 120,
+        "height": 24
+      },
+      "priority": 2
+    },
+    {
+      "text": "language:",
+      "tag": "h3",
+      "bbox": {
+        "x": 408,
+        "y": 455,
+        "width": 120,
+        "height": 24
+      },
+      "priority": 2
+    }
+  ]
 }

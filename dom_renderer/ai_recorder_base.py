@@ -52,7 +52,11 @@ if __package__:
 
         ROI_WIDTH,
 
+        GOTO_TIMEOUT_MS,
+
         ensure_dir,
+
+        build_bbox,
 
         log,
 
@@ -84,7 +88,11 @@ else:
 
         ROI_WIDTH,
 
+        GOTO_TIMEOUT_MS,
+
         ensure_dir,
+
+        build_bbox,
 
         log,
 
@@ -174,6 +182,7 @@ class LiveRecorderBase:
         self.user_agent = user_agent or DEFAULT_USER_AGENT
         self.hardware_concurrency = os.cpu_count() or 8
         self.snapshot_interval = 1.0 / max(0.5, float(fps))
+        self.goto_timeout_ms = GOTO_TIMEOUT_MS
 
         self.record_screenshots = screenshots
 
@@ -1362,13 +1371,13 @@ class LiveRecorderBase:
 
             if strategy:
 
-                await self.page.goto(url, wait_until=strategy)
+                await self.page.goto(url, wait_until=strategy, timeout=self.goto_timeout_ms)
 
             else:
 
                 # Nie czeka - bardziej ludzkie
 
-                await self.page.goto(url, wait_until="commit")
+                await self.page.goto(url, wait_until="commit", timeout=self.goto_timeout_ms)
 
                 # Ale moĹĽe poczekaÄ‡ chwilÄ™ potem
 
@@ -1398,7 +1407,7 @@ class LiveRecorderBase:
 
                 await asyncio.sleep(random.uniform(0.3, 0.8))
 
-                await self.page.goto(url, wait_until="domcontentloaded")
+                await self.page.goto(url, wait_until="domcontentloaded", timeout=self.goto_timeout_ms)
 
             except Exception as e2:
 
