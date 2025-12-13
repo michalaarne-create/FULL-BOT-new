@@ -78,6 +78,8 @@ tmp_cupy/
 tmp_cupy_ai/
 tmp_cupy_cp311/
 scripts/control_agent/trajectory.json
+__pycache__/
+*.pyc
 data/**
 !data/**/
 !data/**/*_current*/

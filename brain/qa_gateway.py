@@ -52,6 +52,17 @@ class QACache:
     def get(self, key: str) -> Optional[Dict]:
         return self.items.get(key)
 
+    def find_by_question_text(self, question_text: str) -> Optional[Dict]:
+        """Find cached answer by question text (fuzzy match)."""
+        if not question_text:
+            return None
+        q_lower = question_text.strip().lower()
+        for key, record in self.items.items():
+            cached_q = (record.get("question_text") or "").strip().lower()
+            if cached_q and (cached_q == q_lower or q_lower in cached_q or cached_q in q_lower):
+                return record
+        return None
+
     def put(self, key: str, record: Dict) -> None:
         self.items[key] = record
         self.save()
@@ -69,24 +80,44 @@ class QAGateway:
         self.cache = cache or QACache()
 
     def maybe_from_cache(self, cluster: QuestionCluster) -> Optional[QAResult]:
-        if not cluster.canonical_key:
-            return None
-        cached = self.cache.get(cluster.canonical_key)
+        # First try canonical_key lookup
+        cached = None
+        if cluster.canonical_key:
+            cached = self.cache.get(cluster.canonical_key)
+        
+        # Fallback: search by question text
+        if not cached:
+            cached = self.cache.find_by_question_text(cluster.question_text or "")
+        
         if not cached:
             return None
-        required_fp = make_question_fingerprint(
-            cluster.question_text or "",
-            [opt.text for opt in cluster.options],
-            cluster.type,
-            cluster.canonical_key,
-        )
-        cached_fp = cached.get("fingerprint") or cached.get("question_fingerprint")
-        if not cached_fp:
-            return None
-        if cached_fp != required_fp:
-            return None
+        
+        # If we have selected_options as letter labels (A, B, C...), map them to element IDs
+        selected = cached.get("selected_options", [])
+        if selected and cluster.options:
+            # Check if selected contains letter labels like ["A", "B", "C"]
+            if all(isinstance(s, str) and len(s) <= 2 and s[0].isupper() for s in selected):
+                # Map letters to option IDs
+                option_ids = []
+                for label in selected:
+                    idx = ord(label[0]) - ord('A')
+                    if 0 <= idx < len(cluster.options):
+                        option_ids.append(cluster.options[idx].id)
+                selected = option_ids if option_ids else selected
+        
+        # For text questions, try to match correct_answer with options
+        if cached.get("question_type") == "text" and cached.get("text_answer"):
+            text_answer = cached.get("text_answer", "")
+            # For text inputs, we might need to return the text directly
+            return QAResult(
+                selected_option_ids=[],
+                raw_model_output=text_answer,
+                cache_hit=True,
+                extras={"text_answer": text_answer, "correct_answer": cached.get("correct_answer")}
+            )
+        
         return QAResult(
-            selected_option_ids=cached.get("selected_options", []),
+            selected_option_ids=selected,
             raw_model_output=None,
             cache_hit=True,
         )

@@ -210,6 +210,7 @@ def _draw_points_overlay(
     colour: Tuple[int, int, int] = (0, 255, 0),
     radius: int = 3,
     draw_lines: bool = False,
+    paths: List[List[Tuple[int, int]]] | None = None,
     line_colour: Tuple[int, int, int] | None = None,
     line_width: int = 2,
 ) -> Tuple[Path | None, Path | None]:
@@ -225,7 +226,13 @@ def _draw_points_overlay(
 
     draw = ImageDraw.Draw(img)
 
-    if draw_lines and len(points) >= 2:
+    if draw_lines and paths:
+        lc = line_colour if line_colour is not None else colour
+        lw = max(1, int(line_width))
+        for p in paths:
+            if len(p) >= 2:
+                draw.line(p, fill=lc, width=lw)
+    elif draw_lines and len(points) >= 2:
         lc = line_colour if line_colour is not None else colour
         draw.line(points, fill=lc, width=max(1, int(line_width)))
     r = max(1, int(radius))
@@ -254,54 +261,119 @@ def _draw_points_overlay(
 
 
 def _overlay_on_speed(
-    heatmap_path: Path | None,
+    heatmap_hist_path: Path | None,
+    heatmap_current_path: Path | None,
     points: List[Tuple[int, int]],
+    paths: List[List[Tuple[int, int]]] | None,
     stem: str,
     hist: bool,
 ) -> None:
-    if heatmap_path is None:
-        return
     hist_out = HOVER_POINTS_SPEED_DIR / f"{stem}_hover_points_on_speed" if hist else None
     current_out = HOVER_POINTS_SPEED_CURRENT_DIR / "hover_points_on_speed"
-    # Linia = ta sama geometria co hover_path, ale w innym kolorze (np. zolty)
-    _draw_points_overlay(
-        heatmap_path,
-        points,
-        hist_out,
-        current_out,
-        colour=(0, 220, 255),            # punkty cyan
-        radius=3,
-        draw_lines=True,
-        line_colour=(255, 200, 0),       # linia zółto-pomarańczowa
-        line_width=3,
-    )
+
+    # Zapisz current z current tła, a historię z historycznego tła (żeby kolory heatmapy były 1:1).
+    if heatmap_current_path is not None:
+        _draw_points_overlay(
+            heatmap_current_path,
+            points,
+            None,
+            current_out,
+            colour=(0, 220, 255),      # punkty cyan
+            radius=3,
+            draw_lines=True,
+            paths=paths,
+            line_colour=(255, 200, 0), # linia zółto-pomarańczowa
+            line_width=3,
+        )
+    elif heatmap_hist_path is not None:
+        # Fallback: brak current tła -> użyj hist do current.
+        _draw_points_overlay(
+            heatmap_hist_path,
+            points,
+            None,
+            current_out,
+            colour=(0, 220, 255),
+            radius=3,
+            draw_lines=True,
+            paths=paths,
+            line_colour=(255, 200, 0),
+            line_width=3,
+        )
+
+    if hist and heatmap_hist_path is not None:
+        _draw_points_overlay(
+            heatmap_hist_path,
+            points,
+            hist_out,
+            None,
+            colour=(0, 220, 255),
+            radius=3,
+            draw_lines=True,
+            paths=paths,
+            line_colour=(255, 200, 0),
+            line_width=3,
+        )
 
 
-def _overlay_on_path(points: List[Tuple[int, int]], stem: str, hist: bool) -> None:
-    # Prefer matching historical hover_path, fallback to current
+def _overlay_on_path(
+    points: List[Tuple[int, int]],
+    paths: List[List[Tuple[int, int]]] | None,
+    stem: str,
+    hist: bool,
+) -> None:
     bg_hist = HOVER_PATH_DIR / f"{stem}_hover_path.png"
     bg_current = HOVER_PATH_CURRENT_DIR / "hover_path.png"
-    bg = bg_hist if bg_hist.exists() else bg_current
-    if not bg.exists():
+    if not bg_hist.exists() and not bg_current.exists():
         return
+
     hist_out = HOVER_POINTS_PATH_DIR / f"{stem}_hover_points_on_path" if hist else None
     current_out = HOVER_POINTS_PATH_CURRENT_DIR / "hover_points_on_path"
-    # Punkty + linia w kolorze fioletowym, dokladnie ta sama trajektoria co hover.
-    _draw_points_overlay(
-        bg,
-        points,
-        hist_out,
-        current_out,
-        colour=(255, 0, 255),
-        radius=3,
-        draw_lines=True,
-        line_colour=(200, 0, 255),
-        line_width=3,
-    )
+
+    # Current zawsze na aktualnym hover_path.png, żeby było 1:1
+    if bg_current.exists():
+        _draw_points_overlay(
+            bg_current,
+            points,
+            None,
+            current_out,
+            colour=(255, 0, 255),
+            radius=3,
+            draw_lines=True,
+            paths=paths,
+            line_colour=(200, 0, 255),
+            line_width=3,
+        )
+    elif bg_hist.exists():
+        _draw_points_overlay(
+            bg_hist,
+            points,
+            None,
+            current_out,
+            colour=(255, 0, 255),
+            radius=3,
+            draw_lines=True,
+            paths=paths,
+            line_colour=(200, 0, 255),
+            line_width=3,
+        )
+
+    if hist and bg_hist.exists():
+        _draw_points_overlay(
+            bg_hist,
+            points,
+            hist_out,
+            None,
+            colour=(255, 0, 255),
+            radius=3,
+            draw_lines=True,
+            paths=paths,
+            line_colour=(200, 0, 255),
+            line_width=3,
+        )
 
 
-def _load_hover_output_points() -> List[Tuple[int, int]]:
-    """Wczytaj punkty z ostatniego hover_output_current/hover_output.json (pole dots)."""
+def _load_hover_output_paths() -> List[List[Tuple[int, int]]]:
+    """Wczytaj ścieżki (lista punktów na element) z hover_output_current/hover_output.json (pole dots)."""
     json_path = HOVER_OUTPUT_CURRENT_DIR / "hover_output.json"
     if not json_path.exists():
         return []
@@ -309,21 +381,32 @@ def _load_hover_output_points() -> List[Tuple[int, int]]:
         data = json.loads(json_path.read_text(encoding="utf-8"))
     except Exception:
         return []
-    pts: List[Tuple[int, int]] = []
+
+    paths: List[List[Tuple[int, int]]] = []
     for item in data:
         dots = item.get("dots") if isinstance(item, dict) else None
         if not dots:
             continue
+        seg: List[Tuple[int, int]] = []
         for d in dots:
             if not (isinstance(d, (list, tuple)) and len(d) == 2):
                 continue
             try:
                 x = int(round(float(d[0])))
                 y = int(round(float(d[1])))
-                pts.append((x, y))
+                seg.append((x, y))
             except Exception:
                 continue
-    return pts
+        if seg:
+            paths.append(seg)
+    return paths
+
+
+def _flatten_paths(paths: List[List[Tuple[int, int]]]) -> List[Tuple[int, int]]:
+    out: List[Tuple[int, int]] = []
+    for p in paths:
+        out.extend(p)
+    return out
 
 
 def parse_args() -> argparse.Namespace:
@@ -372,6 +455,7 @@ def main() -> None:
     samples: List[Sample] = []
     t0 = time.perf_counter()
     last_save = t0
+    reference_paths = _load_hover_output_paths()
 
     stem = bg.stem
     out_dir = Path(args.out_dir)
@@ -392,10 +476,18 @@ def main() -> None:
             samples.append(Sample(t=t, x=int(x), y=int(y)))
 
             if autosave > 0 and (now - last_save) >= autosave and len(samples) >= 2:
+                # Jeśli hover_output_current pojawi się później, doładuj raz.
+                if not reference_paths:
+                    reference_paths = _load_hover_output_paths()
                 segs_live = build_speed_segments(samples)
                 _, current_saved = render_speed_heatmap(bg, segs_live, None, current_path)
-                points_list = [(s.x, s.y) for s in samples]
-                _overlay_on_speed(current_saved, points_list, stem, hist=False)
+                if reference_paths:
+                    points_list = _flatten_paths(reference_paths)
+                    paths = reference_paths
+                else:
+                    points_list = [(s.x, s.y) for s in samples]
+                    paths = [points_list]
+                _overlay_on_speed(None, current_saved, points_list, paths, stem, hist=False)
                 last_save = now
 
             time.sleep(interval)
@@ -406,12 +498,19 @@ def main() -> None:
     segments = build_speed_segments(samples)
     hist_saved, current_saved = render_speed_heatmap(bg, segments, hist_path, current_path)
 
-    # Overlay: points + speed heatmap
-    points_list = [(s.x, s.y) for s in samples]
-    _overlay_on_speed(hist_saved or current_saved, points_list, stem, hist=True)
+    # Overlay: points + speed heatmap (preferuj "prawdziwe kropki" z hover_output_current).
+    if not reference_paths:
+        reference_paths = _load_hover_output_paths()
+    if reference_paths:
+        points_list = _flatten_paths(reference_paths)
+        paths = reference_paths
+    else:
+        points_list = [(s.x, s.y) for s in samples]
+        paths = [points_list]
+    _overlay_on_speed(hist_saved, current_saved, points_list, paths, stem, hist=True)
 
     # Overlay: points + hover path render
-    _overlay_on_path(points_list, stem, hist=True)
+    _overlay_on_path(points_list, paths, stem, hist=True)
 
 
 if __name__ == "__main__":
