@@ -26,12 +26,18 @@ POLISH_DAY_NAMES = ["Poniedzialek", "Wtorek", "Sroda", "Czwartek", "Piatek", "So
 ROOT_DIR = Path(__file__).resolve().parents[1]
 PIPELINE_RUNS_DIR = ROOT_DIR / "data" / "screen" / "pipeline_runs"
 DATA_SCREEN_DIR = ROOT_DIR / "data" / "screen"
+DOM_LIVE_DIR = ROOT_DIR / "dom_live"
+DOM_LIVE_DEBUG_DIR = DOM_LIVE_DIR / "debug"
 DEBUG_SCREEN_DIR = DATA_SCREEN_DIR / "debug"
 DEBUG_SCREEN_DIR.mkdir(parents=True, exist_ok=True)
 RAW_SCREENS_CURRENT_DIR = DATA_SCREEN_DIR / "raw" / "raw_screens_current"
 CURRENT_RUN_DIR = DATA_SCREEN_DIR / "current_run"
-REGION_GROW_ANNOT_DIR = DATA_SCREEN_DIR / "region_grow" / "region_grow_annot_current"
-REGION_GROW_CURRENT_DIR = DATA_SCREEN_DIR / "region_grow" / "region_grow_current"
+REGION_GROW_BASE_DIR = DATA_SCREEN_DIR / "region_grow"
+REGION_GROW_ANNOT_DIR = REGION_GROW_BASE_DIR / "region_grow_annot_current"
+REGION_GROW_CURRENT_DIR = REGION_GROW_BASE_DIR / "region_grow_current"
+REGION_GROW_REGIONS_CURRENT_DIR = REGION_GROW_BASE_DIR / "regions_current"
+REGION_GROW_REGIONS_DIR = REGION_GROW_BASE_DIR / "regions"
+REGION_GROW_ANNOT_CURRENT_FILE = REGION_GROW_BASE_DIR / "region_grow_annot_current.png"
 RATE_RESULTS_CURRENT_DIR = DATA_SCREEN_DIR / "rate" / "rate_results_current"
 RATE_SUMMARY_CURRENT_DIR = DATA_SCREEN_DIR / "rate" / "rate_summary_current"
 HOVER_OUTPUT_DIR = DATA_SCREEN_DIR / "hover" / "hover_output_current"
@@ -130,7 +136,7 @@ def _default_size_for_image(path: str) -> tuple[float, float]:
         return 1920.0, 1080.0
 
 
-def build_pipeline_state() -> dict:
+def _build_pipeline_state_legacy() -> dict:
     """Zbuduj uporządkowany widok CAŁEGO pipeline'u z artefaktów *_current* i debug.
 
     Główna ścieżka (capture -> region -> hover/rating -> summary) leci w pierwszym rzędzie,
@@ -385,6 +391,402 @@ def build_pipeline_state() -> dict:
         "pan_x": -800.0,
         "pan_y": -320.0,
         "zoom": 0.23,
+        "screens": screens_state,
+        "json_objects": json_state,
+        "notes": notes_state,
+        "lines": lines_state,
+    }
+
+
+def build_pipeline_state() -> dict:
+    """Buduje uporzadkowany diagram pipeline'u (pliki + debug) z zachowaniem kolejnosci.
+
+    Zasady:
+    - input z lewej, output z prawej,
+    - pomiedzy nimi notatka z nazwa skryptu,
+    - debugowe artefakty (png/json) wisza ponizej i sa polaczone NIEBIESKIMI liniami,
+    - wszystkie linie sa ortogonalne (kat prosty) i wychodza z krawedzi boxow,
+    - linie prowadzone sa "po korytarzach" (poza boxami), zeby nie nachodzily na screeny/jsony.
+    """
+    # ===== Layout (kolumny) =====
+    x_main_note = -1700.0
+    x_capture_note = -1200.0
+    x_capture_out = 0.0
+
+    x_region_note = 1000.0
+    x_region_out = 2000.0  # region_grow output + input do kolejnych etapow
+
+    x_action_note = 3000.0
+    x_action_out = 4000.0
+    x_summary_out = 5200.0
+
+    # ===== Layout (rzedy) =====
+    row_step = 520.0
+    y_screen_main = 0.0
+    y_json_main = 106.0
+    y_note_main = 140.0
+
+    y_hover_base = 1200.0  # osobny "tor" dla hover
+
+    # ===== Zbieranie obiektow =====
+    screens_state: list[dict] = []
+    json_state: list[dict] = []
+    notes_state: list[dict] = []
+    lines_state: list[dict] = []
+
+    added_paths: set[str] = set()
+
+    COLOR_MAIN = [0, 255, 0, 255]
+    COLOR_DEBUG = [40, 140, 255, 255]
+    COLOR_META = [110, 110, 110, 255]
+
+    def _basename(p: str) -> str:
+        try:
+            return os.path.basename(p)
+        except Exception:
+            return p
+
+    def add_label(text: str, x: float, y: float, w: float = 260.0, h: float = 70.0):
+        notes_state.append({"text": text, "x": x, "y": y, "w": w, "h": h, "role": "label"})
+
+    def add_note_node(text: str, x: float, y: float, w: float = 420.0, h: float = 110.0, role: str = "process"):
+        obj = {"text": text, "x": x, "y": y, "w": w, "h": h, "role": role}
+        notes_state.append(obj)
+        return obj
+
+    def add_screen(path: Path, x: float, y: float):
+        sp = str(path)
+        if sp in added_paths:
+            return None
+        w, h = _default_size_for_image(sp)
+        obj = {"path": sp, "x": x, "y": y, "w": w, "h": h}
+        screens_state.append(obj)
+        added_paths.add(sp)
+        add_label(_basename(sp), x, y + h + 30.0)
+        return obj
+
+    def add_json_obj(path: Path, x: float, y: float):
+        sp = str(path)
+        if sp in added_paths:
+            return None
+        obj = {"path": sp, "x": x, "y": y, "w": 260.0, "h": 180.0}
+        json_state.append(obj)
+        added_paths.add(sp)
+        add_label(_basename(sp), x, y + 180.0 + 30.0)
+        return obj
+
+    # ===== Linie (ortogonalne) =====
+    def center_x(item): return float(item["x"]) + float(item["w"]) * 0.5
+    def center_y(item): return float(item["y"]) + float(item["h"]) * 0.5
+    def left_x(item): return float(item["x"])
+    def right_x(item): return float(item["x"]) + float(item["w"])
+    def top_y(item): return float(item["y"])
+    def bottom_y(item): return float(item["y"]) + float(item["h"])
+
+    def _anchor(item, side: str) -> list[float]:
+        if side == "right":
+            return [right_x(item), center_y(item)]
+        if side == "left":
+            return [left_x(item), center_y(item)]
+        if side == "top":
+            return [center_x(item), top_y(item)]
+        if side == "bottom":
+            return [center_x(item), bottom_y(item)]
+        return [center_x(item), center_y(item)]
+
+    def _orth_points(start: list[float], end: list[float], via_x: float | None = None, via_y: float | None = None) -> list[list[float]]:
+        sx, sy = float(start[0]), float(start[1])
+        ex, ey = float(end[0]), float(end[1])
+        if abs(sx - ex) < 1e-6 or abs(sy - ey) < 1e-6:
+            return [[sx, sy], [ex, ey]]
+        if via_x is not None:
+            vx = float(via_x)
+            return [[sx, sy], [vx, sy], [vx, ey], [ex, ey]]
+        if via_y is not None:
+            vy = float(via_y)
+            return [[sx, sy], [sx, vy], [ex, vy], [ex, ey]]
+        mx = (sx + ex) * 0.5
+        return [[sx, sy], [mx, sy], [mx, ey], [ex, ey]]
+
+    def add_conn(src, dst, color=None, thickness: int = 2, from_side: str | None = None, to_side: str | None = None, via_x: float | None = None):
+        if not src or not dst:
+            return
+        if color is None:
+            color = COLOR_MAIN
+
+        if from_side is None or to_side is None:
+            if left_x(dst) >= right_x(src):
+                from_side = from_side or "right"
+                to_side = to_side or "left"
+            elif left_x(src) >= right_x(dst):
+                from_side = from_side or "left"
+                to_side = to_side or "right"
+            elif top_y(dst) >= bottom_y(src):
+                from_side = from_side or "bottom"
+                to_side = to_side or "top"
+            else:
+                from_side = from_side or "top"
+                to_side = to_side or "bottom"
+
+        start = _anchor(src, from_side)
+        end = _anchor(dst, to_side)
+        pts = _orth_points(start, end, via_x=via_x)
+        lines_state.append({"points": pts, "color": list(color), "thickness": int(thickness)})
+
+    def add_debug_fan(parent, children: list, color=None, thickness: int = 2):
+        if not parent or not children:
+            return
+        if color is None:
+            color = COLOR_DEBUG
+        col_left = min([left_x(parent)] + [left_x(c) for c in children])
+        bus_x = col_left - 120.0
+        for ch in children:
+            add_conn(parent, ch, color=color, thickness=thickness, from_side="bottom", to_side="left", via_x=bus_x)
+
+    # ===== Notatki (pliki skryptow / etapy) =====
+    main_note = add_note_node("main.py (orchestrator)", x_main_note, -260.0, role="process")
+    capture_note = add_note_node("dom_renderer/ai_recorder_live.py", x_capture_note, y_note_main, role="process")
+    region_note = add_note_node("utils/region_grow.py", x_region_note, y_note_main, role="process")
+    rating_note = add_note_node("scripts/numpy_rate/rating.py", x_action_note, y_note_main, role="process")
+    hover_note = add_note_node(
+        "scripts/control_agent/control_agent.py\\n(+ hover_speed_recorder.py)",
+        x_action_note,
+        y_hover_base + y_note_main,
+        role="process",
+    )
+    arrow_post_note = add_note_node(
+        "scripts/arrow_post_region.py (MISSING)",
+        x_region_note,
+        y_note_main + 170.0,
+        w=420.0,
+        h=90.0,
+        role="process",
+    )
+
+    add_conn(main_note, capture_note, color=COLOR_META, thickness=1)
+    add_conn(main_note, region_note, color=COLOR_META, thickness=1)
+    add_conn(main_note, rating_note, color=COLOR_META, thickness=1)
+    add_conn(main_note, hover_note, color=COLOR_META, thickness=1)
+
+    # ===== CAPTURE (screenshot) =====
+    capture_imgs = _all_files(RAW_SCREENS_CURRENT_DIR, {".png", ".jpg", ".jpeg"})
+    if not capture_imgs:
+        capture_imgs = _all_files(CURRENT_RUN_DIR, {".png", ".jpg", ".jpeg"})
+    capture_main = add_screen(capture_imgs[-1], x_capture_out, y_screen_main) if capture_imgs else None
+
+    add_conn(capture_note, capture_main)
+
+    # capture debug: kopia w current_run + OCR stripy (data/screen/debug + dom_live/debug)
+    capture_debug_screens: list = []
+    current_run_screenshot = CURRENT_RUN_DIR / "screenshot.png"
+    if current_run_screenshot.is_file():
+        obj = add_screen(current_run_screenshot, x_capture_out, y_screen_main + row_step)
+        if obj:
+            capture_debug_screens.append(obj)
+
+    for p in _all_files(DEBUG_SCREEN_DIR, {".png"}):
+        obj = add_screen(p, x_capture_out, y_screen_main + row_step * (len(capture_debug_screens) + 2))
+        if obj:
+            capture_debug_screens.append(obj)
+
+    for p in _all_files(DOM_LIVE_DEBUG_DIR, {".png"}):
+        obj = add_screen(p, x_capture_out, y_screen_main + row_step * (len(capture_debug_screens) + 2))
+        if obj:
+            capture_debug_screens.append(obj)
+
+    add_debug_fan(capture_main, capture_debug_screens)
+
+    # capture debug JSON-y
+    capture_debug_jsons: list = []
+    y_capture_json = y_screen_main + row_step * (len(capture_debug_screens) + 3)
+
+    for p in _all_files(DEBUG_SCREEN_DIR, {".json"}):
+        obj = add_json_obj(p, x_capture_out, y_capture_json + row_step * len(capture_debug_jsons))
+        if obj:
+            capture_debug_jsons.append(obj)
+
+    for name in ("screenshot_timings.json", "region_grow.json", "rating.json", "summary.json"):
+        p = CURRENT_RUN_DIR / name
+        if p.is_file():
+            obj = add_json_obj(p, x_capture_out, y_capture_json + row_step * len(capture_debug_jsons))
+            if obj:
+                capture_debug_jsons.append(obj)
+
+    dom_live_json_names = [
+        "current_snapshot.json",
+        "current_page.json",
+        "current_tabs.json",
+        "current_clickables.json",
+        "out.json",
+        "stats.json",
+    ]
+    for name in dom_live_json_names:
+        p = DOM_LIVE_DIR / name
+        if p.is_file():
+            obj = add_json_obj(p, x_capture_out, y_capture_json + row_step * len(capture_debug_jsons))
+            if obj:
+                capture_debug_jsons.append(obj)
+
+    for p in _all_files(DOM_LIVE_DEBUG_DIR, {".json"}):
+        obj = add_json_obj(p, x_capture_out, y_capture_json + row_step * len(capture_debug_jsons))
+        if obj:
+            capture_debug_jsons.append(obj)
+
+    add_debug_fan(capture_note, capture_debug_jsons)
+
+    # current_question.json jako INPUT do ratingu (po prawej od region_grow output)
+    current_question = None
+    cq_path = DOM_LIVE_DIR / "current_question.json"
+    if cq_path.is_file():
+        current_question = add_json_obj(cq_path, x_region_out, y_json_main + 320.0)
+        add_conn(capture_note, current_question)
+
+    # ===== REGION_GROW =====
+    region_json_main = None
+    rg_jsons = _all_files(REGION_GROW_CURRENT_DIR, {".json"})
+    if rg_jsons:
+        region_json_main = add_json_obj(rg_jsons[-1], x_region_out, y_json_main)
+
+    add_conn(capture_main, region_note)
+    add_conn(region_note, region_json_main)
+    add_conn(region_note, arrow_post_note, color=COLOR_META, thickness=1)
+
+    # region debug PNG-y (annot + regions)
+    region_debug_screens: list = []
+    rg_annot_candidates = _all_files(REGION_GROW_ANNOT_DIR, {".png", ".jpg", ".jpeg"})
+    if rg_annot_candidates:
+        obj = add_screen(rg_annot_candidates[-1], x_region_out, y_screen_main + row_step)
+        if obj:
+            region_debug_screens.append(obj)
+
+    if REGION_GROW_ANNOT_CURRENT_FILE.is_file():
+        obj = add_screen(
+            REGION_GROW_ANNOT_CURRENT_FILE,
+            x_region_out,
+            y_screen_main + row_step * (len(region_debug_screens) + 2),
+        )
+        if obj:
+            region_debug_screens.append(obj)
+
+    regions_current = REGION_GROW_REGIONS_CURRENT_DIR / "regions_current.png"
+    if regions_current.is_file():
+        obj = add_screen(regions_current, x_region_out, y_screen_main + row_step * (len(region_debug_screens) + 2))
+        if obj:
+            region_debug_screens.append(obj)
+
+    add_debug_fan(region_json_main or region_note, region_debug_screens)
+
+    # region debug JSON-y (np. current_run/region_grow.json)
+    region_debug_jsons: list = []
+    rg_run = CURRENT_RUN_DIR / "region_grow.json"
+    if rg_run.is_file():
+        obj = add_json_obj(rg_run, x_region_out, y_screen_main + row_step * (len(region_debug_screens) + 4))
+        if obj:
+            region_debug_jsons.append(obj)
+    add_debug_fan(region_json_main or region_note, region_debug_jsons)
+
+    # ===== RATING =====
+    rating_main_json = None
+    rate_results = _all_files(RATE_RESULTS_CURRENT_DIR, {".json"})
+    if rate_results:
+        rating_main_json = add_json_obj(rate_results[-1], x_action_out, y_json_main)
+
+    add_conn(region_json_main, rating_note)
+    if current_question:
+        add_conn(current_question, rating_note)
+    add_conn(rating_note, rating_main_json)
+
+    # Debug ratingu (rate_results_debug_current) + current_run/rating.json
+    rating_debug_jsons: list = []
+    for p in _all_files(RATE_RESULTS_DEBUG_CURRENT_DIR, {".json"}):
+        obj = add_json_obj(p, x_action_out, y_screen_main + row_step * (len(rating_debug_jsons) + 1))
+        if obj:
+            rating_debug_jsons.append(obj)
+
+    rating_run = CURRENT_RUN_DIR / "rating.json"
+    if rating_run.is_file():
+        obj = add_json_obj(rating_run, x_action_out, y_screen_main + row_step * (len(rating_debug_jsons) + 1))
+        if obj:
+            rating_debug_jsons.append(obj)
+
+    add_debug_fan(rating_main_json or rating_note, rating_debug_jsons)
+
+    # Summary (ostatni jako main po prawej, reszta jako debug ponizej)
+    summary_main_json = None
+    summary_debug_jsons: list = []
+    summaries = _all_files(RATE_SUMMARY_CURRENT_DIR, {".json"})
+    if summaries:
+        summary_main_json = add_json_obj(summaries[-1], x_summary_out, y_json_main)
+        for p in summaries[:-1]:
+            obj = add_json_obj(p, x_summary_out, y_screen_main + row_step * (len(summary_debug_jsons) + 1))
+            if obj:
+                summary_debug_jsons.append(obj)
+
+    add_conn(rating_main_json, summary_main_json)
+    add_debug_fan(summary_main_json, summary_debug_jsons)
+
+    summary_run = CURRENT_RUN_DIR / "summary.json"
+    if summary_run.is_file() and summary_main_json:
+        obj = add_json_obj(summary_run, x_summary_out, y_screen_main + row_step * (len(summary_debug_jsons) + 2))
+        if obj:
+            add_debug_fan(summary_main_json, [obj])
+
+    # ===== HOVER (osobny tor) =====
+    hover_input = None
+    hover_input_imgs = _all_files(HOVER_INPUT_CURRENT_DIR, {".png", ".jpg", ".jpeg"})
+    if hover_input_imgs:
+        hover_input = add_screen(hover_input_imgs[-1], x_region_out, y_hover_base + y_screen_main)
+        add_conn(capture_main, hover_input)
+
+    hover_main_json = None
+    hover_jsons = _all_files(HOVER_OUTPUT_DIR, {".json"})
+    if hover_jsons:
+        hover_main_json = add_json_obj(hover_jsons[-1], x_action_out, y_hover_base + y_json_main)
+
+    add_conn(region_json_main, hover_note)
+    add_conn(hover_input, hover_note)
+    add_conn(hover_note, hover_main_json)
+
+    hover_debug_nodes: list = []
+    y_hover_debug = y_hover_base + y_screen_main + row_step
+
+    for p in _all_files(HOVER_OUTPUT_DIR, {".png", ".jpg", ".jpeg"}):
+        obj = add_screen(p, x_action_out, y_hover_debug + row_step * len(hover_debug_nodes))
+        if obj:
+            hover_debug_nodes.append(obj)
+
+    for p in _all_files(HOVER_PATH_CURRENT_DIR, {".png", ".jpg", ".jpeg"}):
+        obj = add_screen(p, x_action_out, y_hover_debug + row_step * len(hover_debug_nodes))
+        if obj:
+            hover_debug_nodes.append(obj)
+
+    for p in _all_files(HOVER_SPEED_CURRENT_DIR, {".png", ".jpg", ".jpeg"}):
+        obj = add_screen(p, x_action_out, y_hover_debug + row_step * len(hover_debug_nodes))
+        if obj:
+            hover_debug_nodes.append(obj)
+
+    for p in _all_files(HOVER_POINTS_ON_PATH_CURRENT_DIR, {".png", ".jpg", ".jpeg", ".json"}):
+        if p.suffix.lower() in {".png", ".jpg", ".jpeg"}:
+            obj = add_screen(p, x_action_out, y_hover_debug + row_step * len(hover_debug_nodes))
+        else:
+            obj = add_json_obj(p, x_action_out, y_hover_debug + row_step * len(hover_debug_nodes))
+        if obj:
+            hover_debug_nodes.append(obj)
+
+    for p in _all_files(HOVER_POINTS_ON_SPEED_CURRENT_DIR, {".png", ".jpg", ".jpeg", ".json"}):
+        if p.suffix.lower() in {".png", ".jpg", ".jpeg"}:
+            obj = add_screen(p, x_action_out, y_hover_debug + row_step * len(hover_debug_nodes))
+        else:
+            obj = add_json_obj(p, x_action_out, y_hover_debug + row_step * len(hover_debug_nodes))
+        if obj:
+            hover_debug_nodes.append(obj)
+
+    add_debug_fan(hover_main_json or hover_note, hover_debug_nodes)
+
+    return {
+        "pan_x": -650.0,
+        "pan_y": -260.0,
+        "zoom": 0.20,
         "screens": screens_state,
         "json_objects": json_state,
         "notes": notes_state,
