@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import re
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Callable, Dict, List, Optional, Tuple
@@ -66,6 +67,27 @@ class PipelineBrainAgent:
             )
 
         prev_state = self._load_state()
+        meta: Dict[str, Any] = {}
+        consistency = self._screen_site_consistency()
+        if consistency is not None:
+            meta = {
+                "screen_site_consistency": float(consistency),
+                "screen_site_matched": bool(consistency >= 0.5),
+            }
+            if consistency < 0.5:
+                print("Screen and site is not matched. Brain can't decide about question and answers")
+                state_dump = dict(prev_state or {})
+                state_dump.update(meta)
+                self._save_state(state_dump)
+                return BrainDecision(
+                    recommended_action="idle",
+                    target_bbox=None,
+                    target_element=None,
+                    requires_action=False,
+                    brain_state=state_dump,
+                    question_data=question_data,
+                    summary_data=summary_data,
+                )
         try:
             brain = build_brain_state(  # type: ignore[misc]
                 question_data,
