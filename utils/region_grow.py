@@ -1736,6 +1736,21 @@ def annotate_regions_and_save(image_path: str, results: List[dict]) -> None:
             c["y2"] = max(c["y2"], y2)
 
     if not clusters:
+        # Zapisz pusty JSON, żeby UI/brain zawsze miały artefakt do odczytu.
+        try:
+            REGION_REGIONS_CURRENT_DIR.mkdir(parents=True, exist_ok=True)
+            regions_json_path = REGION_REGIONS_CURRENT_DIR / "regions_current.json"
+            payload = {
+                "image": str(image_path),
+                "regions_current_png": str(REGION_REGIONS_CURRENT_DIR / "regions_current.png"),
+                "image_size": {"w": int(W), "h": int(H)},
+                "clusters": [],
+                "reason": "no_bg_cluster_id",
+            }
+            with regions_json_path.open("w", encoding="utf-8") as f:
+                json.dump(payload, f, ensure_ascii=False, indent=2)
+        except Exception:
+            pass
         print("[DEBUG REGIONS] No bg_cluster_id metadata; skipping regions overlay.")
         return
 
@@ -1770,6 +1785,45 @@ def annotate_regions_and_save(image_path: str, results: List[dict]) -> None:
         out.save(hist_path)
         out.save(current_path)
         print(f"[DEBUG REGIONS] Saved regions: hist={hist_path} current={current_path}")
+
+        # Tekstowa reprezentacja `regions_current.png`
+        try:
+            counts: Dict[int, int] = {}
+            for r in results or []:
+                cid = r.get("bg_cluster_id")
+                try:
+                    cid_int = int(cid) if cid is not None else None
+                except Exception:
+                    cid_int = None
+                if cid_int is None:
+                    continue
+                counts[cid_int] = counts.get(cid_int, 0) + 1
+
+            clusters_out = []
+            for idx, (cid, box) in enumerate(sorted(clusters.items())):
+                cr, cg, cb = palette[idx % len(palette)]
+                clusters_out.append(
+                    {
+                        "cluster_id": int(cid),
+                        "bbox_xyxy": [int(box["x1"]), int(box["y1"]), int(box["x2"]), int(box["y2"])],
+                        "color_rgb": [int(cr), int(cg), int(cb)],
+                        "fill_rgba": [int(cr), int(cg), int(cb), 70],
+                        "outline_rgba": [int(cr), int(cg), int(cb), 220],
+                        "items_count": int(counts.get(int(cid), 0)),
+                    }
+                )
+
+            regions_json_path = REGION_REGIONS_CURRENT_DIR / "regions_current.json"
+            payload = {
+                "image": str(image_path),
+                "regions_current_png": str(current_path),
+                "image_size": {"w": int(W), "h": int(H)},
+                "clusters": clusters_out,
+            }
+            with regions_json_path.open("w", encoding="utf-8") as f:
+                json.dump(payload, f, ensure_ascii=False, indent=2)
+        except Exception as exc_json:
+            print(f"[WARN REGIONS] Failed to save regions_current.json: {exc_json}")
     except Exception as exc:
         print(f"[WARN REGIONS] Failed to save regions overlays: {exc}")
 
