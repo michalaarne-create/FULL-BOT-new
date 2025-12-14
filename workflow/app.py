@@ -1,7 +1,11 @@
-import dearpygui.dearpygui as dpg
+try:
+    import dearpygui.dearpygui as dpg
+except ModuleNotFoundError:
+    dpg = None  # type: ignore[assignment]
 from PIL import Image, ImageDraw
 import numpy as np
 import os
+import sys
 import json as pyjson
 import math
 import time
@@ -421,12 +425,12 @@ def build_pipeline_state() -> dict:
     x_summary_out = 5200.0
 
     # ===== Layout (rzedy) =====
-    row_step = 520.0
+    row_step = 650.0
     y_screen_main = 0.0
     y_json_main = 106.0
     y_note_main = 140.0
 
-    y_hover_base = 1200.0  # osobny "tor" dla hover
+    y_hover_base = 1300.0  # osobny "tor" dla hover
 
     # ===== Zbieranie obiektow =====
     screens_state: list[dict] = []
@@ -446,10 +450,10 @@ def build_pipeline_state() -> dict:
         except Exception:
             return p
 
-    def add_label(text: str, x: float, y: float, w: float = 260.0, h: float = 70.0):
+    def add_label(text: str, x: float, y: float, w: float = 260.0, h: float = 140.0):
         notes_state.append({"text": text, "x": x, "y": y, "w": w, "h": h, "role": "label"})
 
-    def add_note_node(text: str, x: float, y: float, w: float = 420.0, h: float = 110.0, role: str = "process"):
+    def add_note_node(text: str, x: float, y: float, w: float = 420.0, h: float = 220.0, role: str = "process"):
         obj = {"text": text, "x": x, "y": y, "w": w, "h": h, "role": role}
         notes_state.append(obj)
         return obj
@@ -472,7 +476,6 @@ def build_pipeline_state() -> dict:
         obj = {"path": sp, "x": x, "y": y, "w": 260.0, "h": 180.0}
         json_state.append(obj)
         added_paths.add(sp)
-        add_label(_basename(sp), x, y + 180.0 + 30.0)
         return obj
 
     # ===== Linie (ortogonalne) =====
@@ -499,6 +502,10 @@ def build_pipeline_state() -> dict:
         ex, ey = float(end[0]), float(end[1])
         if abs(sx - ex) < 1e-6 or abs(sy - ey) < 1e-6:
             return [[sx, sy], [ex, ey]]
+        if via_x is not None and via_y is not None:
+            vx = float(via_x)
+            vy = float(via_y)
+            return [[sx, sy], [vx, sy], [vx, vy], [ex, vy], [ex, ey]]
         if via_x is not None:
             vx = float(via_x)
             return [[sx, sy], [vx, sy], [vx, ey], [ex, ey]]
@@ -508,7 +515,16 @@ def build_pipeline_state() -> dict:
         mx = (sx + ex) * 0.5
         return [[sx, sy], [mx, sy], [mx, ey], [ex, ey]]
 
-    def add_conn(src, dst, color=None, thickness: int = 2, from_side: str | None = None, to_side: str | None = None, via_x: float | None = None):
+    def add_conn(
+        src,
+        dst,
+        color=None,
+        thickness: int = 2,
+        from_side: str | None = None,
+        to_side: str | None = None,
+        via_x: float | None = None,
+        via_y: float | None = None,
+    ):
         if not src or not dst:
             return
         if color is None:
@@ -530,21 +546,62 @@ def build_pipeline_state() -> dict:
 
         start = _anchor(src, from_side)
         end = _anchor(dst, to_side)
-        pts = _orth_points(start, end, via_x=via_x)
+
+        stub = 30.0
+        if from_side == "right":
+            start2 = [start[0] + stub, start[1]]
+        elif from_side == "left":
+            start2 = [start[0] - stub, start[1]]
+        elif from_side == "bottom":
+            start2 = [start[0], start[1] + stub]
+        elif from_side == "top":
+            start2 = [start[0], start[1] - stub]
+        else:
+            start2 = [start[0], start[1]]
+
+        if to_side == "left":
+            end2 = [end[0] - stub, end[1]]
+        elif to_side == "right":
+            end2 = [end[0] + stub, end[1]]
+        elif to_side == "top":
+            end2 = [end[0], end[1] - stub]
+        elif to_side == "bottom":
+            end2 = [end[0], end[1] + stub]
+        else:
+            end2 = [end[0], end[1]]
+
+        mid = _orth_points(start2, end2, via_x=via_x, via_y=via_y)
+        if not mid:
+            return
+
+        pts = [start]
+        if abs(pts[-1][0] - start2[0]) > 1e-9 or abs(pts[-1][1] - start2[1]) > 1e-9:
+            pts.append(start2)
+        for p in mid[1:]:
+            if abs(pts[-1][0] - p[0]) > 1e-9 or abs(pts[-1][1] - p[1]) > 1e-9:
+                pts.append(p)
+        if abs(pts[-1][0] - end[0]) > 1e-9 or abs(pts[-1][1] - end[1]) > 1e-9:
+            pts.append(end)
+
         lines_state.append({"points": pts, "color": list(color), "thickness": int(thickness)})
 
-    def add_debug_fan(parent, children: list, color=None, thickness: int = 2):
+    def add_debug_fan(parent, children: list, color=None, thickness: int = 2, bus_x: float | None = None):
         if not parent or not children:
             return
         if color is None:
             color = COLOR_DEBUG
-        col_left = min([left_x(parent)] + [left_x(c) for c in children])
-        bus_x = col_left - 120.0
+        if bus_x is None:
+            col_left = min([left_x(parent)] + [left_x(c) for c in children])
+            bus_x = col_left - 120.0
+        bus_x = float(bus_x)
         for ch in children:
-            add_conn(parent, ch, color=color, thickness=thickness, from_side="bottom", to_side="left", via_x=bus_x)
+            # Jesli "szyna" jest po prawej stronie dziecka, dopinaj do PRAWEJ krawedzi,
+            # w przeciwnym razie do LEWEJ, zeby nie przechodzic przez wnętrze boxa.
+            to_side = "right" if bus_x >= right_x(ch) else "left"
+            add_conn(parent, ch, color=color, thickness=thickness, from_side="bottom", to_side=to_side, via_x=bus_x)
 
     # ===== Notatki (pliki skryptow / etapy) =====
-    main_note = add_note_node("main.py (orchestrator)", x_main_note, -260.0, role="process")
+    main_note = add_note_node("main.py (orchestrator)", x_main_note, -360.0, role="process")
     capture_note = add_note_node("dom_renderer/ai_recorder_live.py", x_capture_note, y_note_main, role="process")
     region_note = add_note_node("utils/region_grow.py", x_region_note, y_note_main, role="process")
     rating_note = add_note_node("scripts/numpy_rate/rating.py", x_action_note, y_note_main, role="process")
@@ -557,40 +614,48 @@ def build_pipeline_state() -> dict:
     arrow_post_note = add_note_node(
         "scripts/arrow_post_region.py (MISSING)",
         x_region_note,
-        y_note_main + 170.0,
+        y_note_main + 260.0,
         w=420.0,
-        h=90.0,
+        h=180.0,
         role="process",
     )
 
-    add_conn(main_note, capture_note, color=COLOR_META, thickness=1)
-    add_conn(main_note, region_note, color=COLOR_META, thickness=1)
-    add_conn(main_note, rating_note, color=COLOR_META, thickness=1)
-    add_conn(main_note, hover_note, color=COLOR_META, thickness=1)
+    meta_lane_y = -460.0
+    add_conn(main_note, capture_note, color=COLOR_META, thickness=1, via_y=meta_lane_y)
+    add_conn(main_note, region_note, color=COLOR_META, thickness=1, via_y=meta_lane_y)
+    add_conn(main_note, rating_note, color=COLOR_META, thickness=1, via_y=meta_lane_y)
+    add_conn(main_note, hover_note, color=COLOR_META, thickness=1, via_y=meta_lane_y)
 
     # ===== CAPTURE (screenshot) =====
-    capture_imgs = _all_files(RAW_SCREENS_CURRENT_DIR, {".png", ".jpg", ".jpeg"})
-    if not capture_imgs:
-        capture_imgs = _all_files(CURRENT_RUN_DIR, {".png", ".jpg", ".jpeg"})
-    capture_main = add_screen(capture_imgs[-1], x_capture_out, y_screen_main) if capture_imgs else None
+    def add_screen_if_exists(p: Path, x: float, y: float):
+        if p and Path(p).is_file():
+            return add_screen(Path(p), x, y)
+        return None
+
+    def add_json_if_exists(p: Path, x: float, y: float):
+        if p and Path(p).is_file():
+            return add_json_obj(Path(p), x, y)
+        return None
+
+    capture_main = add_screen_if_exists(RAW_SCREENS_CURRENT_DIR / "screenshot.png", x_capture_out, y_screen_main)
+    if not capture_main:
+        capture_main = add_screen_if_exists(CURRENT_RUN_DIR / "screenshot.png", x_capture_out, y_screen_main)
 
     add_conn(capture_note, capture_main)
 
     # capture debug: kopia w current_run + OCR stripy (data/screen/debug + dom_live/debug)
     capture_debug_screens: list = []
-    current_run_screenshot = CURRENT_RUN_DIR / "screenshot.png"
-    if current_run_screenshot.is_file():
-        obj = add_screen(current_run_screenshot, x_capture_out, y_screen_main + row_step)
-        if obj:
-            capture_debug_screens.append(obj)
-
-    for p in _all_files(DEBUG_SCREEN_DIR, {".png"}):
-        obj = add_screen(p, x_capture_out, y_screen_main + row_step * (len(capture_debug_screens) + 2))
-        if obj:
-            capture_debug_screens.append(obj)
-
-    for p in _all_files(DOM_LIVE_DEBUG_DIR, {".png"}):
-        obj = add_screen(p, x_capture_out, y_screen_main + row_step * (len(capture_debug_screens) + 2))
+    # Tylko pliki "current"/auto-updated (bez historycznych dumpow)
+    for p in [
+        CURRENT_RUN_DIR / "screenshot.png",
+        DEBUG_SCREEN_DIR / "ocr_strip1.png",
+        DEBUG_SCREEN_DIR / "ocr_strip1_active.png",
+        DEBUG_SCREEN_DIR / "ocr_strip2_center.png",
+        DOM_LIVE_DEBUG_DIR / "ocr_strip1.png",
+        DOM_LIVE_DEBUG_DIR / "ocr_strip1_active.png",
+        DOM_LIVE_DEBUG_DIR / "ocr_strip2_center.png",
+    ]:
+        obj = add_screen_if_exists(p, x_capture_out, y_screen_main + row_step * (len(capture_debug_screens) + 1))
         if obj:
             capture_debug_screens.append(obj)
 
@@ -600,17 +665,18 @@ def build_pipeline_state() -> dict:
     capture_debug_jsons: list = []
     y_capture_json = y_screen_main + row_step * (len(capture_debug_screens) + 3)
 
-    for p in _all_files(DEBUG_SCREEN_DIR, {".json"}):
-        obj = add_json_obj(p, x_capture_out, y_capture_json + row_step * len(capture_debug_jsons))
+    for p in [
+        DEBUG_SCREEN_DIR / "ocr_debug.json",
+        DOM_LIVE_DEBUG_DIR / "ocr_debug.json",
+        DOM_LIVE_DEBUG_DIR / "cpu_profile.json",
+        CURRENT_RUN_DIR / "screenshot_timings.json",
+        CURRENT_RUN_DIR / "region_grow.json",
+        CURRENT_RUN_DIR / "rating.json",
+        CURRENT_RUN_DIR / "summary.json",
+    ]:
+        obj = add_json_if_exists(p, x_capture_out, y_capture_json + row_step * len(capture_debug_jsons))
         if obj:
             capture_debug_jsons.append(obj)
-
-    for name in ("screenshot_timings.json", "region_grow.json", "rating.json", "summary.json"):
-        p = CURRENT_RUN_DIR / name
-        if p.is_file():
-            obj = add_json_obj(p, x_capture_out, y_capture_json + row_step * len(capture_debug_jsons))
-            if obj:
-                capture_debug_jsons.append(obj)
 
     dom_live_json_names = [
         "current_snapshot.json",
@@ -622,13 +688,7 @@ def build_pipeline_state() -> dict:
     ]
     for name in dom_live_json_names:
         p = DOM_LIVE_DIR / name
-        if p.is_file():
-            obj = add_json_obj(p, x_capture_out, y_capture_json + row_step * len(capture_debug_jsons))
-            if obj:
-                capture_debug_jsons.append(obj)
-
-    for p in _all_files(DOM_LIVE_DEBUG_DIR, {".json"}):
-        obj = add_json_obj(p, x_capture_out, y_capture_json + row_step * len(capture_debug_jsons))
+        obj = add_json_if_exists(p, x_capture_out, y_capture_json + row_step * len(capture_debug_jsons))
         if obj:
             capture_debug_jsons.append(obj)
 
@@ -638,14 +698,14 @@ def build_pipeline_state() -> dict:
     current_question = None
     cq_path = DOM_LIVE_DIR / "current_question.json"
     if cq_path.is_file():
-        current_question = add_json_obj(cq_path, x_region_out, y_json_main + 320.0)
-        add_conn(capture_note, current_question)
+        # Osobny "input box" dla ratingu, tak zeby nie nachodzil na region_grow debug PNG.
+        current_question = add_json_obj(cq_path, x_region_out - 360.0, y_json_main + 240.0)
+        y_mid_lane = y_screen_main + row_step - 30.0
+        add_conn(capture_note, current_question, via_x=x_capture_out - 200.0, via_y=y_mid_lane)
 
     # ===== REGION_GROW =====
     region_json_main = None
-    rg_jsons = _all_files(REGION_GROW_CURRENT_DIR, {".json"})
-    if rg_jsons:
-        region_json_main = add_json_obj(rg_jsons[-1], x_region_out, y_json_main)
+    region_json_main = add_json_if_exists(REGION_GROW_CURRENT_DIR / "region_grow.json", x_region_out, y_json_main)
 
     add_conn(capture_main, region_note)
     add_conn(region_note, region_json_main)
@@ -653,11 +713,9 @@ def build_pipeline_state() -> dict:
 
     # region debug PNG-y (annot + regions)
     region_debug_screens: list = []
-    rg_annot_candidates = _all_files(REGION_GROW_ANNOT_DIR, {".png", ".jpg", ".jpeg"})
-    if rg_annot_candidates:
-        obj = add_screen(rg_annot_candidates[-1], x_region_out, y_screen_main + row_step)
-        if obj:
-            region_debug_screens.append(obj)
+    obj = add_screen_if_exists(REGION_GROW_ANNOT_DIR / "region_grow_annot_current.png", x_region_out, y_screen_main + row_step)
+    if obj:
+        region_debug_screens.append(obj)
 
     if REGION_GROW_ANNOT_CURRENT_FILE.is_file():
         obj = add_screen(
@@ -674,22 +732,19 @@ def build_pipeline_state() -> dict:
         if obj:
             region_debug_screens.append(obj)
 
-    add_debug_fan(region_json_main or region_note, region_debug_screens)
+    add_debug_fan(region_json_main or region_note, region_debug_screens, bus_x=x_region_out + 700.0 + 120.0)
 
     # region debug JSON-y (np. current_run/region_grow.json)
     region_debug_jsons: list = []
     rg_run = CURRENT_RUN_DIR / "region_grow.json"
-    if rg_run.is_file():
-        obj = add_json_obj(rg_run, x_region_out, y_screen_main + row_step * (len(region_debug_screens) + 4))
-        if obj:
-            region_debug_jsons.append(obj)
-    add_debug_fan(region_json_main or region_note, region_debug_jsons)
+    obj = add_json_if_exists(rg_run, x_region_out, y_screen_main + row_step * (len(region_debug_screens) + 4))
+    if obj:
+        region_debug_jsons.append(obj)
+    add_debug_fan(region_json_main or region_note, region_debug_jsons, bus_x=x_region_out + 700.0 + 120.0)
 
     # ===== RATING =====
     rating_main_json = None
-    rate_results = _all_files(RATE_RESULTS_CURRENT_DIR, {".json"})
-    if rate_results:
-        rating_main_json = add_json_obj(rate_results[-1], x_action_out, y_json_main)
+    rating_main_json = add_json_if_exists(RATE_RESULTS_CURRENT_DIR / "rating.json", x_action_out, y_json_main)
 
     add_conn(region_json_main, rating_note)
     if current_question:
@@ -698,8 +753,13 @@ def build_pipeline_state() -> dict:
 
     # Debug ratingu (rate_results_debug_current) + current_run/rating.json
     rating_debug_jsons: list = []
-    for p in _all_files(RATE_RESULTS_DEBUG_CURRENT_DIR, {".json"}):
-        obj = add_json_obj(p, x_action_out, y_screen_main + row_step * (len(rating_debug_jsons) + 1))
+    # *_current powinno miec max 1 plik, ale jeśli jest wiecej - bierzemy najnowszy.
+    try:
+        dbg_files = _all_files(RATE_RESULTS_DEBUG_CURRENT_DIR, {".json"})
+    except Exception:
+        dbg_files = []
+    if dbg_files:
+        obj = add_json_obj(dbg_files[-1], x_action_out, y_screen_main + row_step * (len(rating_debug_jsons) + 1))
         if obj:
             rating_debug_jsons.append(obj)
 
@@ -714,13 +774,13 @@ def build_pipeline_state() -> dict:
     # Summary (ostatni jako main po prawej, reszta jako debug ponizej)
     summary_main_json = None
     summary_debug_jsons: list = []
-    summaries = _all_files(RATE_SUMMARY_CURRENT_DIR, {".json"})
-    if summaries:
-        summary_main_json = add_json_obj(summaries[-1], x_summary_out, y_json_main)
-        for p in summaries[:-1]:
-            obj = add_json_obj(p, x_summary_out, y_screen_main + row_step * (len(summary_debug_jsons) + 1))
-            if obj:
-                summary_debug_jsons.append(obj)
+    # Bez historycznych: preferuj summary.json, w razie braku bierz najnowszy.
+    summary_path = RATE_SUMMARY_CURRENT_DIR / "summary.json"
+    if not summary_path.is_file():
+        summaries = _all_files(RATE_SUMMARY_CURRENT_DIR, {".json"})
+        summary_path = summaries[-1] if summaries else summary_path
+    if summary_path.is_file():
+        summary_main_json = add_json_obj(summary_path, x_summary_out, y_json_main)
 
     add_conn(rating_main_json, summary_main_json)
     add_debug_fan(summary_main_json, summary_debug_jsons)
@@ -733,51 +793,32 @@ def build_pipeline_state() -> dict:
 
     # ===== HOVER (osobny tor) =====
     hover_input = None
-    hover_input_imgs = _all_files(HOVER_INPUT_CURRENT_DIR, {".png", ".jpg", ".jpeg"})
-    if hover_input_imgs:
-        hover_input = add_screen(hover_input_imgs[-1], x_region_out, y_hover_base + y_screen_main)
-        add_conn(capture_main, hover_input)
+    hover_input = add_screen_if_exists(HOVER_INPUT_CURRENT_DIR / "hover_input.png", x_region_out, y_hover_base + y_screen_main)
+    if hover_input:
+        y_mid_lane = y_screen_main + row_step - 30.0
+        add_conn(capture_main, hover_input, via_y=y_mid_lane)
 
     hover_main_json = None
-    hover_jsons = _all_files(HOVER_OUTPUT_DIR, {".json"})
-    if hover_jsons:
-        hover_main_json = add_json_obj(hover_jsons[-1], x_action_out, y_hover_base + y_json_main)
+    hover_main_json = add_json_if_exists(HOVER_OUTPUT_DIR / "hover_output.json", x_action_out, y_hover_base + y_json_main)
 
-    add_conn(region_json_main, hover_note)
+    # Branch do hover: prowadzenie po korytarzu pomiedzy region_grow obrazkami (do 2700)
+    # a kolumna skryptow (od 3000), zeby nie przejsc przez region_grow_annot_current.png.
+    hover_lane_x = (x_region_out + 700.0 + x_action_note) * 0.5
+    add_conn(region_json_main, hover_note, via_x=hover_lane_x)
     add_conn(hover_input, hover_note)
     add_conn(hover_note, hover_main_json)
 
     hover_debug_nodes: list = []
     y_hover_debug = y_hover_base + y_screen_main + row_step
 
-    for p in _all_files(HOVER_OUTPUT_DIR, {".png", ".jpg", ".jpeg"}):
-        obj = add_screen(p, x_action_out, y_hover_debug + row_step * len(hover_debug_nodes))
-        if obj:
-            hover_debug_nodes.append(obj)
-
-    for p in _all_files(HOVER_PATH_CURRENT_DIR, {".png", ".jpg", ".jpeg"}):
-        obj = add_screen(p, x_action_out, y_hover_debug + row_step * len(hover_debug_nodes))
-        if obj:
-            hover_debug_nodes.append(obj)
-
-    for p in _all_files(HOVER_SPEED_CURRENT_DIR, {".png", ".jpg", ".jpeg"}):
-        obj = add_screen(p, x_action_out, y_hover_debug + row_step * len(hover_debug_nodes))
-        if obj:
-            hover_debug_nodes.append(obj)
-
-    for p in _all_files(HOVER_POINTS_ON_PATH_CURRENT_DIR, {".png", ".jpg", ".jpeg", ".json"}):
-        if p.suffix.lower() in {".png", ".jpg", ".jpeg"}:
-            obj = add_screen(p, x_action_out, y_hover_debug + row_step * len(hover_debug_nodes))
-        else:
-            obj = add_json_obj(p, x_action_out, y_hover_debug + row_step * len(hover_debug_nodes))
-        if obj:
-            hover_debug_nodes.append(obj)
-
-    for p in _all_files(HOVER_POINTS_ON_SPEED_CURRENT_DIR, {".png", ".jpg", ".jpeg", ".json"}):
-        if p.suffix.lower() in {".png", ".jpg", ".jpeg"}:
-            obj = add_screen(p, x_action_out, y_hover_debug + row_step * len(hover_debug_nodes))
-        else:
-            obj = add_json_obj(p, x_action_out, y_hover_debug + row_step * len(hover_debug_nodes))
+    for p in [
+        HOVER_OUTPUT_DIR / "hover_output.png",
+        HOVER_PATH_CURRENT_DIR / "hover_path.png",
+        HOVER_SPEED_CURRENT_DIR / "hover_speed.png",
+        HOVER_POINTS_ON_PATH_CURRENT_DIR / "hover_points_on_path.png",
+        HOVER_POINTS_ON_SPEED_CURRENT_DIR / "hover_points_on_speed.png",
+    ]:
+        obj = add_screen_if_exists(p, x_action_out, y_hover_debug + row_step * len(hover_debug_nodes))
         if obj:
             hover_debug_nodes.append(obj)
 
@@ -846,6 +887,85 @@ def distance_point_to_line_segment(px, py, x1, y1, x2, y2):
     proj_y = y1 + t * dy
     
     return math.sqrt((px - proj_x)**2 + (py - proj_y)**2)
+
+
+def _orth_points_simple(x1: float, y1: float, x2: float, y2: float) -> list[list[float]]:
+    """Zamien prosty odcinek na polyline (kat prosty)."""
+    x1 = float(x1)
+    y1 = float(y1)
+    x2 = float(x2)
+    y2 = float(y2)
+    if abs(x1 - x2) < 1e-6 or abs(y1 - y2) < 1e-6:
+        return [[x1, y1], [x2, y2]]
+    return [[x1, y1], [x2, y1], [x2, y2]]
+
+
+def _line_points_world(ln: dict) -> list[list[float]]:
+    """Zwraca punkty linii w world coords (wspiera nowy i stary format)."""
+    if not isinstance(ln, dict):
+        return []
+
+    pts = ln.get("points")
+    if isinstance(pts, list) and len(pts) >= 2:
+        out: list[list[float]] = []
+        for p in pts:
+            try:
+                if isinstance(p, dict):
+                    x = float(p.get("x", 0.0))
+                    y = float(p.get("y", 0.0))
+                else:
+                    x = float(p[0])
+                    y = float(p[1])
+            except Exception:
+                continue
+            if not out or abs(out[-1][0] - x) > 1e-9 or abs(out[-1][1] - y) > 1e-9:
+                out.append([x, y])
+        if len(out) >= 2:
+            return out
+
+    if all(k in ln for k in ("x1", "y1", "x2", "y2")):
+        return _orth_points_simple(float(ln["x1"]), float(ln["y1"]), float(ln["x2"]), float(ln["y2"]))
+
+    return []
+
+
+def _line_segments_world(ln: dict) -> list[tuple[list[float], list[float]]]:
+    pts = _line_points_world(ln)
+    if len(pts) < 2:
+        return []
+    return list(zip(pts, pts[1:]))
+
+
+def _min_distance_to_line_world(px: float, py: float, ln: dict) -> float:
+    """Minimalna odleglosc punktu od polyline (world coords)."""
+    best = float("inf")
+    for a, b in _line_segments_world(ln):
+        d = distance_point_to_line_segment(px, py, a[0], a[1], b[0], b[1])
+        if d < best:
+            best = d
+    return best
+
+
+def _normalize_line_dict(ln: dict) -> dict | None:
+    """Normalizuje line do formatu: {points: [[x,y]...], color: [r,g,b,a], thickness: int}."""
+    if not isinstance(ln, dict):
+        return None
+    pts = _line_points_world(ln)
+    if len(pts) < 2:
+        return None
+
+    col = ln.get("color", [0, 255, 0, 255])
+    try:
+        color = [int(col[0]), int(col[1]), int(col[2]), int(col[3])]
+    except Exception:
+        color = [0, 255, 0, 255]
+
+    try:
+        thickness = int(ln.get("thickness", 2))
+    except Exception:
+        thickness = 2
+
+    return {"points": pts, "color": color, "thickness": thickness}
 
 
 def create_json_texture(filename, width=200, height=150):
@@ -990,34 +1110,50 @@ def redraw_canvas():
         dpg.draw_image(n["tex"], (x1, y1), (x2, y2), parent=CANVAS_TAG)
 
     for ln in lines:
-        x1 = pan_x + ln["x1"] * zoom
-        y1 = pan_y + ln["y1"] * zoom
-        x2 = pan_x + ln["x2"] * zoom
-        y2 = pan_y + ln["y2"] * zoom
-        
-        color = (0, 255, 0, 255)
-        thickness = 2
-        
+        pts = _line_points_world(ln)
+        if len(pts) < 2:
+            continue
+
+        col = ln.get("color", (0, 255, 0, 255))
+        try:
+            color = (int(col[0]), int(col[1]), int(col[2]), int(col[3]))
+        except Exception:
+            color = (0, 255, 0, 255)
+
+        try:
+            thickness = int(ln.get("thickness", 2))
+        except Exception:
+            thickness = 2
+
+        highlight = False
         if erase_mode:
             mx, my = dpg.get_mouse_pos()
             wx, wy = world_from_screen(mx, my)
-            dist_world = distance_point_to_line_segment(wx, wy, ln["x1"], ln["y1"], ln["x2"], ln["y2"])
+            dist_world = _min_distance_to_line_world(wx, wy, ln)
             dist_screen = dist_world * zoom
-            
             if dist_screen <= ERASE_DISTANCE_PX:
-                color = (255, 50, 50, 255)
-                thickness = 4
-        
-        dpg.draw_line((x1, y1), (x2, y2), color=color, thickness=thickness, parent=CANVAS_TAG)
+                highlight = True
+
+        draw_color = (255, 50, 50, 255) if highlight else color
+        draw_thickness = 4 if highlight else thickness
+
+        for a, b in _line_segments_world(ln):
+            x1 = pan_x + a[0] * zoom
+            y1 = pan_y + a[1] * zoom
+            x2 = pan_x + b[0] * zoom
+            y2 = pan_y + b[1] * zoom
+            dpg.draw_line((x1, y1), (x2, y2), color=draw_color, thickness=draw_thickness, parent=CANVAS_TAG)
 
     if draw_line_mode and line_start is not None:
         mx, my = dpg.get_mouse_pos()
         wx, wy = world_from_screen(mx, my)
-        x1 = pan_x + line_start[0] * zoom
-        y1 = pan_y + line_start[1] * zoom
-        x2 = pan_x + wx * zoom
-        y2 = pan_y + wy * zoom
-        dpg.draw_line((x1, y1), (x2, y2), color=(0, 200, 0, 150), thickness=1, parent=CANVAS_TAG)
+        preview_pts = _orth_points_simple(line_start[0], line_start[1], wx, wy)
+        for a, b in zip(preview_pts, preview_pts[1:]):
+            x1 = pan_x + a[0] * zoom
+            y1 = pan_y + a[1] * zoom
+            x2 = pan_x + b[0] * zoom
+            y2 = pan_y + b[1] * zoom
+            dpg.draw_line((x1, y1), (x2, y2), color=(0, 200, 0, 150), thickness=1, parent=CANVAS_TAG)
 
 
 def add_screen_from_path(path, x=0.0, y=0.0):
@@ -1472,12 +1608,13 @@ def apply_state(state: dict):
         add_note_to_canvas(x=float(n.get("x", 0.0)), y=float(n.get("y", 0.0)), text=text)
         notes[-1]["w"] = float(n.get("w", notes[-1]["w"]))
         notes[-1]["h"] = float(n.get("h", notes[-1]["h"]))
+        if "role" in n:
+            notes[-1]["role"] = n.get("role")
 
     for ln in state.get("lines", []):
-        if all(k in ln for k in ("x1", "y1", "x2", "y2")):
-            lines.append(
-                {"x1": float(ln["x1"]), "y1": float(ln["y1"]), "x2": float(ln["x2"]), "y2": float(ln["y2"])}
-            )
+        norm = _normalize_line_dict(ln) if isinstance(ln, dict) else None
+        if norm:
+            lines.append(norm)
 
     redraw_canvas()
 
@@ -1490,8 +1627,8 @@ def capture_state_snapshot() -> dict:
         "zoom": zoom,
         "screens": [{"path": s["path"], "x": s["x"], "y": s["y"], "w": s["w"], "h": s["h"]} for s in screens],
         "json_objects": [{"path": j["path"], "x": j["x"], "y": j["y"], "w": j["w"], "h": j["h"]} for j in json_objects],
-        "notes": [{"text": n["text"], "x": n["x"], "y": n["y"], "w": n["w"], "h": n["h"]} for n in notes],
-        "lines": [{"x1": ln["x1"], "y1": ln["y1"], "x2": ln["x2"], "y2": ln["y2"]} for ln in lines],
+        "notes": [{"text": n["text"], "x": n["x"], "y": n["y"], "w": n["w"], "h": n["h"], "role": n.get("role")} for n in notes],
+        "lines": [norm for ln in lines if (norm := _normalize_line_dict(ln)) is not None],
     }
 
 
@@ -1520,8 +1657,8 @@ def save_state():
             "zoom": zoom,
             "screens": [{"path": s["path"], "x": s["x"], "y": s["y"], "w": s["w"], "h": s["h"]} for s in screens],
             "json_objects": [{"path": j["path"], "x": j["x"], "y": j["y"], "w": j["w"], "h": j["h"]} for j in json_objects],
-            "notes": [{"text": n["text"], "x": n["x"], "y": n["y"], "w": n["w"], "h": n["h"]} for n in notes],
-            "lines": lines
+            "notes": [{"text": n["text"], "x": n["x"], "y": n["y"], "w": n["w"], "h": n["h"], "role": n.get("role")} for n in notes],
+            "lines": [norm for ln in lines if (norm := _normalize_line_dict(ln)) is not None],
         }
         with open(STATE_FILE, "w", encoding="utf-8") as f:
             pyjson.dump(state, f, ensure_ascii=False, indent=2)
@@ -1567,11 +1704,13 @@ def load_state():
         add_note_to_canvas(x=float(n.get("x", 0.0)), y=float(n.get("y", 0.0)), text=text)
         notes[-1]["w"] = float(n.get("w", notes[-1]["w"]))
         notes[-1]["h"] = float(n.get("h", notes[-1]["h"]))
+        if "role" in n:
+            notes[-1]["role"] = n.get("role")
 
     for ln in state.get("lines", []):
-        if all(k in ln for k in ("x1", "y1", "x2", "y2")):
-            lines.append({"x1": float(ln["x1"]), "y1": float(ln["y1"]), 
-                         "x2": float(ln["x2"]), "y2": float(ln["y2"])})
+        norm = _normalize_line_dict(ln) if isinstance(ln, dict) else None
+        if norm:
+            lines.append(norm)
 
     redraw_canvas()
     print("­čôé Stan wczytany")
@@ -1954,7 +2093,7 @@ def on_left_click(sender, app_data):
         i = 0
         while i < len(lines):
             ln = lines[i]
-            dist_world = distance_point_to_line_segment(wx, wy, ln["x1"], ln["y1"], ln["x2"], ln["y2"])
+            dist_world = _min_distance_to_line_world(wx, wy, ln)
             dist_screen = dist_world * zoom
             
             if dist_screen <= ERASE_DISTANCE_PX:
@@ -1998,7 +2137,8 @@ def on_left_click(sender, app_data):
         if line_start is None:
             line_start = (wx, wy)
         else:
-            lines.append({"x1": line_start[0], "y1": line_start[1], "x2": wx, "y2": wy})
+            pts = _orth_points_simple(line_start[0], line_start[1], wx, wy)
+            lines.append({"points": pts, "color": [0, 255, 0, 255], "thickness": 2})
             line_start = None
         redraw_canvas()
         return
@@ -2257,6 +2397,23 @@ def on_viewport_resize(sender, app_data):
 
 
 # ================== UI ==================
+
+if __name__ == "__main__" and "--export-pipeline" in sys.argv:
+    try:
+        state = build_pipeline_state()
+        with open(STATE_FILE, "w", encoding="utf-8") as f:
+            pyjson.dump(state, f, ensure_ascii=False, indent=2)
+        print(f"[flowui] Exported pipeline state -> {STATE_FILE}")
+    except Exception as e:
+        print(f"[flowui] Export failed: {e}")
+        raise
+    raise SystemExit(0)
+
+if dpg is None:
+    raise ModuleNotFoundError(
+        "dearpygui is required to run the UI. Install it (e.g. `pip install dearpygui`) "
+        "or run `python workflow/app.py --export-pipeline` to only generate flowui_state.json."
+    )
 
 dpg.create_context()
 
